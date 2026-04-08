@@ -4,7 +4,7 @@ This repository hosts the live HTML checklists for all active client projects. I
 
 ## 🚀 Live Access
 You can view the interactive dashboard here:
-**[👉 Click to View Live Client Dashboard](https://your-username.github.io/your-repo-name/)**
+**[👉 Click to View Live Client Dashboard](https://solstiumindia-byte.github.io/Checklist/)**
 
 *(Note: Replace the link above with your actual GitHub Pages URL)*
 
