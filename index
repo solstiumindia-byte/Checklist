@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Project Dashboard</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #0f172a;
+        }
+
+        #searchBar {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px 20px;
+            margin-bottom: 30px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        #searchBar:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .client-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .client-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 60px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .client-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            color: var(--primary);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Client Projects</h1>
+        <p>Select a client to view their specific HTML checklist</p>
+        <input type="text" id="searchBar" onkeyup="filterClients()" placeholder="Search clients...">
+    </header>
+
+    <div class="client-grid" id="clientGrid">
+        <a href="arawana.html" class="client-card">Arawana</a>
+        <a href="globe-group.html" class="client-card">Globe Group</a>
+        <a href="travelling-tailor.html" class="client-card">Travelling Tailor</a>
+        <a href="souk-auto-parts.html" class="client-card">Souk Auto Parts</a>
+        <a href="maxicabtransfers.html" class="client-card">Maxicabtransfers</a>
+        <a href="tsl-legal-malaysia.html" class="client-card">TSL Legal Malaysia</a>
+        <a href="vincitore.html" class="client-card">Vincitore</a>
+        <a href="sky-space-furniture.html" class="client-card">Sky Space Furniture</a>
+        <a href="jagota.html" class="client-card">Jagota</a>
+        <a href="waterworks.html" class="client-card">Waterworks</a>
+        <a href="essence-psychotherapy.html" class="client-card">Essence Psychotherapy</a>
+        <a href="adelphi.html" class="client-card">Adelphi</a>
+        <a href="aspira.html" class="client-card">Aspira</a>
+        <a href="patrick-tailor.html" class="client-card">Patrick Tailor</a>
+        <a href="limitless-golf.html" class="client-card">Limitless Golf</a>
+        <a href="jcp-international.html" class="client-card">JCP International</a>
+        <a href="fabricity.html" class="client-card">Fabricity</a>
+        <a href="pd-legal.html" class="client-card">PD Legal (SG, TH & AU)</a>
+        <a href="birdies-bkk.html" class="client-card">Birdies BKK</a>
+        <a href="cholos.html" class="client-card">Cholos</a>
+        <a href="ideas.html" class="client-card">IDEAS</a>
+        <a href="solid-solutions.html" class="client-card">Solid Solutions</a>
+        <a href="pandora-concepts.html" class="client-card">Pandora Concepts</a>
+        <a href="wave-space.html" class="client-card">Wave Space</a>
+        <a href="shubh-darshan.html" class="client-card">Shubh Darshan</a>
+        <a href="durlabh-darshan.html" class="client-card">Durlabh Darshan</a>
+        <a href="lth.html" class="client-card">LTH</a>
+        <a href="citrusox.html" class="client-card">Citrusox</a>
+        <a href="govan-travels.html" class="client-card">Govan Travels</a>
+        <a href="melvados.html" class="client-card">Melvados</a>
+        <a href="nassim-plastic.html" class="client-card">Nassim Plastic Surgery</a>
+        <a href="met.html" class="client-card">MET</a>
+        <a href="house-of-gold.html" class="client-card">House of Gold</a>
+        <a href="harioms-tailor.html" class="client-card">Harioms Tailor</a>
+        <a href="sankranti-india.html" class="client-card">Sankranti India</a>
+        <a href="bella-vista.html" class="client-card">Bella Vista</a>
+        <a href="heritage-carpets.html" class="client-card">Heritage Carpets</a>
+        <a href="solstium.html" class="client-card">Solstium</a>
+        <a href="shradha-prostylist.html" class="client-card">Shradha Prostylist</a>
+        <a href="sankranti-hotels.html" class="client-card">Sankranti Hotels</a>
+        <a href="poolparty.html" class="client-card">PoolParty</a>
+        <a href="ravi-seghal.html" class="client-card">Ravi Seghal</a>
+    </div>
+
+    <footer>
+        &copy; 2026 Project Management Dashboard
+    </footer>
+</div>
+
+<script>
+    function filterClients() {
+        const input = document.getElementById('searchBar');
+        const filter = input.value.toLowerCase();
+        const grid = document.getElementById('clientGrid');
+        const cards = grid.getElementsByClassName('client-card');
+
+        for (let i = 0; i < cards.length; i++) {
+            let txtValue = cards[i].textContent || cards[i].innerText;
+            if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                cards[i].style.display = "";
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
