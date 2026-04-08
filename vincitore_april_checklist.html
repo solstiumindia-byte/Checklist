@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vincitore Shoes — April 2026 Team Checklist</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --charcoal: #1C1A18;
+    --charcoal-mid: #2A2620;
+    --charcoal-light: #3A3530;
+    --cream: #F5F0E8;
+    --warm-white: #FAF7F2;
+    --border: #DDD5C0;
+    --mid: #6B6560;
+    --dark: #2A2520;
+    --gold: #B8913A;
+    --gold-light: #D4A855;
+    --gold-pale: #F0E4C8;
+    --gold-border: #D4B870;
+    --green: #3A6B4A;
+    --green-pale: #D4EBD9;
+    --green-border: #8FC4A0;
+    --rust: #C4572A;
+    --rust-pale: #FAEAE0;
+    --rust-border: #E8A888;
+    --stone: #5A5550;
+    --stone-pale: #EDEBE6;
+    --stone-border: #C4BFB4;
+    --check-green: #3A6B4A;
+    /* member colours — same palette as PD Legal */
+    --mariel: #7C3AED; --mariel-bg: #F3E8FF; --mariel-border: #C4B5FD;
+    --meldrick: #0891B2; --meldrick-bg: #E0F7FA; --meldrick-border: #7ECFE6;
+    --sthita: #B45309; --sthita-bg: #FDF3E3; --sthita-border: #E8C47A;
+    --rohan: #3A6B4A; --rohan-bg: #D4EBD9; --rohan-border: #8FC4A0;
+    --bharthi: #C2185B; --bharthi-bg: #FCE4EC; --bharthi-border: #F48FB1;
+    --mehak: #1452A8; --mehak-bg: #E8EFF9; --mehak-border: #9DB8E8;
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--cream); color:var(--dark); font-family:'DM Mono',monospace; font-size:13px; min-height:100vh; }
+
+  /* HEADER */
+  .page-header { background:var(--charcoal); padding:36px 48px 32px; position:relative; overflow:hidden; }
+  .page-header::before { content:''; position:absolute; top:-80px; right:-80px; width:320px; height:320px; border:1px solid rgba(184,145,58,0.12); border-radius:50%; }
+  .page-header::after { content:''; position:absolute; bottom:-40px; right:60px; width:160px; height:160px; border:1px solid rgba(184,145,58,0.08); border-radius:50%; }
+  .header-tag { font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:10px; }
+  .header-title { font-family:'Cormorant Garamond',serif; font-size:34px; font-weight:300; color:white; line-height:1.15; letter-spacing:-0.01em; margin-bottom:6px; }
+  .header-title em { font-style:italic; color:var(--gold-light); }
+  .header-meta { font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.22); margin-top:14px; display:flex; align-items:center; gap:18px; }
+  .header-meta-dot { width:3px; height:3px; border-radius:50%; background:rgba(184,145,58,0.3); }
+
+  /* PROGRESS */
+  .progress-section { background:var(--charcoal-mid); padding:18px 48px; display:flex; align-items:center; gap:20px; border-bottom:1px solid rgba(184,145,58,0.1); }
+  .progress-label { font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.35); white-space:nowrap; }
+  .progress-track { flex:1; height:4px; background:rgba(255,255,255,0.08); border-radius:99px; overflow:hidden; }
+  .progress-fill { height:100%; border-radius:99px; background:var(--gold-light); transition:width 0.4s cubic-bezier(0.4,0,0.2,1); width:0%; }
+  .progress-count { font-size:12px; font-weight:500; color:rgba(255,255,255,0.55); white-space:nowrap; min-width:48px; text-align:right; }
+  .progress-pct { font-size:10px; color:rgba(255,255,255,0.28); min-width:32px; text-align:right; }
+
+  /* TEAM FILTER */
+  .team-bar { background:var(--charcoal-light); padding:14px 48px; display:flex; align-items:center; gap:8px; border-bottom:1px solid rgba(184,145,58,0.1); flex-wrap:wrap; }
+  .team-bar-label { font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.28); margin-right:4px; white-space:nowrap; }
+  .team-btn { display:flex; align-items:center; gap:7px; padding:5px 13px 5px 6px; border-radius:99px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.04); cursor:pointer; transition:all 0.18s; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.08em; color:rgba(255,255,255,0.48); }
+  .team-btn:hover { background:rgba(255,255,255,0.1); color:rgba(255,255,255,0.8); }
+  .team-btn.active { background:rgba(184,145,58,0.18); color:var(--gold-light); border-color:rgba(184,145,58,0.3); }
+  .team-btn-avatar { width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:500; color:white; flex-shrink:0; }
+  .team-btn-count { font-size:9px; color:rgba(255,255,255,0.35); margin-left:2px; }
+  .team-btn.active .team-btn-count { color:rgba(184,145,58,0.7); }
+
+  /* CAT PILLS */
+  .cat-summary { background:rgba(28,26,24,0.97); padding:11px 48px; display:flex; align-items:center; gap:8px; border-bottom:1px solid rgba(184,145,58,0.08); flex-wrap:wrap; }
+  .cat-pill { display:flex; align-items:center; gap:6px; padding:4px 12px; border-radius:99px; border:1px solid rgba(255,255,255,0.1); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.45); }
+  .cat-pill-dot { width:6px; height:6px; border-radius:50%; }
+  .cat-pill-count { font-weight:500; color:rgba(255,255,255,0.75); }
+
+  /* MAIN */
+  .main { max-width:880px; margin:0 auto; padding:32px 48px 60px; }
+
+  /* SECTIONS */
+  .section { margin-bottom:28px; background:var(--warm-white); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+  .section-header { display:flex; align-items:center; justify-content:space-between; padding:14px 20px 13px; border-bottom:1px solid var(--border); }
+  .section-header-left { display:flex; align-items:center; gap:10px; }
+  .section-accent { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+  .section-name { font-size:10px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; }
+  .section-tally { font-size:10px; letter-spacing:0.08em; color:var(--mid); display:flex; align-items:center; gap:6px; }
+  .section-mini-bar { width:60px; height:3px; border-radius:99px; background:var(--border); overflow:hidden; }
+  .section-mini-fill { height:100%; border-radius:99px; transition:width 0.4s ease; width:0%; }
+
+  /* ITEMS */
+  .cl-item { display:flex; align-items:flex-start; gap:14px; padding:14px 20px; border-bottom:1px solid var(--border); cursor:pointer; transition:background 0.15s; }
+  .cl-item:last-child { border-bottom:none; }
+  .cl-item:hover { background:var(--cream); }
+  .cl-item.completed { background:#F9F7F2; }
+  .cl-item.hidden { display:none; }
+
+  .cl-checkbox { width:20px; height:20px; border-radius:5px; border:1.5px solid var(--border); flex-shrink:0; margin-top:2px; display:flex; align-items:center; justify-content:center; transition:background 0.2s,border-color 0.2s,transform 0.15s; background:var(--warm-white); }
+  .cl-item:hover .cl-checkbox { border-color:#B0A890; transform:scale(1.05); }
+  .cl-item.completed .cl-checkbox { background:var(--check-green); border-color:var(--check-green); transform:scale(1); }
+  .cl-check-icon { display:none; width:10px; height:8px; }
+  .cl-item.completed .cl-check-icon { display:block; }
+
+  .cl-body { flex:1; min-width:0; }
+  .cl-task-line { display:flex; align-items:flex-start; gap:8px; flex-wrap:wrap; margin-bottom:4px; }
+  .cl-task { font-size:13px; color:var(--dark); line-height:1.5; transition:color 0.2s; }
+  .cl-item.completed .cl-task { color:var(--mid); text-decoration:line-through; text-decoration-color:var(--border); }
+  .cl-item.completed .cl-sub { color:#B8B0A4; }
+
+  .cl-badge { display:inline-flex; align-items:center; font-size:9px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; padding:2px 8px; border-radius:99px; white-space:nowrap; flex-shrink:0; margin-top:2px; }
+  .cl-sub { font-size:11px; color:var(--mid); line-height:1.6; margin-top:3px; font-weight:300; }
+  .cl-meta { display:flex; align-items:center; gap:6px; margin-top:7px; flex-wrap:wrap; }
+
+  .assignee-chip { display:inline-flex; align-items:center; gap:5px; padding:2px 9px 2px 4px; border-radius:99px; font-size:10px; border:1px solid; transition:opacity 0.15s; }
+  .assignee-avatar { width:16px; height:16px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:7px; font-weight:500; color:white; flex-shrink:0; }
+  .cl-item.completed .assignee-chip { opacity:0.4; }
+
+  .cl-right { display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0; }
+  .cl-number { font-size:10px; color:var(--border); transition:color 0.2s; margin-top:2px; }
+  .cl-item:hover .cl-number { color:var(--mid); }
+
+  /* SECTION COLOURS */
+  .geo .section-name { color:var(--green); }
+  .geo .section-accent { background:var(--green); }
+  .geo .section-mini-fill { background:var(--green); }
+  .geo .cl-badge { background:var(--green-pale); color:var(--green); border:1px solid var(--green-border); }
+
+  .seo .section-name { color:#8C5A08; }
+  .seo .section-accent { background:#8C5A08; }
+  .seo .section-mini-fill { background:#8C5A08; }
+  .seo .cl-badge { background:var(--gold-pale); color:#8C5A08; border:1px solid var(--gold-border); }
+
+  .content-sec .section-name { color:var(--rust); }
+  .content-sec .section-accent { background:var(--rust); }
+  .content-sec .section-mini-fill { background:var(--rust); }
+  .content-sec .cl-badge { background:var(--rust-pale); color:var(--rust); border:1px solid var(--rust-border); }
+
+  .tech .section-name { color:var(--stone); }
+  .tech .section-accent { background:var(--stone); }
+  .tech .section-mini-fill { background:var(--stone); }
+  .tech .cl-badge { background:var(--stone-pale); color:var(--stone); border:1px solid var(--stone-border); }
+
+  /* MEMBER CHIPS */
+  .chip-mariel { background:var(--mariel-bg); color:var(--mariel); border-color:var(--mariel-border); }
+  .chip-mariel .assignee-avatar { background:var(--mariel); }
+  .chip-meldrick { background:var(--meldrick-bg); color:var(--meldrick); border-color:var(--meldrick-border); }
+  .chip-meldrick .assignee-avatar { background:var(--meldrick); }
+  .chip-sthita { background:var(--sthita-bg); color:var(--sthita); border-color:var(--sthita-border); }
+  .chip-sthita .assignee-avatar { background:var(--sthita); }
+  .chip-rohan { background:var(--rohan-bg); color:var(--rohan); border-color:var(--rohan-border); }
+  .chip-rohan .assignee-avatar { background:var(--rohan); }
+  .chip-bharthi { background:var(--bharthi-bg); color:var(--bharthi); border-color:var(--bharthi-border); }
+  .chip-bharthi .assignee-avatar { background:var(--bharthi); }
+  .chip-mehak { background:var(--mehak-bg); color:var(--mehak); border-color:var(--mehak-border); }
+  .chip-mehak .assignee-avatar { background:var(--mehak); }
+
+  /* MEMBER STATS PANEL */
+  .member-stats { background:var(--warm-white); border:1px solid var(--border); border-radius:12px; margin-bottom:28px; overflow:hidden; display:none; }
+  .member-stats.visible { display:block; }
+  .member-stats-header { padding:14px 20px 13px; border-bottom:1px solid var(--border); font-size:10px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--mid); }
+  .member-stats-grid { display:grid; grid-template-columns:repeat(3,1fr); }
+  .member-stat { padding:16px 20px; border-right:1px solid var(--border); border-bottom:1px solid var(--border); }
+  .member-stat:nth-child(3n) { border-right:none; }
+  .member-stat:nth-child(4),.member-stat:nth-child(5),.member-stat:nth-child(6) { border-bottom:none; }
+  .member-stat-top { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+  .member-stat-avatar { width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:500; color:white; }
+  .member-stat-name { font-size:12px; color:var(--dark); }
+  .member-stat-role { font-size:10px; color:var(--mid); letter-spacing:0.04em; }
+  .member-stat-bar { height:3px; background:var(--border); border-radius:99px; overflow:hidden; margin:8px 0 5px; }
+  .member-stat-fill { height:100%; border-radius:99px; transition:width 0.5s ease; }
+  .member-stat-count { font-size:10px; color:var(--mid); }
+  .member-stat-count span { font-weight:500; color:var(--dark); }
+
+  /* ALL DONE */
+  .all-done { display:none; text-align:center; padding:48px 24px 40px; background:var(--warm-white); border:1px solid var(--border); border-radius:12px; margin-bottom:28px; }
+  .all-done-tick { width:48px; height:48px; border-radius:50%; background:var(--green-pale); border:2px solid var(--green-border); display:flex; align-items:center; justify-content:center; margin:0 auto 16px; }
+  .all-done-title { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:300; color:var(--dark); margin-bottom:6px; }
+  .all-done-title em { font-style:italic; color:var(--gold); }
+  .all-done-sub { font-size:11px; color:var(--mid); letter-spacing:0.08em; margin-bottom:20px; }
+  .reset-btn { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.12em; color:var(--mid); background:none; border:1px solid var(--border); border-radius:6px; padding:8px 20px; cursor:pointer; transition:background 0.15s,color 0.15s; text-transform:uppercase; }
+  .reset-btn:hover { background:var(--cream); color:var(--dark); }
+
+  .empty-state { display:none; text-align:center; padding:40px 24px; color:var(--mid); font-size:12px; letter-spacing:0.06em; }
+
+  /* FOOTER */
+  .page-footer { text-align:center; padding:0 48px 32px; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#C4B898; }
+
+  @media(max-width:640px){
+    .page-header,.progress-section,.team-bar,.cat-summary { padding-left:20px; padding-right:20px; }
+    .main { padding:20px 20px 48px; }
+    .member-stats-grid { grid-template-columns:1fr 1fr; }
+    .member-stat:nth-child(2n) { border-right:none; }
+    .member-stat:nth-child(3n) { border-right:1px solid var(--border); }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-tag">Vincitore Shoes · SEO &amp; GEO</div>
+  <div class="header-title"><em>April 2026</em><br>Team Checklist</div>
+  <div class="header-meta">
+    <span>20 tasks</span><span class="header-meta-dot"></span>
+    <span>6 team members</span><span class="header-meta-dot"></span>
+    <span>Singapore · Leather Shoes</span>
+  </div>
+</header>
+
+<div class="progress-section">
+  <span class="progress-label">Overall progress</span>
+  <div class="progress-track"><div class="progress-fill" id="prog-fill"></div></div>
+  <span class="progress-count" id="prog-count">0 / 20</span>
+  <span class="progress-pct" id="prog-pct">0%</span>
+</div>
+
+<!-- TEAM FILTER -->
+<div class="team-bar">
+  <span class="team-bar-label">Filter by</span>
+  <button class="team-btn active" onclick="filterMember('all',this)" id="btn-all">
+    <span style="width:22px;height:22px;border-radius:50%;background:rgba(184,145,58,0.2);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--gold-light);">All</span>
+    Everyone
+  </button>
+  <button class="team-btn" onclick="filterMember('mariel',this)">
+    <span class="team-btn-avatar" style="background:var(--mariel)">MA</span>
+    Mariel <span class="team-btn-count" id="tc-mariel">4</span>
+  </button>
+  <button class="team-btn" onclick="filterMember('meldrick',this)">
+    <span class="team-btn-avatar" style="background:var(--meldrick)">ME</span>
+    Meldrick <span class="team-btn-count" id="tc-meldrick">4</span>
+  </button>
+  <button class="team-btn" onclick="filterMember('sthita',this)">
+    <span class="team-btn-avatar" style="background:var(--sthita)">ST</span>
+    Sthita <span class="team-btn-count" id="tc-sthita">4</span>
+  </button>
+  <button class="team-btn" onclick="filterMember('rohan',this)">
+    <span class="team-btn-avatar" style="background:var(--rohan)">RO</span>
+    Rohan <span class="team-btn-count" id="tc-rohan">1</span>
+  </button>
+  <button class="team-btn" onclick="filterMember('bharthi',this)">
+    <span class="team-btn-avatar" style="background:var(--bharthi)">BH</span>
+    Bharthi <span class="team-btn-count" id="tc-bharthi">4</span>
+  </button>
+  <button class="team-btn" onclick="filterMember('mehak',this)">
+    <span class="team-btn-avatar" style="background:var(--mehak)">MK</span>
+    Mehak <span class="team-btn-count" id="tc-mehak">5</span>
+  </button>
+</div>
+
+<div class="cat-summary">
+  <div class="cat-pill"><span class="cat-pill-dot" style="background:#3A6B4A"></span>GEO &nbsp;<span class="cat-pill-count" id="pill-geo">0/6</span></div>
+  <div class="cat-pill"><span class="cat-pill-dot" style="background:#8C5A08"></span>SEO &nbsp;<span class="cat-pill-count" id="pill-seo">0/5</span></div>
+  <div class="cat-pill"><span class="cat-pill-dot" style="background:#C4572A"></span>Content &nbsp;<span class="cat-pill-count" id="pill-content">0/5</span></div>
+  <div class="cat-pill"><span class="cat-pill-dot" style="background:#5A5550"></span>Technical &nbsp;<span class="cat-pill-count" id="pill-tech">0/4</span></div>
+</div>
+
+<main class="main">
+
+  <!-- MEMBER STATS PANEL -->
+  <div class="member-stats" id="member-stats">
+    <div class="member-stats-header">Team progress</div>
+    <div class="member-stats-grid">
+      <div class="member-stat">
+        <div class="member-stat-top">
+          <div class="member-stat-avatar" style="background:var(--mariel)">MA</div>
+          <div><div class="member-stat-name">Mariel</div><div class="member-stat-role">Blogs &amp; Meta Descriptions</div></div>
+        </div>
+        <div class="member-stat-bar"><div class="member-stat-fill" id="mbar-mariel" style="background:var(--mariel);width:0%"></div></div>
+        <div class="member-stat-count"><span id="mc-mariel">0</span> / 4 tasks</div>
+      </div>
+      <div class="member-stat">
+        <div class="member-stat-top">
+          <div class="member-stat-avatar" style="background:var(--meldrick)">ME</div>
+          <div><div class="member-stat-name">Meldrick</div><div class="member-stat-role">Blogs</div></div>
+        </div>
+        <div class="member-stat-bar"><div class="member-stat-fill" id="mbar-meldrick" style="background:var(--meldrick);width:0%"></div></div>
+        <div class="member-stat-count"><span id="mc-meldrick">0</span> / 4 tasks</div>
+      </div>
+      <div class="member-stat">
+        <div class="member-stat-top">
+          <div class="member-stat-avatar" style="background:var(--sthita)">ST</div>
+          <div><div class="member-stat-name">Sthita</div><div class="member-stat-role">Backlinks</div></div>
+        </div>
+        <div class="member-stat-bar"><div class="member-stat-fill" id="mbar-sthita" style="background:var(--sthita);width:0%"></div></div>
+        <div class="member-stat-count"><span id="mc-sthita">0</span> / 4 tasks</div>
+      </div>
+      <div class="member-stat">
+        <div class="member-stat-top">
+          <div class="member-stat-avatar" style="background:var(--rohan)">RO</div>
+          <div><div class="member-stat-name">Rohan</div><div class="member-stat-role">GMB</div></div>
+        </div>
+        <div class="member-stat-bar"><div class="member-stat-fill" id="mbar-rohan" style="background:var(--rohan);width:0%"></div></div>
+        <div class="member-stat-count"><span id="mc-rohan">0</span> / 1 task</div>
+      </div>
+      <div class="member-stat">
+        <div class="member-stat-top">
+          <div class="member-stat-avatar" style="background:var(--bharthi)">BH</div>
+          <div><div class="member-stat-name">Bharthi</div><div class="member-stat-role">Web Dev, Speed &amp; Backend</div></div>
+        </div>
+        <div class="member-stat-bar"><div class="member-stat-fill" id="mbar-bharthi" style="background:var(--bharthi);width:0%"></div></div>
+        <div class="member-stat-count"><span id="mc-bharthi">0</span> / 4 tasks</div>
+      </div>
+      <div class="member-stat">
+        <div class="member-stat-top">
+          <div class="member-stat-avatar" style="background:var(--mehak)">MK</div>
+          <div><div class="member-stat-name">Mehak</div><div class="member-stat-role">GSC, Sitemap &amp; SEO Tech</div></div>
+        </div>
+        <div class="member-stat-bar"><div class="member-stat-fill" id="mbar-mehak" style="background:var(--mehak);width:0%"></div></div>
+        <div class="member-stat-count"><span id="mc-mehak">0</span> / 5 tasks</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALL DONE -->
+  <div class="all-done" id="all-done">
+    <div class="all-done-tick">
+      <svg width="20" height="16" viewBox="0 0 20 16" fill="none"><path d="M1.5 8L7 13.5L18.5 1.5" stroke="#3A6B4A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="all-done-title">All 20 tasks <em>complete</em></div>
+    <div class="all-done-sub">April is looking strong for Vincitore Shoes</div>
+    <button class="reset-btn" onclick="resetAll()">Reset checklist</button>
+  </div>
+  <div id="empty-state" class="empty-state">No tasks visible for this filter.</div>
+
+  <!-- ── GEO SECTION ────────────────────────────── -->
+  <div class="section geo" id="section-geo">
+    <div class="section-header">
+      <div class="section-header-left"><div class="section-accent"></div><span class="section-name">GEO — AI search acceleration</span></div>
+      <div class="section-tally"><div class="section-mini-bar"><div class="section-mini-fill" id="bar-geo"></div></div><span id="tally-geo">0 / 6</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'geo')" data-members="mehak">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Set up GEO UTM tracking for Perplexity, Claude &amp; Gemini</span><span class="cl-badge">GEO</span></div>
+        <div class="cl-sub">Add UTM parameters to track Claude, Gemini, and Perplexity referrals separately in GA4 — essential to measure AI channel growth going forward</div>
+        <div class="cl-meta"><span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">01</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'geo')" data-members="bharthi mehak">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Deploy FAQ Schema markup across all 9 blog posts</span><span class="cl-badge">Google AI</span></div>
+        <div class="cl-sub">Increase eligibility for Google AI Overviews and AI Mode — each post needs FAQ structured data and a 40–60 word direct-answer intro paragraph</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-bharthi"><span class="assignee-avatar">BH</span>Bharthi</span>
+          <span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">02</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'geo')" data-members="meldrick mariel">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Create 2 dedicated GEO-focused landing pages</span><span class="cl-badge">Claude</span></div>
+        <div class="cl-sub">"Best Leather Shoes Singapore" and "Where to Buy Formal Shoes Singapore" — long-form, question-answer format targeting Claude, Gemini &amp; AI Mode citations</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span>
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">03</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'geo')" data-members="meldrick">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Publish April off-page article on Medium</span><span class="cl-badge">GPT</span></div>
+        <div class="cl-sub">"Why Breathable Leather Shoes Are a Must-Have" (content already written) — Medium DA 95 article feeds GPT and Claude citation pools for Singapore leather shoe queries</div>
+        <div class="cl-meta"><span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">04</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'geo')" data-members="sthita">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Publish "Complete Guide to Formal Shoes in Singapore" SlideShare PDF</span><span class="cl-badge">Perplexity</span></div>
+        <div class="cl-sub">DA 95 source — Perplexity surfaces well-cited, high-DA documents for product research queries; this directly feeds Perplexity citation eligibility</div>
+        <div class="cl-meta"><span class="assignee-chip chip-sthita"><span class="assignee-avatar">ST</span>Sthita</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">05</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'geo')" data-members="bharthi">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Add "speakable" and HowTo schema to key pages</span><span class="cl-badge">Gemini</span></div>
+        <div class="cl-sub">Apply to bespoke tailoring at-home page and care guide posts — targets Gemini and AI Mode for complex product queries; increases structured data coverage</div>
+        <div class="cl-meta"><span class="assignee-chip chip-bharthi"><span class="assignee-avatar">BH</span>Bharthi</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">06</span></div>
+    </div>
+  </div>
+
+  <!-- ── SEO SECTION ────────────────────────────── -->
+  <div class="section seo" id="section-seo">
+    <div class="section-header">
+      <div class="section-header-left"><div class="section-accent"></div><span class="section-name">SEO — push into Top 10</span></div>
+      <div class="section-tally"><div class="section-mini-bar"><div class="section-mini-fill" id="bar-seo"></div></div><span id="tally-seo">0 / 5</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'seo')" data-members="mehak mariel">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Target 20+ keywords in Top 10</span><span class="cl-badge">SEO</span></div>
+        <div class="cl-sub">Focus: "leather shoes singapore" (Pos. 12), "best leather shoes singapore" (Pos. 18), "men's shoes singapore" (Pos. 39) — content updates + internal links for each</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span>
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">07</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'seo')" data-members="mehak">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Internal linking audit — connect blogs to collection pages</span><span class="cl-badge">SEO</span></div>
+        <div class="cl-sub">Connect all 9 blog posts to key product and collection pages to pass link authority — especially from recently-ranked blog posts to target keywords</div>
+        <div class="cl-meta"><span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">08</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'seo')" data-members="bharthi mehak">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Resolve 404 errors from old WordPress URLs</span><span class="cl-badge">SEO</span></div>
+        <div class="cl-sub">GSC flagged 50+ crawl errors from old WordPress product URLs — set up 301 redirects to correct Shopify pages to stop wasting crawl budget</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-bharthi"><span class="assignee-avatar">BH</span>Bharthi</span>
+          <span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">09</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'seo')" data-members="mariel mehak">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Fix duplicate meta descriptions on blog tag pages</span><span class="cl-badge">SEO</span></div>
+        <div class="cl-sub">Multiple blog tag pages share the same meta description — write unique descriptions for each tag page to improve CTR and reduce duplicate content signals</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+          <span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">10</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'seo')" data-members="bharthi">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Improve mobile site speed — target under 4s</span><span class="cl-badge">SEO</span></div>
+        <div class="cl-sub">Currently 7.96s — identify and compress heaviest mobile resources; mobile speed is a Core Web Vitals factor and directly affects Gemini indexing priority</div>
+        <div class="cl-meta"><span class="assignee-chip chip-bharthi"><span class="assignee-avatar">BH</span>Bharthi</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">11</span></div>
+    </div>
+  </div>
+
+  <!-- ── CONTENT SECTION ────────────────────────── -->
+  <div class="section content-sec" id="section-content">
+    <div class="section-header">
+      <div class="section-header-left"><div class="section-accent"></div><span class="section-name">Content — April calendar</span></div>
+      <div class="section-tally"><div class="section-mini-bar"><div class="section-mini-fill" id="bar-content"></div></div><span id="tally-content">0 / 5</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'content')" data-members="meldrick mariel">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Upload all 4 April blog posts on schedule</span><span class="cl-badge">Content</span></div>
+        <div class="cl-sub">Apr 6: Shoes Makers Singapore · Apr 13: CBD Style Shoes · Apr 20: Best Men's Shoes Singapore · Apr 27: Breathable Leather Shoes — all content is written and ready</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span>
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">12</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'content')" data-members="meldrick">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Write Quora insight post #3 — Singapore footwear market</span><span class="cl-badge">Content</span></div>
+        <div class="cl-sub">Industry angle — "What makes Singapore's leather shoe market different from global trends?" Quora posts build topical authority and feed Perplexity citations</div>
+        <div class="cl-meta"><span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">13</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'content')" data-members="meldrick mariel">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Create "Oxford vs Derby Shoes" AI Mode comparison page</span><span class="cl-badge">Content</span></div>
+        <div class="cl-sub">Multi-perspective comparison format — "Which is Right for You?" style. Google AI Mode surfaces these for decision-making queries; builds topical authority for shoe types</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span>
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">14</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'content')" data-members="sthita">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Build out Reddit presence — 2 posts on r/SingaporeStyle</span><span class="cl-badge">Content</span></div>
+        <div class="cl-sub">Community insight format: "Best leather shoe shops in Singapore 2026" and "Are bespoke shoes worth it in Singapore?" — both link to site; Reddit citations boost Perplexity visibility</div>
+        <div class="cl-meta"><span class="assignee-chip chip-sthita"><span class="assignee-avatar">ST</span>Sthita</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">15</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'content')" data-members="meldrick mariel">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Begin planning May content — formal shoes &amp; men's leather</span><span class="cl-badge">Content</span></div>
+        <div class="cl-sub">Prioritise: "formal shoes in singapore", "men leather shoes singapore", "formal shoes singapore" — high-intent keywords currently unranked with commercial value</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span>
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">16</span></div>
+    </div>
+  </div>
+
+  <!-- ── TECHNICAL SECTION ──────────────────────── -->
+  <div class="section tech" id="section-tech">
+    <div class="section-header">
+      <div class="section-header-left"><div class="section-accent"></div><span class="section-name">Backlinks &amp; Technical</span></div>
+      <div class="section-tally"><div class="section-mini-bar"><div class="section-mini-fill" id="bar-tech"></div></div><span id="tally-tech">0 / 4</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'tech')" data-members="sthita">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Build 70+ backlinks in April — up from 50 in March</span><span class="cl-badge">Backlinks</span></div>
+        <div class="cl-sub">Maintain Social Bookmarking (10) and Blog Link Building (10) as core; add 5 new Directory Submissions (DA 40+) identified from competitor backlink gaps</div>
+        <div class="cl-meta"><span class="assignee-chip chip-sthita"><span class="assignee-avatar">ST</span>Sthita</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">17</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'tech')" data-members="sthita">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Add 5 Profile Creation links on new high-DA platforms</span><span class="cl-badge">Backlinks</span></div>
+        <div class="cl-sub">Target: Behance, LinkedIn Company, and 3 Singapore lifestyle/fashion platforms — editorial backlink from a DA 40+ Singapore publication is the priority find</div>
+        <div class="cl-meta"><span class="assignee-chip chip-sthita"><span class="assignee-avatar">ST</span>Sthita</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">18</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'tech')" data-members="rohan">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Complete GMB catalog optimisation</span><span class="cl-badge">GMB</span></div>
+        <div class="cl-sub">Add product catalog to Google My Business listing — product images, descriptions, and pricing; directly improves local search visibility and Gemini local responses</div>
+        <div class="cl-meta"><span class="assignee-chip chip-rohan"><span class="assignee-avatar">RO</span>Rohan</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">19</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'tech')" data-members="bharthi mehak">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Submit updated sitemap and verify GSC crawl health</span><span class="cl-badge">Technical</span></div>
+        <div class="cl-sub">Re-submit sitemap after 404 fixes are in place; verify all new blog posts and GEO landing pages are indexed; confirm no pages remain blocked from crawling</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-bharthi"><span class="assignee-avatar">BH</span>Bharthi</span>
+          <span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">20</span></div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="page-footer">Vincitore Shoes · April 2026 · SEO &amp; GEO Team Checklist</footer>
+
+<script>
+  const CATS = { geo:6, seo:5, content:5, tech:4 };
+  const catDone = { geo:0, seo:0, content:0, tech:0 };
+  const GRAND = 20;
+  const MEMBER_TOTALS = { mariel:4, meldrick:4, sthita:4, rohan:1, bharthi:4, mehak:5 };
+  const memberDone = { mariel:0, meldrick:0, sthita:0, rohan:0, bharthi:0, mehak:0 };
+  let activeFilter = 'all';
+
+  function getMembersList(item) {
+    return (item.dataset.members || '').split(' ').filter(Boolean);
+  }
+
+  function toggle(item, cat) {
+    const isNowDone = !item.classList.contains('completed');
+    item.classList.toggle('completed');
+    catDone[cat] += isNowDone ? 1 : -1;
+    getMembersList(item).forEach(m => { memberDone[m] += isNowDone ? 1 : -1; });
+    updateSection(cat);
+    updateGlobal();
+    updateMemberStats();
+  }
+
+  function updateSection(cat) {
+    const d = catDone[cat], t = CATS[cat];
+    document.getElementById('tally-'+cat).textContent = d+' / '+t;
+    document.getElementById('bar-'+cat).style.width = Math.round((d/t)*100)+'%';
+    document.getElementById('pill-'+cat).textContent = d+'/'+t;
+  }
+
+  function updateGlobal() {
+    const total = Object.values(catDone).reduce((a,b)=>a+b,0);
+    const pct = Math.round((total/GRAND)*100);
+    document.getElementById('prog-fill').style.width = pct+'%';
+    document.getElementById('prog-count').textContent = total+' / '+GRAND;
+    document.getElementById('prog-pct').textContent = pct+'%';
+    const allDone = total === GRAND;
+    document.getElementById('all-done').style.display = allDone ? 'block' : 'none';
+    ['section-geo','section-seo','section-content','section-tech'].forEach(id => {
+      document.getElementById(id).style.display = allDone ? 'none' : 'block';
+    });
+  }
+
+  function updateMemberStats() {
+    Object.keys(MEMBER_TOTALS).forEach(m => {
+      const d = memberDone[m], t = MEMBER_TOTALS[m];
+      document.getElementById('mc-'+m).textContent = d;
+      document.getElementById('mbar-'+m).style.width = Math.round((d/t)*100)+'%';
+    });
+  }
+
+  function filterMember(member, btn) {
+    activeFilter = member;
+    document.querySelectorAll('.team-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('member-stats').classList.toggle('visible', member !== 'all');
+    document.querySelectorAll('.cl-item').forEach(item => {
+      if (member === 'all') { item.classList.remove('hidden'); }
+      else { item.classList.toggle('hidden', !getMembersList(item).includes(member)); }
+    });
+    ['section-geo','section-seo','section-content','section-tech'].forEach(id => {
+      const sec = document.getElementById(id);
+      if (!sec) return;
+      sec.style.display = sec.querySelectorAll('.cl-item:not(.hidden)').length === 0 ? 'none' : 'block';
+    });
+    const anyVisible = document.querySelectorAll('.cl-item:not(.hidden)').length;
+    document.getElementById('empty-state').style.display = anyVisible === 0 ? 'block' : 'none';
+  }
+
+  function resetAll() {
+    document.querySelectorAll('.cl-item.completed').forEach(i => i.classList.remove('completed'));
+    Object.keys(catDone).forEach(k => { catDone[k] = 0; updateSection(k); });
+    Object.keys(memberDone).forEach(k => { memberDone[k] = 0; });
+    updateGlobal();
+    updateMemberStats();
+  }
+</script>
+</body>
+</html>
