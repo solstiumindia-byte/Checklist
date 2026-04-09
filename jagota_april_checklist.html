@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jagota Thailand — April 2026 Task Checklist</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white:   #FFFFFF;
+    --off:     #F8F7F3;
+    --light:   #F1EFE8;
+    --border:  #DDD9CE;
+    --charcoal:#1A1810;
+    --dark:    #2C2A1E;
+    --mid:     #7A7560;
+    --forest:  #1A4A2E;
+    --forest-mid: #255C3A;
+    --forest-light: #2D7048;
+    --forest-pale:  #EAF5EE;
+    --forest-border:#88C9A0;
+    --gold:    #9A6A00;
+    --gold-pale:#FFF8E6;
+    --gold-border:#DDB84A;
+    --ivory:   #F9F6EE;
+    --sand:    #EDE9DB;
+    --sand-border:#CFC9B4;
+    --blue:    #1A56DB;
+    --blue-pale:#EBF1FF;
+    --blue-border:#B3C7F7;
+    --red:     #DC2626;
+    --red-pale: #FEF2F2;
+    --red-border: #FCA5A5;
+    --purple:  #7C3AED;
+    --purple-pale: #F3E8FF;
+    --purple-border: #C4B5FD;
+    --shadow-sm: 0 1px 4px rgba(26,24,16,0.07);
+    --shadow-md: 0 4px 18px rgba(26,24,16,0.10);
+  }
+
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--off);color:var(--dark);font-family:'Outfit',system-ui,sans-serif;font-size:14px;line-height:1.6;}
+
+  /* ── HEADER ── */
+  .report-header{background:var(--forest);overflow:hidden;}
+  .header-inner{display:grid;grid-template-columns:1fr 300px;min-height:200px;}
+  .header-left{padding:50px 64px;border-right:1px solid rgba(255,255,255,0.07);position:relative;}
+  .header-left::after{content:'';position:absolute;top:-60px;right:-60px;width:280px;height:280px;border:1px solid rgba(218,184,74,0.1);border-radius:50%;}
+  .header-right{padding:28px 32px;display:flex;flex-direction:column;justify-content:center;gap:10px;background:rgba(0,0,0,0.08);}
+  .report-brand{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-border);margin-bottom:12px;}
+  .report-title{font-family:'Outfit',sans-serif;font-size:36px;font-weight:700;color:white;line-height:1.08;letter-spacing:-0.02em;}
+  .report-title span{color:var(--gold-border);}
+  .report-subtitle{font-size:14px;font-weight:300;color:rgba(255,255,255,0.5);margin-top:8px;}
+  .report-date{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.22);margin-top:12px;}
+  .hstat{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:7px;padding:13px 16px;}
+  .hstat-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.32);margin-bottom:4px;}
+  .hstat-val{font-family:'Outfit',sans-serif;font-size:26px;font-weight:700;color:white;line-height:1;}
+  .hstat-val.g{color:#86EFAC;}
+  .hstat-val.go{color:var(--gold-border);}
+  .hstat-chg{font-family:'DM Mono',monospace;font-size:9px;margin-top:3px;color:#86EFAC;}
+  .hstat-chg.go{color:var(--gold-border);}
+
+  /* ── WIN BANNER ── */
+  .win-banner{background:var(--gold-pale);border-bottom:2px solid var(--gold-border);padding:13px 64px;display:flex;align-items:flex-start;gap:12px;}
+  .win-text{font-size:13.5px;color:#78350F;line-height:1.55;}
+  .win-text strong{font-weight:600;color:#451A03;}
+
+  /* ── LAYOUT ── */
+  .container{max-width:1120px;margin:0 auto;padding:0 64px;}
+  .section{padding:48px 0;border-bottom:1px solid var(--border);}
+  .section:last-child{border-bottom:none;}
+  .eyebrow{font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--forest-light);margin-bottom:7px;}
+  .stitle{font-family:'Outfit',sans-serif;font-size:26px;font-weight:600;color:var(--charcoal);margin-bottom:26px;line-height:1.2;letter-spacing:-0.01em;}
+  .stitle em{font-style:normal;color:var(--forest-light);}
+
+  /* ── PROGRESS OVERVIEW ── */
+  .progress-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px;}
+  .prog-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:16px;box-shadow:var(--shadow-sm);}
+  .prog-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid);margin-bottom:10px;}
+  .prog-count{font-family:'Outfit',sans-serif;font-size:28px;font-weight:700;color:var(--charcoal);line-height:1;margin-bottom:4px;}
+  .prog-count span{font-size:13px;color:var(--mid);font-weight:400;}
+  .prog-bar-track{height:5px;background:var(--sand);border-radius:3px;overflow:hidden;margin-bottom:6px;}
+  .prog-bar-fill{height:100%;border-radius:3px;background:var(--forest-light);width:0%;transition:width 0.6s ease;}
+  .prog-status{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);}
+  .prog-status.done{color:var(--forest-light);}
+
+  /* ── MEMBER SECTION ── */
+  .member-block{margin-bottom:32px;}
+  .member-block:last-child{margin-bottom:0;}
+  .member-header{display:flex;align-items:center;gap:14px;margin-bottom:14px;padding-bottom:12px;border-bottom:2px solid var(--border);}
+  .member-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;color:white;flex-shrink:0;}
+  .member-name{font-family:'Outfit',sans-serif;font-size:16px;font-weight:600;color:var(--charcoal);}
+  .member-role{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid);margin-top:1px;}
+  .member-tally{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;margin-left:auto;color:var(--mid);}
+  .member-tally strong{color:var(--charcoal);}
+
+  /* ── CHECKLIST ── */
+  .checklist{display:flex;flex-direction:column;gap:7px;}
+  .check-item{background:var(--white);border:1px solid var(--border);border-radius:7px;padding:13px 16px;display:flex;align-items:flex-start;gap:12px;box-shadow:var(--shadow-sm);cursor:pointer;transition:box-shadow 0.18s,transform 0.18s,background 0.18s,border-color 0.18s;user-select:none;}
+  .check-item:hover{box-shadow:var(--shadow-md);transform:translateY(-1px);}
+  .check-item.done{background:var(--forest-pale);border-color:var(--forest-border);}
+  .check-item.done .check-text{color:var(--mid);text-decoration:line-through;text-decoration-color:var(--forest-border);}
+  .check-item.done .check-meta{color:var(--forest-light);}
+  .checkbox{width:18px;height:18px;border-radius:4px;border:2px solid var(--border);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:background 0.18s,border-color 0.18s;background:var(--white);}
+  .check-item.done .checkbox{background:var(--forest-light);border-color:var(--forest-light);}
+  .checkbox svg{display:none;}
+  .check-item.done .checkbox svg{display:block;}
+  .check-content{flex:1;}
+  .check-text{font-size:13.5px;color:var(--dark);line-height:1.55;}
+  .check-meta{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);margin-top:4px;}
+  .check-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;margin-right:5px;}
+  .check-tag.seo{background:var(--forest-pale);color:var(--forest-light);border:1px solid var(--forest-border);}
+  .check-tag.geo{background:var(--purple-pale);color:var(--purple);border:1px solid var(--purple-border);}
+  .check-tag.content{background:var(--gold-pale);color:var(--gold);border:1px solid var(--gold-border);}
+  .check-tag.tech{background:var(--blue-pale);color:var(--blue);border:1px solid var(--blue-border);}
+  .check-tag.gmb{background:var(--red-pale);color:var(--red);border:1px solid var(--red-border);}
+  .check-tag.backlink{background:var(--sand);color:var(--mid);border:1px solid var(--sand-border);}
+  .check-tag.priority{background:var(--charcoal);color:white;border:1px solid var(--charcoal);}
+
+  /* ── MEMBER COLORS ── */
+  .av-mariel  { background: #7C3AED; }
+  .av-meldrick{ background: var(--forest-light); }
+  .av-sthita  { background: #0369A1; }
+  .av-rohan   { background: var(--red); }
+  .av-bharthi { background: #B45309; }
+  .av-mehak   { background: #0F766E; }
+
+  /* ── FOOTER ── */
+  .report-footer{background:var(--charcoal);color:rgba(255,255,255,0.3);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.12em;text-align:center;padding:16px 64px;}
+
+  /* ── PRINT BUTTON ── */
+  .toolbar{background:var(--white);border-bottom:1px solid var(--border);padding:10px 64px;display:flex;align-items:center;gap:10px;}
+  .btn{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;padding:7px 16px;border-radius:5px;cursor:pointer;border:1px solid var(--border);background:var(--off);color:var(--dark);transition:background 0.15s;}
+  .btn:hover{background:var(--light);}
+  .btn.primary{background:var(--forest);color:white;border-color:var(--forest);}
+  .btn.primary:hover{background:var(--forest-mid);}
+  .toolbar-note{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);margin-left:auto;}
+  #global-counter{color:var(--charcoal);}
+
+  @media print{.toolbar{display:none;}.check-item{break-inside:avoid;}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="report-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="report-brand">Jagota Thailand · SEO &amp; GEO</div>
+      <div class="report-title">April <span>2026</span><br>Task Checklist</div>
+      <div class="report-subtitle">Team deliverables — all priorities &amp; owners</div>
+      <div class="report-date">April 2026 · jagota.com · Bangkok, Thailand</div>
+    </div>
+    <div class="header-right">
+      <div class="hstat">
+        <div class="hstat-lbl">Total Tasks</div>
+        <div class="hstat-val go" id="total-count">26</div>
+        <div class="hstat-chg go">Across 6 team members</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-lbl">Completed</div>
+        <div class="hstat-val g" id="done-count">0</div>
+        <div class="hstat-chg" id="done-pct">0% done — click tasks to mark complete</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- BANNER -->
+<div class="win-banner">
+  <span style="font-size:18px;flex-shrink:0">📋</span>
+  <div class="win-text"><strong>April 2026 priorities:</strong> Push GEO to 350+ AI users · Rank caviar &amp; wagyu in Top 10 · Launch Häagen-Dazs series · Complete all remaining technical fixes. Click any task to mark it done. Progress saves in your browser session.</div>
+</div>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <button class="btn primary" onclick="resetAll()">Reset All</button>
+  <button class="btn" onclick="markAll()">Mark All Done</button>
+  <div class="toolbar-note">Completed: <span id="global-counter">0 / 26</span></div>
+</div>
+
+<main class="container">
+
+  <!-- PROGRESS OVERVIEW -->
+  <section class="section">
+    <div class="eyebrow">Overview</div>
+    <h2 class="stitle">April <em>Progress</em> — by priority area</h2>
+    <div class="progress-grid">
+      <div class="prog-card">
+        <div class="prog-label">GEO / AI Platforms</div>
+        <div class="prog-count"><span id="geo-done">0</span> <span>/ 6 tasks</span></div>
+        <div class="prog-bar-track"><div class="prog-bar-fill" id="geo-bar"></div></div>
+        <div class="prog-status" id="geo-status">Not started</div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-label">SEO / Rankings</div>
+        <div class="prog-count"><span id="seo-done">0</span> <span>/ 7 tasks</span></div>
+        <div class="prog-bar-track"><div class="prog-bar-fill" id="seo-bar"></div></div>
+        <div class="prog-status" id="seo-status">Not started</div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-label">Content</div>
+        <div class="prog-count"><span id="content-done">0</span> <span>/ 7 tasks</span></div>
+        <div class="prog-bar-track"><div class="prog-bar-fill" id="content-bar"></div></div>
+        <div class="prog-status" id="content-status">Not started</div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-label">Technical &amp; GMB</div>
+        <div class="prog-count"><span id="tech-done">0</span> <span>/ 6 tasks</span></div>
+        <div class="prog-bar-track"><div class="prog-bar-fill" id="tech-bar"></div></div>
+        <div class="prog-status" id="tech-status">Not started</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MARIEL ── -->
+  <section class="section">
+    <div class="eyebrow">01 — Mariel</div>
+    <h2 class="stitle">Blogs &amp; <em>Meta Descriptions</em></h2>
+
+    <div class="member-block">
+      <div class="member-header">
+        <div class="member-avatar av-mariel">M</div>
+        <div>
+          <div class="member-name">Mariel</div>
+          <div class="member-role">Blogs &amp; Meta Descriptions</div>
+        </div>
+        <div class="member-tally"><strong id="mariel-count">0</strong> / 6 done</div>
+      </div>
+      <div class="checklist" id="mariel-list">
+
+        <div class="check-item" data-member="mariel" data-category="content" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Publish Apr 13 imported meat blog post — "Wagyu Beef Bangkok: What Makes It Worth the Price?" with internal links to imported meat product category page</div>
+            <div class="check-meta"><span class="check-tag content">Content</span><span class="check-tag priority">Priority 02</span> Due: Apr 13</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="mariel" data-category="content" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Publish Apr 20 imported meat blog post — "Kobe Beef vs Wagyu: A Bangkok Restaurant Buyer's Guide" with internal links to product pages</div>
+            <div class="check-meta"><span class="check-tag content">Content</span><span class="check-tag priority">Priority 02</span> Due: Apr 20</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="mariel" data-category="content" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Publish Apr 27 imported meat blog post — "Imported Meat Suppliers Thailand: How Jagota Sources Premium Cuts" with internal links to category page</div>
+            <div class="check-meta"><span class="check-tag content">Content</span><span class="check-tag priority">Priority 02</span> Due: Apr 27</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="mariel" data-category="content" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Begin planning Häagen-Dazs blog series (4 posts for May): "Most Popular Flavors", "How It's Made", "Dessert Recipes", "Where to Find Near You"</div>
+            <div class="check-meta"><span class="check-tag content">Content</span> Due: End of April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="mariel" data-category="seo" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Write meta descriptions for all 4 April blog posts — keyword-optimised, 150–160 characters, bilingual EN+TH versions for each</div>
+            <div class="check-meta"><span class="check-tag seo">SEO</span> Due: With each post</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="mariel" data-category="content" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Upload SlideShare PDF (DA 95): "Premium Imported Ingredients Guide Thailand 2026" — covers Wagyu, caviar, Häagen-Dazs, Callebaut, Volvic. Builds Perplexity citation base.</div>
+            <div class="check-meta"><span class="check-tag geo">GEO</span><span class="check-tag content">Content</span> Due: Mid-April</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MELDRICK ── -->
+  <section class="section">
+    <div class="eyebrow">02 — Meldrick</div>
+    <h2 class="stitle">Blog <em>Production</em></h2>
+
+    <div class="member-block">
+      <div class="member-header">
+        <div class="member-avatar av-meldrick">M</div>
+        <div>
+          <div class="member-name">Meldrick</div>
+          <div class="member-role">Blogs</div>
+        </div>
+        <div class="member-tally"><strong id="meldrick-count">0</strong> / 4 done</div>
+      </div>
+      <div class="checklist" id="meldrick-list">
+
+        <div class="check-item" data-member="meldrick" data-category="content" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Confirm THAIFEX 2026 blog (live Apr 6) — optimise with internal links to all relevant product category pages; target 480/mo THAIFEX keyword</div>
+            <div class="check-meta"><span class="check-tag content">Content</span><span class="check-tag seo">SEO</span> Due: Apr 6 ✓</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="meldrick" data-category="geo" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Create "Jagota Thailand Complete Product Guide" hub — bilingual EN+TH, covering ice cream (Häagen-Dazs), premium meats (Wagyu, Kobe), frozen bakery, seafood (caviar, oysters). Primary Claude citation asset.</div>
+            <div class="check-meta"><span class="check-tag geo">GEO</span><span class="check-tag priority">Priority 01</span> Due: Mid-April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="meldrick" data-category="content" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Publish Medium article: "Where to Buy Wagyu Beef in Bangkok" or "Best Premium Food Suppliers in Thailand for Hotels and Restaurants" — GPT cites Medium heavily for Bangkok F&amp;B queries</div>
+            <div class="check-meta"><span class="check-tag geo">GEO</span><span class="check-tag content">Content</span> Due: Mid-April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="meldrick" data-category="content" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Create bilingual FAQ content blocks (EN + TH) for caviar and truffle product pages — targets bilingual Thai-English consumers and improves AI platform citation eligibility</div>
+            <div class="check-meta"><span class="check-tag geo">GEO</span><span class="check-tag seo">SEO</span> Due: End of April</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STHITA ── -->
+  <section class="section">
+    <div class="eyebrow">03 — Sthita</div>
+    <h2 class="stitle"><em>Backlinks</em> &amp; Off-Page Authority</h2>
+
+    <div class="member-block">
+      <div class="member-header">
+        <div class="member-avatar av-sthita">S</div>
+        <div>
+          <div class="member-name">Sthita</div>
+          <div class="member-role">Backlinks</div>
+        </div>
+        <div class="member-tally"><strong id="sthita-count">0</strong> / 4 done</div>
+      </div>
+      <div class="checklist" id="sthita-list">
+
+        <div class="check-item" data-member="sthita" data-category="geo" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Post 2 Reddit threads on r/Jagota_Thailand: "Best premium imported food suppliers in Bangkok?" and "Häagen-Dazs wholesale sourcing in Thailand — where to find it?" — expert format with product links, activates Perplexity citation pipeline</div>
+            <div class="check-meta"><span class="check-tag geo">GEO</span><span class="check-tag backlink">Backlink</span><span class="check-tag priority">Priority 01</span> Due: Mid-April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="sthita" data-category="geo" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Add Quora answer: "What are the best imported food distributors in Thailand?" — include product links to Jagota product pages, targets GPT citation growth toward 50+ users/month</div>
+            <div class="check-meta"><span class="check-tag geo">GEO</span><span class="check-tag backlink">Backlink</span> Due: Mid-April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="sthita" data-category="seo" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Build backlinks to "caviar" product page — target food/gourmet DA 30+ sources to support push from Pos. 16 into Top 10 (2,900/mo keyword)</div>
+            <div class="check-meta"><span class="check-tag backlink">Backlink</span><span class="check-tag seo">SEO</span> Due: End of April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="sthita" data-category="seo" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Build backlinks to "wagyu bangkok" target page — Bangkok F&amp;B and restaurant sources to support Pos. 29 → Top 10 push for 390/mo keyword</div>
+            <div class="check-meta"><span class="check-tag backlink">Backlink</span><span class="check-tag seo">SEO</span> Due: End of April</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ROHAN ── -->
+  <section class="section">
+    <div class="eyebrow">04 — Rohan</div>
+    <h2 class="stitle">Google My Business <em>(GMB)</em></h2>
+
+    <div class="member-block">
+      <div class="member-header">
+        <div class="member-avatar av-rohan">R</div>
+        <div>
+          <div class="member-name">Rohan</div>
+          <div class="member-role">GMB</div>
+        </div>
+        <div class="member-tally"><strong id="rohan-count">0</strong> / 3 done</div>
+      </div>
+      <div class="checklist" id="rohan-list">
+
+        <div class="check-item" data-member="rohan" data-category="gmb" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Update GMB listing with all product categories and supplier brands: Häagen-Dazs, Arla, Callebaut, Tatua, Volvic, Wagyu/Kobe — GMB data directly feeds Gemini's local "premium food supplier Bangkok" recommendations</div>
+            <div class="check-meta"><span class="check-tag gmb">GMB</span><span class="check-tag geo">GEO</span><span class="check-tag priority">Priority 04</span> Due: Early April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="rohan" data-category="gmb" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Add Bangkok delivery service area to GMB listing — specify all zones served for restaurant and hotel F&amp;B procurement deliveries</div>
+            <div class="check-meta"><span class="check-tag gmb">GMB</span> Due: Early April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="rohan" data-category="gmb" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Post 2 GMB updates for April: THAIFEX 2026 announcement and "Premium Wagyu Now Available — Bangkok Restaurant Supply". Keeps the listing active for Gemini local signals.</div>
+            <div class="check-meta"><span class="check-tag gmb">GMB</span><span class="check-tag geo">GEO</span> Due: Mid-April</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BHARTHI ── -->
+  <section class="section">
+    <div class="eyebrow">05 — Bharthi</div>
+    <h2 class="stitle">Web Development, Speed &amp; <em>Back End</em></h2>
+
+    <div class="member-block">
+      <div class="member-header">
+        <div class="member-avatar av-bharthi">B</div>
+        <div>
+          <div class="member-name">Bharthi</div>
+          <div class="member-role">Web Development · Speed · Back End</div>
+        </div>
+        <div class="member-tally"><strong id="bharthi-count">0</strong> / 5 done</div>
+      </div>
+      <div class="checklist" id="bharthi-list">
+
+        <div class="check-item" data-member="bharthi" data-category="tech" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Improve mobile speed from 8.31s toward 4s — identify top 3 heaviest mobile page resources (high-res product images and render-blocking scripts); affects Core Web Vitals and Gemini crawl frequency</div>
+            <div class="check-meta"><span class="check-tag tech">Tech</span><span class="check-tag priority">Priority 04</span> Due: End of April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="bharthi" data-category="seo" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Deploy FAQ Schema on top 4 product pages: haagen-dazs, frozen-bakery, imported-meat/products, caviar — bilingual EN+TH 40–60 word direct-answer intros. Target: 350+ monthly Google AI users in April</div>
+            <div class="check-meta"><span class="check-tag tech">Tech</span><span class="check-tag geo">GEO</span><span class="check-tag priority">Priority 01</span> Due: Early April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="bharthi" data-category="seo" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Create "Wagyu vs Regular Beef for Bangkok Restaurants" comparison page and "Häagen-Dazs vs Local Ice Cream Thailand" comparison page — AI Mode surfaces multi-perspective comparison content</div>
+            <div class="check-meta"><span class="check-tag geo">GEO</span><span class="check-tag seo">SEO</span> Due: Mid-April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="bharthi" data-category="seo" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Create dedicated "Frozen Food Thailand" category page covering all frozen product categories (fruits, vegetables, bakery, prepared meals) — targets 880/mo "frozen food" keyword</div>
+            <div class="check-meta"><span class="check-tag seo">SEO</span> Due: Mid-April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="bharthi" data-category="seo" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Create dedicated "Wagyu Beef Bangkok — Sourcing Guide" page covering Wagyu selection process, MB grading, where to buy in Thailand — targets "wagyu bangkok" 390/mo keyword, Pos. 29 → Top 10</div>
+            <div class="check-meta"><span class="check-tag seo">SEO</span><span class="check-tag priority">Priority 02</span> Due: Mid-April</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MEHAK ── -->
+  <section class="section">
+    <div class="eyebrow">06 — Mehak</div>
+    <h2 class="stitle">GSC URLs, Sitemap &amp; <em>SEO Tech Issues</em></h2>
+
+    <div class="member-block">
+      <div class="member-header">
+        <div class="member-avatar av-mehak">M</div>
+        <div>
+          <div class="member-name">Mehak</div>
+          <div class="member-role">GSC URLs · Sitemap · SEO Tech Issues · Upload</div>
+        </div>
+        <div class="member-tally"><strong id="mehak-count">0</strong> / 4 done</div>
+      </div>
+      <div class="checklist" id="mehak-list">
+
+        <div class="check-item" data-member="mehak" data-category="tech" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Resolve remaining 4 broken links — final 4 from original 257 identified in October. Completing this eliminates all broken link crawl issues for Gemini and Google AI indexing.</div>
+            <div class="check-meta"><span class="check-tag tech">Tech</span><span class="check-tag priority">Priority 04</span> Due: Early April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="mehak" data-category="tech" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Fix final 1 blocked-from-crawling page — identify and resolve the robots.txt or noindex rule. Last blocked page remaining from original 27; completion closes the technical clean-up milestone.</div>
+            <div class="check-meta"><span class="check-tag tech">Tech</span><span class="check-tag priority">Priority 04</span> Due: Early April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="mehak" data-category="seo" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Reduce duplicate meta titles from 6 to 0 — review remaining 6 duplicates, particularly on bilingual TH pages. Unique, keyword-rich meta titles for EN and TH versions improve CTR and AI citation confidence.</div>
+            <div class="check-meta"><span class="check-tag seo">SEO</span><span class="check-tag tech">Tech</span> Due: Mid-April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="mehak" data-category="geo" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Set up GA4 Claude/Anthropic referral tracking — add to AI dashboard alongside Google AI (245) and GPT (34) to measure Claude growth from April onwards</div>
+            <div class="check-meta"><span class="check-tag geo">GEO</span><span class="check-tag priority">Priority 01</span> Due: Early April</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="report-footer">Jagota Thailand · April 2026 Task Checklist · jagota.com (EN + TH) · Bangkok, Thailand · Confidential</footer>
+
+<script>
+  const TOTALS = { geo: 6, seo: 7, content: 7, tech: 6 };
+  const MEMBER_TOTALS = { mariel: 6, meldrick: 4, sthita: 4, rohan: 3, bharthi: 5, mehak: 4 };
+  const state = {};
+
+  function toggle(el) {
+    el.classList.toggle('done');
+    updateAll();
+  }
+
+  function resetAll() {
+    document.querySelectorAll('.check-item.done').forEach(el => el.classList.remove('done'));
+    updateAll();
+  }
+
+  function markAll() {
+    document.querySelectorAll('.check-item:not(.done)').forEach(el => el.classList.add('done'));
+    updateAll();
+  }
+
+  function updateAll() {
+    let totalDone = 0;
+    const total = 26;
+
+    // Member counts
+    ['mariel','meldrick','sthita','rohan','bharthi','mehak'].forEach(m => {
+      const done = document.querySelectorAll(`#${m}-list .check-item.done`).length;
+      document.getElementById(`${m}-count`).textContent = done;
+      totalDone += done;
+    });
+
+    // Category counts
+    const cats = ['geo','seo','content','tech'];
+    cats.forEach(cat => {
+      const items = document.querySelectorAll(`.check-item[data-category="${cat}"]`);
+      const done = document.querySelectorAll(`.check-item[data-category="${cat}"].done`).length;
+      const t = TOTALS[cat];
+      const pct = Math.round((done / t) * 100);
+      document.getElementById(`${cat}-done`).textContent = done;
+      document.getElementById(`${cat}-bar`).style.width = pct + '%';
+      const statusEl = document.getElementById(`${cat}-status`);
+      if (done === 0) { statusEl.textContent = 'Not started'; statusEl.className = 'prog-status'; }
+      else if (done === t) { statusEl.textContent = '✓ Complete'; statusEl.className = 'prog-status done'; }
+      else { statusEl.textContent = `${pct}% done`; statusEl.className = 'prog-status'; }
+    });
+
+    // Header
+    document.getElementById('done-count').textContent = totalDone;
+    const pct = Math.round((totalDone / total) * 100);
+    document.getElementById('done-pct').textContent = pct + '% complete';
+    document.getElementById('global-counter').textContent = `${totalDone} / ${total}`;
+  }
+
+  updateAll();
+</script>
+
+</body>
+</html>
