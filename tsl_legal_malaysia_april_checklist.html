@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TSL Legal Malaysia — April 2026 Team Checklist</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0F2340;
+    --navy-mid: #1A3A6B;
+    --navy-light: #1F4080;
+    --white: #FFFFFF;
+    --off: #F9F9F8;
+    --light: #F2F2F0;
+    --border: #E0DDD8;
+    --mid: #706A62;
+    --dark: #2A2520;
+    --geo-color: #057A55; --geo-bg: #ECFDF5; --geo-border: #84E1BC;
+    --seo-color: #1A56DB; --seo-bg: #EBF1FF; --seo-border: #B3C7F7;
+    --content-color: #B45309; --content-bg: #FFFBEB; --content-border: #FCD34D;
+    --tech-color: #4A4540; --tech-bg: #F5F4F2; --tech-border: #C8C4BE;
+    --check-green: #057A55;
+    --mariel: #7C3AED; --mariel-bg: #F3E8FF; --mariel-border: #C4B5FD;
+    --meldrick: #0891B2; --meldrick-bg: #E0F7FA; --meldrick-border: #7ECFE6;
+    --sthita: #B45309; --sthita-bg: #FFFBEB; --sthita-border: #FCD34D;
+    --rohan: #057A55; --rohan-bg: #ECFDF5; --rohan-border: #84E1BC;
+    --bharthi: #C2185B; --bharthi-bg: #FCE4EC; --bharthi-border: #F48FB1;
+    --mehak: #1A56DB; --mehak-bg: #EBF1FF; --mehak-border: #B3C7F7;
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--off); color:var(--dark); font-family:'IBM Plex Mono',monospace; font-size:13px; min-height:100vh; }
+
+  /* HEADER */
+  .page-header { background:var(--navy); padding:36px 52px 30px; position:relative; overflow:hidden; }
+  .page-header::before { content:''; position:absolute; top:-70px; right:-70px; width:280px; height:280px; border:1px solid rgba(255,255,255,0.04); border-radius:50%; }
+  .page-header::after { content:''; position:absolute; bottom:-35px; right:80px; width:140px; height:140px; border:1px solid rgba(255,255,255,0.03); border-radius:50%; }
+  .header-tag { font-size:9px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:10px; }
+  .header-title { font-family:'IBM Plex Serif',serif; font-size:30px; font-weight:300; color:white; line-height:1.15; letter-spacing:-0.01em; }
+  .header-title em { font-style:italic; color:#93C5FD; }
+  .header-meta { font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.22); margin-top:14px; display:flex; align-items:center; gap:18px; }
+  .header-meta-dot { width:3px; height:3px; border-radius:50%; background:rgba(255,255,255,0.18); }
+
+  /* PROGRESS */
+  .progress-section { background:var(--navy-mid); padding:16px 52px; display:flex; align-items:center; gap:20px; border-bottom:1px solid rgba(255,255,255,0.06); }
+  .progress-label { font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.35); white-space:nowrap; }
+  .progress-track { flex:1; height:4px; background:rgba(255,255,255,0.08); border-radius:99px; overflow:hidden; }
+  .progress-fill { height:100%; border-radius:99px; background:#6EE7B7; transition:width 0.4s cubic-bezier(0.4,0,0.2,1); width:0%; }
+  .progress-count { font-size:11px; color:rgba(255,255,255,0.55); white-space:nowrap; min-width:48px; text-align:right; }
+  .progress-pct { font-size:9px; color:rgba(255,255,255,0.28); min-width:30px; text-align:right; }
+
+  /* TEAM FILTER */
+  .team-bar { background:var(--navy-light); padding:12px 52px; display:flex; align-items:center; gap:8px; border-bottom:1px solid rgba(255,255,255,0.06); flex-wrap:wrap; }
+  .team-bar-label { font-size:8px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.28); margin-right:4px; white-space:nowrap; }
+  .team-btn { display:flex; align-items:center; gap:7px; padding:5px 12px 5px 5px; border-radius:99px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.04); cursor:pointer; transition:all 0.18s; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.05em; color:rgba(255,255,255,0.45); }
+  .team-btn:hover { background:rgba(255,255,255,0.1); color:rgba(255,255,255,0.8); }
+  .team-btn.active { background:rgba(110,231,183,0.12); color:#6EE7B7; border-color:rgba(110,231,183,0.25); }
+  .team-btn-avatar { width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:8px; font-weight:500; color:white; flex-shrink:0; }
+  .team-btn-count { font-size:8px; color:rgba(255,255,255,0.3); margin-left:2px; }
+  .team-btn.active .team-btn-count { color:rgba(110,231,183,0.55); }
+
+  /* CAT PILLS */
+  .cat-summary { background:rgba(15,35,64,0.97); padding:10px 52px; display:flex; align-items:center; gap:8px; border-bottom:1px solid rgba(255,255,255,0.05); flex-wrap:wrap; }
+  .cat-pill { display:flex; align-items:center; gap:6px; padding:3px 11px; border-radius:99px; border:1px solid rgba(255,255,255,0.09); font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.4); }
+  .cat-pill-dot { width:6px; height:6px; border-radius:50%; }
+  .cat-pill-count { font-weight:500; color:rgba(255,255,255,0.75); }
+
+  /* MAIN */
+  .main { max-width:880px; margin:0 auto; padding:28px 52px 60px; }
+
+  /* SECTIONS */
+  .section { margin-bottom:24px; background:var(--white); border:1px solid var(--border); border-radius:8px; overflow:hidden; box-shadow:0 1px 3px rgba(16,13,9,0.05); }
+  .section-header { display:flex; align-items:center; justify-content:space-between; padding:13px 20px 12px; border-bottom:1px solid var(--border); }
+  .section-header-left { display:flex; align-items:center; gap:10px; }
+  .section-accent { width:9px; height:9px; border-radius:50%; flex-shrink:0; }
+  .section-name { font-size:9px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; }
+  .section-tally { font-size:9px; letter-spacing:0.06em; color:var(--mid); display:flex; align-items:center; gap:6px; }
+  .section-mini-bar { width:56px; height:3px; border-radius:99px; background:var(--border); overflow:hidden; }
+  .section-mini-fill { height:100%; border-radius:99px; transition:width 0.4s ease; width:0%; }
+
+  /* ITEMS */
+  .cl-item { display:flex; align-items:flex-start; gap:13px; padding:13px 20px; border-bottom:1px solid var(--border); cursor:pointer; transition:background 0.15s; }
+  .cl-item:last-child { border-bottom:none; }
+  .cl-item:hover { background:var(--off); }
+  .cl-item.completed { background:#FAFAF9; }
+  .cl-item.hidden { display:none; }
+
+  .cl-checkbox { width:19px; height:19px; border-radius:4px; border:1.5px solid var(--border); flex-shrink:0; margin-top:2px; display:flex; align-items:center; justify-content:center; transition:background 0.2s,border-color 0.2s,transform 0.15s; background:var(--white); }
+  .cl-item:hover .cl-checkbox { border-color:#A8A4A0; transform:scale(1.05); }
+  .cl-item.completed .cl-checkbox { background:var(--check-green); border-color:var(--check-green); transform:scale(1); }
+  .cl-check-icon { display:none; width:10px; height:8px; }
+  .cl-item.completed .cl-check-icon { display:block; }
+
+  .cl-body { flex:1; min-width:0; }
+  .cl-task-line { display:flex; align-items:flex-start; gap:8px; flex-wrap:wrap; margin-bottom:4px; }
+  .cl-task { font-family:'IBM Plex Serif',serif; font-size:13.5px; font-weight:400; color:var(--dark); line-height:1.5; transition:color 0.2s; }
+  .cl-item.completed .cl-task { color:var(--mid); text-decoration:line-through; text-decoration-color:var(--border); }
+  .cl-item.completed .cl-sub { color:#B8B4AE; }
+
+  .cl-badge { display:inline-flex; align-items:center; font-size:8px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; padding:2px 8px; border-radius:99px; white-space:nowrap; flex-shrink:0; margin-top:3px; }
+  .cl-sub { font-size:11px; color:var(--mid); line-height:1.65; margin-top:4px; }
+  .cl-meta { display:flex; align-items:center; gap:6px; margin-top:7px; flex-wrap:wrap; }
+
+  .assignee-chip { display:inline-flex; align-items:center; gap:5px; padding:2px 9px 2px 4px; border-radius:99px; font-size:9px; font-family:'IBM Plex Mono',monospace; border:1px solid; transition:opacity 0.15s; }
+  .assignee-avatar { width:16px; height:16px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:7px; font-weight:500; color:white; flex-shrink:0; }
+  .cl-item.completed .assignee-chip { opacity:0.4; }
+
+  .cl-right { flex-shrink:0; }
+  .cl-number { font-size:9px; color:var(--border); transition:color 0.2s; margin-top:3px; }
+  .cl-item:hover .cl-number { color:var(--mid); }
+
+  /* SECTION COLOURS */
+  .geo .section-name { color:var(--geo-color); }
+  .geo .section-accent { background:var(--geo-color); }
+  .geo .section-mini-fill { background:var(--geo-color); }
+  .geo .cl-badge { background:var(--geo-bg); color:var(--geo-color); border:1px solid var(--geo-border); }
+
+  .seo .section-name { color:var(--seo-color); }
+  .seo .section-accent { background:var(--seo-color); }
+  .seo .section-mini-fill { background:var(--seo-color); }
+  .seo .cl-badge { background:var(--seo-bg); color:var(--seo-color); border:1px solid var(--seo-border); }
+
+  .content-sec .section-name { color:var(--content-color); }
+  .content-sec .section-accent { background:var(--content-color); }
+  .content-sec .section-mini-fill { background:var(--content-color); }
+  .content-sec .cl-badge { background:var(--content-bg); color:var(--content-color); border:1px solid var(--content-border); }
+
+  .tech .section-name { color:var(--tech-color); }
+  .tech .section-accent { background:var(--tech-color); }
+  .tech .section-mini-fill { background:var(--tech-color); }
+  .tech .cl-badge { background:var(--tech-bg); color:var(--tech-color); border:1px solid var(--tech-border); }
+
+  /* MEMBER CHIPS */
+  .chip-mariel { background:var(--mariel-bg); color:var(--mariel); border-color:var(--mariel-border); }
+  .chip-mariel .assignee-avatar { background:var(--mariel); }
+  .chip-meldrick { background:var(--meldrick-bg); color:var(--meldrick); border-color:var(--meldrick-border); }
+  .chip-meldrick .assignee-avatar { background:var(--meldrick); }
+  .chip-sthita { background:var(--sthita-bg); color:var(--sthita); border-color:var(--sthita-border); }
+  .chip-sthita .assignee-avatar { background:var(--sthita); }
+  .chip-rohan { background:var(--rohan-bg); color:var(--rohan); border-color:var(--rohan-border); }
+  .chip-rohan .assignee-avatar { background:var(--rohan); }
+  .chip-bharthi { background:var(--bharthi-bg); color:var(--bharthi); border-color:var(--bharthi-border); }
+  .chip-bharthi .assignee-avatar { background:var(--bharthi); }
+  .chip-mehak { background:var(--mehak-bg); color:var(--mehak); border-color:var(--mehak-border); }
+  .chip-mehak .assignee-avatar { background:var(--mehak); }
+
+  /* MEMBER STATS */
+  .member-stats { background:var(--white); border:1px solid var(--border); border-radius:8px; margin-bottom:24px; overflow:hidden; display:none; box-shadow:0 1px 3px rgba(16,13,9,0.05); }
+  .member-stats.visible { display:block; }
+  .member-stats-header { padding:13px 20px 12px; border-bottom:1px solid var(--border); font-size:9px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--mid); }
+  .member-stats-grid { display:grid; grid-template-columns:repeat(3,1fr); }
+  .member-stat { padding:16px 20px; border-right:1px solid var(--border); border-bottom:1px solid var(--border); }
+  .member-stat:nth-child(3n) { border-right:none; }
+  .member-stat:nth-child(4),.member-stat:nth-child(5),.member-stat:nth-child(6) { border-bottom:none; }
+  .member-stat-top { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+  .member-stat-avatar { width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:500; color:white; }
+  .member-stat-name { font-family:'IBM Plex Serif',serif; font-size:13px; color:var(--dark); }
+  .member-stat-role { font-size:9px; color:var(--mid); }
+  .member-stat-bar { height:3px; background:var(--border); border-radius:99px; overflow:hidden; margin:8px 0 5px; }
+  .member-stat-fill { height:100%; border-radius:99px; transition:width 0.5s ease; }
+  .member-stat-count { font-size:9px; color:var(--mid); }
+  .member-stat-count span { font-weight:500; color:var(--dark); }
+
+  /* ALL DONE */
+  .all-done { display:none; text-align:center; padding:48px 24px 40px; background:var(--white); border:1px solid var(--border); border-radius:8px; margin-bottom:24px; }
+  .all-done-tick { width:48px; height:48px; border-radius:50%; background:var(--geo-bg); border:2px solid var(--geo-border); display:flex; align-items:center; justify-content:center; margin:0 auto 16px; }
+  .all-done-title { font-family:'IBM Plex Serif',serif; font-size:22px; font-weight:300; color:var(--dark); margin-bottom:6px; }
+  .all-done-title em { font-style:italic; color:var(--geo-color); }
+  .all-done-sub { font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--mid); margin-bottom:20px; }
+  .reset-btn { font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.12em; color:var(--mid); background:none; border:1px solid var(--border); border-radius:5px; padding:8px 20px; cursor:pointer; transition:background 0.15s,color 0.15s; text-transform:uppercase; }
+  .reset-btn:hover { background:var(--light); color:var(--dark); }
+
+  .empty-state { display:none; text-align:center; padding:40px 24px; color:var(--mid); font-size:9px; letter-spacing:0.12em; text-transform:uppercase; }
+
+  /* FOOTER */
+  .page-footer { text-align:center; padding:0 52px 32px; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:#B8B4AE; }
+
+  @media(max-width:640px){
+    .page-header,.progress-section,.team-bar,.cat-summary { padding-left:20px; padding-right:20px; }
+    .main { padding:20px 20px 48px; }
+    .member-stats-grid { grid-template-columns:1fr 1fr; }
+    .member-stat:nth-child(2n) { border-right:none; }
+    .member-stat:nth-child(3n) { border-right:1px solid var(--border); }
+    .member-stat:nth-child(5),.member-stat:nth-child(6) { border-bottom:none; }
+    .member-stat:nth-child(4) { border-bottom:1px solid var(--border); }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-tag">TSL Legal Malaysia · SEO &amp; GEO</div>
+  <div class="header-title"><em>April 2026</em><br>Team Checklist</div>
+  <div class="header-meta">
+    <span>20 tasks</span><span class="header-meta-dot"></span>
+    <span>6 team members</span><span class="header-meta-dot"></span>
+    <span>Kuala Lumpur · Malaysia · Legal Services</span>
+  </div>
+</header>
+
+<div class="progress-section">
+  <span class="progress-label">Overall progress</span>
+  <div class="progress-track"><div class="progress-fill" id="prog-fill"></div></div>
+  <span class="progress-count" id="prog-count">0 / 20</span>
+  <span class="progress-pct" id="prog-pct">0%</span>
+</div>
+
+<!-- TEAM FILTER -->
+<div class="team-bar">
+  <span class="team-bar-label">Filter by</span>
+  <button class="team-btn active" onclick="filterMember('all',this)">
+    <span style="width:22px;height:22px;border-radius:50%;background:rgba(110,231,183,0.15);display:flex;align-items:center;justify-content:center;font-size:8px;color:#6EE7B7;font-weight:500;">All</span>
+    Everyone
+  </button>
+  <button class="team-btn" onclick="filterMember('mariel',this)">
+    <span class="team-btn-avatar" style="background:var(--mariel)">MA</span>
+    Mariel <span class="team-btn-count" id="tc-mariel">4</span>
+  </button>
+  <button class="team-btn" onclick="filterMember('meldrick',this)">
+    <span class="team-btn-avatar" style="background:var(--meldrick)">ME</span>
+    Meldrick <span class="team-btn-count" id="tc-meldrick">4</span>
+  </button>
+  <button class="team-btn" onclick="filterMember('sthita',this)">
+    <span class="team-btn-avatar" style="background:var(--sthita)">ST</span>
+    Sthita <span class="team-btn-count" id="tc-sthita">2</span>
+  </button>
+  <button class="team-btn" onclick="filterMember('rohan',this)">
+    <span class="team-btn-avatar" style="background:var(--rohan)">RO</span>
+    Rohan <span class="team-btn-count" id="tc-rohan">1</span>
+  </button>
+  <button class="team-btn" onclick="filterMember('bharthi',this)">
+    <span class="team-btn-avatar" style="background:var(--bharthi)">BH</span>
+    Bharthi <span class="team-btn-count" id="tc-bharthi">4</span>
+  </button>
+  <button class="team-btn" onclick="filterMember('mehak',this)">
+    <span class="team-btn-avatar" style="background:var(--mehak)">MK</span>
+    Mehak <span class="team-btn-count" id="tc-mehak">5</span>
+  </button>
+</div>
+
+<div class="cat-summary">
+  <div class="cat-pill"><span class="cat-pill-dot" style="background:#057A55"></span>GEO &nbsp;<span class="cat-pill-count" id="pill-geo">0/6</span></div>
+  <div class="cat-pill"><span class="cat-pill-dot" style="background:#1A56DB"></span>SEO &nbsp;<span class="cat-pill-count" id="pill-seo">0/5</span></div>
+  <div class="cat-pill"><span class="cat-pill-dot" style="background:#B45309"></span>Content &nbsp;<span class="cat-pill-count" id="pill-content">0/4</span></div>
+  <div class="cat-pill"><span class="cat-pill-dot" style="background:#4A4540"></span>Technical &nbsp;<span class="cat-pill-count" id="pill-tech">0/5</span></div>
+</div>
+
+<main class="main">
+
+  <!-- MEMBER STATS -->
+  <div class="member-stats" id="member-stats">
+    <div class="member-stats-header">Team progress — April 2026</div>
+    <div class="member-stats-grid">
+      <div class="member-stat">
+        <div class="member-stat-top"><div class="member-stat-avatar" style="background:var(--mariel)">MA</div><div><div class="member-stat-name">Mariel</div><div class="member-stat-role">Blogs &amp; Meta Descriptions</div></div></div>
+        <div class="member-stat-bar"><div class="member-stat-fill" id="mbar-mariel" style="background:var(--mariel);width:0%"></div></div>
+        <div class="member-stat-count"><span id="mc-mariel">0</span> / 4 tasks</div>
+      </div>
+      <div class="member-stat">
+        <div class="member-stat-top"><div class="member-stat-avatar" style="background:var(--meldrick)">ME</div><div><div class="member-stat-name">Meldrick</div><div class="member-stat-role">Blogs</div></div></div>
+        <div class="member-stat-bar"><div class="member-stat-fill" id="mbar-meldrick" style="background:var(--meldrick);width:0%"></div></div>
+        <div class="member-stat-count"><span id="mc-meldrick">0</span> / 4 tasks</div>
+      </div>
+      <div class="member-stat">
+        <div class="member-stat-top"><div class="member-stat-avatar" style="background:var(--sthita)">ST</div><div><div class="member-stat-name">Sthita</div><div class="member-stat-role">Backlinks</div></div></div>
+        <div class="member-stat-bar"><div class="member-stat-fill" id="mbar-sthita" style="background:var(--sthita);width:0%"></div></div>
+        <div class="member-stat-count"><span id="mc-sthita">0</span> / 2 tasks</div>
+      </div>
+      <div class="member-stat">
+        <div class="member-stat-top"><div class="member-stat-avatar" style="background:var(--rohan)">RO</div><div><div class="member-stat-name">Rohan</div><div class="member-stat-role">GMB</div></div></div>
+        <div class="member-stat-bar"><div class="member-stat-fill" id="mbar-rohan" style="background:var(--rohan);width:0%"></div></div>
+        <div class="member-stat-count"><span id="mc-rohan">0</span> / 1 task</div>
+      </div>
+      <div class="member-stat">
+        <div class="member-stat-top"><div class="member-stat-avatar" style="background:var(--bharthi)">BH</div><div><div class="member-stat-name">Bharthi</div><div class="member-stat-role">Web Dev, Speed &amp; Backend</div></div></div>
+        <div class="member-stat-bar"><div class="member-stat-fill" id="mbar-bharthi" style="background:var(--bharthi);width:0%"></div></div>
+        <div class="member-stat-count"><span id="mc-bharthi">0</span> / 4 tasks</div>
+      </div>
+      <div class="member-stat">
+        <div class="member-stat-top"><div class="member-stat-avatar" style="background:var(--mehak)">MK</div><div><div class="member-stat-name">Mehak</div><div class="member-stat-role">GSC, Sitemap &amp; SEO Tech</div></div></div>
+        <div class="member-stat-bar"><div class="member-stat-fill" id="mbar-mehak" style="background:var(--mehak);width:0%"></div></div>
+        <div class="member-stat-count"><span id="mc-mehak">0</span> / 5 tasks</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALL DONE -->
+  <div class="all-done" id="all-done">
+    <div class="all-done-tick"><svg width="20" height="16" viewBox="0 0 20 16" fill="none"><path d="M1.5 8L7 13.5L18.5 1.5" stroke="#057A55" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="all-done-title">All 20 tasks <em>complete</em></div>
+    <div class="all-done-sub">April is strong for TSL Legal Malaysia</div>
+    <button class="reset-btn" onclick="resetAll()">Reset checklist</button>
+  </div>
+  <div id="empty-state" class="empty-state">No tasks for this team member.</div>
+
+  <!-- ── GEO ──────────────────────────────────────── -->
+  <div class="section geo" id="section-geo">
+    <div class="section-header">
+      <div class="section-header-left"><div class="section-accent"></div><span class="section-name">GEO — AI search expansion</span></div>
+      <div class="section-tally"><div class="section-mini-bar"><div class="section-mini-fill" id="bar-geo"></div></div><span id="tally-geo">0 / 6</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'geo')" data-members="mehak">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Set up Claude referral tracking in GA4</span><span class="cl-badge">Claude</span></div>
+        <div class="cl-sub">Create Anthropic/Claude segment in GA4 — add alongside GPT (76 users) and Perplexity (12 users) in the existing AI dashboard to track Claude's contribution from April onwards</div>
+        <div class="cl-meta"><span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">01</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'geo')" data-members="meldrick mariel">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Create "Malaysia Employment Law FAQ" hub page</span><span class="cl-badge">Claude</span></div>
+        <div class="cl-sub">Comprehensive Q&amp;A covering Employment Act 1955, Industrial Relations Act 1967, collective bargaining, CIPAA, probate, and defamation — primary Claude citation resource for all TSL practice area queries</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span>
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">02</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'geo')" data-members="bharthi mehak">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Deploy FAQ Schema on top 10 ranked pages</span><span class="cl-badge">Google AI</span></div>
+        <div class="cl-sub">Priority: "employment law malaysia" (Pos. 3), "collective bargaining agreement" (Pos. 2), "industrial relations act malaysia" (Pos. 6), "white collar crime" (Pos. 6), "cipaa malaysia" (Pos. 10) — add 40–60 word direct-answer intros to each</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-bharthi"><span class="assignee-avatar">BH</span>Bharthi</span>
+          <span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">03</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'geo')" data-members="meldrick">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Publish April Medium article — CIPAA adjudication or VSS</span><span class="cl-badge">GPT</span></div>
+        <div class="cl-sub">Target "CIPAA adjudication Malaysia" or "voluntary separation scheme meaning" (2,900/mo) — GPT's +171% growth is driven by off-page content; maintain the monthly Medium cadence to sustain and grow this channel</div>
+        <div class="cl-meta"><span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">04</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'geo')" data-members="sthita">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Post 2 Reddit threads targeting Perplexity legal research</span><span class="cl-badge">Perplexity</span></div>
+        <div class="cl-sub">"How does Malaysia's Industrial Relations Act protect employees?" and "How does CIPAA adjudication work in Malaysia?" — expert insight format, both link to TSL site; Perplexity is already delivering 12 consistent users/month</div>
+        <div class="cl-meta"><span class="assignee-chip chip-sthita"><span class="assignee-avatar">ST</span>Sthita</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">05</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'geo')" data-members="sthita">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Upload "Employment Law Malaysia: Complete Guide" to SlideShare</span><span class="cl-badge">Perplexity</span></div>
+        <div class="cl-sub">DA 95 document covering Employment Act 1955, Industrial Relations Act 1967, CIPAA, and probate — Perplexity surfaces high-DA PDFs heavily for legal research queries; pushes Perplexity from 12 toward 20+ users/month</div>
+        <div class="cl-meta"><span class="assignee-chip chip-sthita"><span class="assignee-avatar">ST</span>Sthita</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">06</span></div>
+    </div>
+  </div>
+
+  <!-- ── SEO ──────────────────────────────────────── -->
+  <div class="section seo" id="section-seo">
+    <div class="section-header">
+      <div class="section-header-left"><div class="section-accent"></div><span class="section-name">SEO — push KL law firm terms into Top 10</span></div>
+      <div class="section-tally"><div class="section-mini-bar"><div class="section-mini-fill" id="bar-seo"></div></div><span id="tally-seo">0 / 5</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'seo')" data-members="mehak mariel">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Push "law firms in kuala lumpur" from Pos. 11 into Top 10</span><span class="cl-badge">SEO</span></div>
+        <div class="cl-sub">2,900/mo — one position away from Top 10; content update on the main KL law firms page + 2 internal links from ranked employment law pages to close the gap and unlock significant organic volume</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span>
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">07</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'seo')" data-members="mariel meldrick">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Content refresh on "employment law malaysia" pages (Pos. 3–12)</span><span class="cl-badge">SEO</span></div>
+        <div class="cl-sub">5,400/mo — site's highest-volume ranked term; strengthen with 2026 legal updates and internal links from the new Malaysia Employment Law FAQ hub to lock in Top 3 and defend from competition</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+          <span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">08</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'seo')" data-members="meldrick mariel">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Create "Voluntary Separation Scheme" dedicated page</span><span class="cl-badge">SEO</span></div>
+        <div class="cl-sub">2,900/mo at Pos. 21 — high-volume, high-intent term; a dedicated VSS page with FAQ schema targeting "voluntary separation scheme meaning" and related queries could reach Top 10 by May</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span>
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">09</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'seo')" data-members="mehak">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Internal linking audit — connect all blogs to practice area pages</span><span class="cl-badge">SEO</span></div>
+        <div class="cl-sub">Connect ranked blog and definition pages to the main practice area pages (employment law, CIPAA, industrial relations, probate, defamation) to consolidate link equity and push KL law firm cluster terms toward Top 10</div>
+        <div class="cl-meta"><span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">10</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'seo')" data-members="mariel mehak">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Write 22 missing meta descriptions — prioritise ranked pages</span><span class="cl-badge">SEO</span></div>
+        <div class="cl-sub">Improves CTR on all ranked pages and strengthens AI platform citation confidence; start with the 61 Top-10 pages — any that are missing meta descriptions are leaving CTR and AI visibility on the table</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+          <span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">11</span></div>
+    </div>
+  </div>
+
+  <!-- ── CONTENT ──────────────────────────────────── -->
+  <div class="section content-sec" id="section-content">
+    <div class="section-header">
+      <div class="section-header-left"><div class="section-accent"></div><span class="section-name">Content — new pages for high-volume terms</span></div>
+      <div class="section-tally"><div class="section-mini-bar"><div class="section-mini-fill" id="bar-content"></div></div><span id="tally-content">0 / 4</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'content')" data-members="meldrick mariel">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Create "Letter of Demand Malaysia" guide</span><span class="cl-badge">Content</span></div>
+        <div class="cl-sub">1,600/mo, currently unranked — high-intent legal action query; ideal AI Mode target for "how to send a letter of demand in Malaysia". Pair with "Writ of Summons" to cover the full dispute resolution journey</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span>
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">12</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'content')" data-members="meldrick mariel">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Create "Industrial Court Malaysia" comprehensive guide</span><span class="cl-badge">Content</span></div>
+        <div class="cl-sub">2,900/mo at Pos. 70 — significant volume and far from Top 10; a guide covering Industrial Court procedures, timelines, and TSL's representation experience targets this gap with strong AI Mode potential</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span>
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">13</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'content')" data-members="meldrick mariel">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Create "Wrongful vs Constructive Dismissal" AI Mode comparison page</span><span class="cl-badge">Content</span></div>
+        <div class="cl-sub">"Know Your Rights in Malaysia" — multi-perspective comparison format is what Google AI Mode surfaces for complex legal queries; builds authority across TSL's employment law practice area and links to Industrial Relations Act content</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span>
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">14</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'content')" data-members="meldrick">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Write Quora answer on Malaysia Industrial Relations Act</span><span class="cl-badge">Content</span></div>
+        <div class="cl-sub">"How does Malaysia's Industrial Relations Act protect employees from unfair dismissal?" — expert format, link to TSL site. Quora expert answers feed both GPT and Perplexity citation pools and diversify off-page platform mix beyond Medium</div>
+        <div class="cl-meta"><span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">15</span></div>
+    </div>
+  </div>
+
+  <!-- ── TECHNICAL ─────────────────────────────────── -->
+  <div class="section tech" id="section-tech">
+    <div class="section-header">
+      <div class="section-header-left"><div class="section-accent"></div><span class="section-name">Technical — fix broken links &amp; improve speed</span></div>
+      <div class="section-tally"><div class="section-mini-bar"><div class="section-mini-fill" id="bar-tech"></div></div><span id="tally-tech">0 / 5</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'tech')" data-members="bharthi mehak">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Resolve 49 broken links — prioritise employment law &amp; CIPAA pages</span><span class="cl-badge">Technical</span></div>
+        <div class="cl-sub">Broken links on high-authority pages waste link equity and reduce Gemini indexing depth; fix or redirect all 49 — starting with links on employment law, industrial relations, and CIPAA pages which carry the most ranking authority</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-bharthi"><span class="assignee-avatar">BH</span>Bharthi</span>
+          <span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">16</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'tech')" data-members="bharthi">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Improve mobile site speed from 9.33s toward 4s</span><span class="cl-badge">Technical</span></div>
+        <div class="cl-sub">9.33s is a critical performance gap — identify and compress the top 3 heaviest mobile resources (likely unoptimised images and render-blocking scripts); each second improved directly strengthens Core Web Vitals and Gemini crawl frequency</div>
+        <div class="cl-meta"><span class="assignee-chip chip-bharthi"><span class="assignee-avatar">BH</span>Bharthi</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">17</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'tech')" data-members="bharthi mehak">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Resolve 6 remaining 4xx error pages &amp; resubmit sitemap</span><span class="cl-badge">Technical</span></div>
+        <div class="cl-sub">Fix or redirect all 6 identified 4xx errors; resubmit updated sitemap after fixes are live to confirm all new April pages (Employment Law FAQ hub, VSS page, Letter of Demand guide) are indexed within 48 hours</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-bharthi"><span class="assignee-avatar">BH</span>Bharthi</span>
+          <span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">18</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'tech')" data-members="rohan">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Update GMB with all TSL practice areas</span><span class="cl-badge">GMB</span></div>
+        <div class="cl-sub">Ensure Google My Business lists employment law, industrial relations, CIPAA, probate, defamation, and white collar crime as services — GMB data directly feeds Gemini's local legal service queries for "law firm kuala lumpur" and "employment lawyer KL"</div>
+        <div class="cl-meta"><span class="assignee-chip chip-rohan"><span class="assignee-avatar">RO</span>Rohan</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">19</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'tech')" data-members="mehak">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Monthly GSC audit — maintain 80+ technical score</span><span class="cl-badge">Technical</span></div>
+        <div class="cl-sub">Run full crawl after broken link and 4xx fixes are applied; confirm technical score holds at 80+ and flag any new regressions before they compound into ranking impact. Verify CTR trending upward with new meta descriptions live</div>
+        <div class="cl-meta"><span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">20</span></div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="page-footer">TSL Legal Malaysia · April 2026 · SEO &amp; GEO Team Checklist · Kuala Lumpur</footer>
+
+<script>
+  const CATS = { geo:6, seo:5, content:4, tech:5 };
+  const catDone = { geo:0, seo:0, content:0, tech:0 };
+  const GRAND = 20;
+  const MEMBER_TOTALS = { mariel:4, meldrick:4, sthita:2, rohan:1, bharthi:4, mehak:5 };
+  const memberDone = { mariel:0, meldrick:0, sthita:0, rohan:0, bharthi:0, mehak:0 };
+
+  function getMembers(item) { return (item.dataset.members||'').split(' ').filter(Boolean); }
+
+  function toggle(item, cat) {
+    const isNowDone = !item.classList.contains('completed');
+    item.classList.toggle('completed');
+    catDone[cat] += isNowDone ? 1 : -1;
+    getMembers(item).forEach(m => { memberDone[m] += isNowDone ? 1 : -1; });
+    updateSection(cat); updateGlobal(); updateMemberStats();
+  }
+
+  function updateSection(cat) {
+    const d = catDone[cat], t = CATS[cat];
+    document.getElementById('tally-'+cat).textContent = d+' / '+t;
+    document.getElementById('bar-'+cat).style.width = Math.round((d/t)*100)+'%';
+    document.getElementById('pill-'+cat).textContent = d+'/'+t;
+  }
+
+  function updateGlobal() {
+    const total = Object.values(catDone).reduce((a,b)=>a+b,0);
+    const pct = Math.round((total/GRAND)*100);
+    document.getElementById('prog-fill').style.width = pct+'%';
+    document.getElementById('prog-count').textContent = total+' / '+GRAND;
+    document.getElementById('prog-pct').textContent = pct+'%';
+    const allDone = total === GRAND;
+    document.getElementById('all-done').style.display = allDone ? 'block' : 'none';
+    ['section-geo','section-seo','section-content','section-tech'].forEach(id => {
+      document.getElementById(id).style.display = allDone ? 'none' : 'block';
+    });
+  }
+
+  function updateMemberStats() {
+    Object.keys(MEMBER_TOTALS).forEach(m => {
+      document.getElementById('mc-'+m).textContent = memberDone[m];
+      document.getElementById('mbar-'+m).style.width = Math.round((memberDone[m]/MEMBER_TOTALS[m])*100)+'%';
+    });
+  }
+
+  function filterMember(member, btn) {
+    document.querySelectorAll('.team-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('member-stats').classList.toggle('visible', member !== 'all');
+    document.querySelectorAll('.cl-item').forEach(item => {
+      item.classList.toggle('hidden', member !== 'all' && !getMembers(item).includes(member));
+    });
+    ['section-geo','section-seo','section-content','section-tech'].forEach(id => {
+      const sec = document.getElementById(id);
+      if (sec) sec.style.display = sec.querySelectorAll('.cl-item:not(.hidden)').length === 0 ? 'none' : 'block';
+    });
+    document.getElementById('empty-state').style.display =
+      document.querySelectorAll('.cl-item:not(.hidden)').length === 0 ? 'block' : 'none';
+  }
+
+  function resetAll() {
+    document.querySelectorAll('.cl-item.completed').forEach(i => i.classList.remove('completed'));
+    Object.keys(catDone).forEach(k => { catDone[k] = 0; updateSection(k); });
+    Object.keys(memberDone).forEach(k => { memberDone[k] = 0; });
+    updateGlobal(); updateMemberStats();
+  }
+</script>
+</body>
+</html>
