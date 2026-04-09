@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arawana Group — April 2026 Team Checklist</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Literata:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --charcoal: #1A1714;
+    --charcoal-mid: #252018;
+    --charcoal-light: #322C24;
+    --cream: #F8F6F2;
+    --warm: #F2EDE4;
+    --border: #E2DDD4;
+    --mid: #7A7166;
+    --dark: #2C2720;
+    --white: #FFFFFF;
+    --teal: #0F6B5C;
+    --teal-pale: #E6F4F1;
+    --teal-border: #8DCABF;
+    --gold: #A67C00;
+    --gold-light: #D4B840;
+    --gold-pale: #FBF5E0;
+    --gold-border: #D4B840;
+    --copper: #A3522A;
+    --copper-pale: #FBF0E8;
+    --copper-border: #D4956A;
+    --stone: #5A5550;
+    --stone-pale: #EDEAE5;
+    --stone-border: #C0B8B0;
+    --check-green: #0F6B5C;
+    /* member colours */
+    --mariel: #7C3AED; --mariel-bg: #F3E8FF; --mariel-border: #C4B5FD;
+    --meldrick: #0891B2; --meldrick-bg: #E0F7FA; --meldrick-border: #7ECFE6;
+    --sthita: #A3522A; --sthita-bg: #FBF0E8; --sthita-border: #D4956A;
+    --rohan: #0F6B5C; --rohan-bg: #E6F4F1; --rohan-border: #8DCABF;
+    --bharthi: #C2185B; --bharthi-bg: #FCE4EC; --bharthi-border: #F48FB1;
+    --mehak: #1452A8; --mehak-bg: #E8EFF9; --mehak-border: #9DB8E8;
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--cream); color:var(--dark); font-family:'Space Mono',monospace; font-size:13px; min-height:100vh; }
+
+  /* HEADER */
+  .page-header { background:var(--charcoal); padding:36px 52px 30px; position:relative; overflow:hidden; }
+  .page-header::before { content:''; position:absolute; top:-80px; right:-80px; width:320px; height:320px; border:1px solid rgba(212,184,64,0.1); border-radius:50%; }
+  .page-header::after { content:''; position:absolute; bottom:-40px; right:60px; width:160px; height:160px; border:1px solid rgba(212,184,64,0.07); border-radius:50%; }
+  .header-tag { font-size:9px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.28); margin-bottom:10px; }
+  .header-title { font-family:'Literata',serif; font-size:32px; font-weight:300; color:white; line-height:1.15; letter-spacing:-0.01em; margin-bottom:6px; }
+  .header-title em { font-style:italic; color:var(--gold-light); }
+  .header-meta { font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.22); margin-top:14px; display:flex; align-items:center; gap:18px; }
+  .header-meta-dot { width:3px; height:3px; border-radius:50%; background:rgba(212,184,64,0.3); }
+
+  /* PROGRESS */
+  .progress-section { background:var(--charcoal-mid); padding:16px 52px; display:flex; align-items:center; gap:20px; border-bottom:1px solid rgba(212,184,64,0.08); }
+  .progress-label { font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.32); white-space:nowrap; }
+  .progress-track { flex:1; height:4px; background:rgba(255,255,255,0.08); border-radius:99px; overflow:hidden; }
+  .progress-fill { height:100%; border-radius:99px; background:var(--gold-light); transition:width 0.4s cubic-bezier(0.4,0,0.2,1); width:0%; }
+  .progress-count { font-size:11px; color:rgba(255,255,255,0.5); white-space:nowrap; min-width:48px; text-align:right; }
+  .progress-pct { font-size:9px; color:rgba(255,255,255,0.25); min-width:30px; text-align:right; }
+
+  /* TEAM FILTER */
+  .team-bar { background:var(--charcoal-light); padding:13px 52px; display:flex; align-items:center; gap:8px; border-bottom:1px solid rgba(212,184,64,0.08); flex-wrap:wrap; }
+  .team-bar-label { font-size:8px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.25); margin-right:4px; white-space:nowrap; }
+  .team-btn { display:flex; align-items:center; gap:7px; padding:5px 12px 5px 5px; border-radius:99px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.04); cursor:pointer; transition:all 0.18s; font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.06em; color:rgba(255,255,255,0.45); }
+  .team-btn:hover { background:rgba(255,255,255,0.1); color:rgba(255,255,255,0.8); }
+  .team-btn.active { background:rgba(212,184,64,0.16); color:var(--gold-light); border-color:rgba(212,184,64,0.28); }
+  .team-btn-avatar { width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:8px; font-weight:700; color:white; flex-shrink:0; }
+  .team-btn-count { font-size:8px; color:rgba(255,255,255,0.3); margin-left:2px; }
+  .team-btn.active .team-btn-count { color:rgba(212,184,64,0.6); }
+
+  /* CAT PILLS */
+  .cat-summary { background:rgba(26,23,20,0.97); padding:10px 52px; display:flex; align-items:center; gap:8px; border-bottom:1px solid rgba(212,184,64,0.06); flex-wrap:wrap; }
+  .cat-pill { display:flex; align-items:center; gap:6px; padding:3px 11px; border-radius:99px; border:1px solid rgba(255,255,255,0.09); font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.4); }
+  .cat-pill-dot { width:6px; height:6px; border-radius:50%; }
+  .cat-pill-count { font-weight:700; color:rgba(255,255,255,0.7); }
+
+  /* MAIN */
+  .main { max-width:880px; margin:0 auto; padding:28px 52px 60px; }
+
+  /* SECTIONS */
+  .section { margin-bottom:26px; background:var(--white); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+  .section-header { display:flex; align-items:center; justify-content:space-between; padding:13px 20px 12px; border-bottom:1px solid var(--border); }
+  .section-header-left { display:flex; align-items:center; gap:10px; }
+  .section-accent { width:9px; height:9px; border-radius:50%; flex-shrink:0; }
+  .section-name { font-size:9px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; }
+  .section-tally { font-size:9px; letter-spacing:0.06em; color:var(--mid); display:flex; align-items:center; gap:6px; }
+  .section-mini-bar { width:56px; height:3px; border-radius:99px; background:var(--border); overflow:hidden; }
+  .section-mini-fill { height:100%; border-radius:99px; transition:width 0.4s ease; width:0%; }
+
+  /* ITEMS */
+  .cl-item { display:flex; align-items:flex-start; gap:13px; padding:13px 20px; border-bottom:1px solid var(--border); cursor:pointer; transition:background 0.15s; }
+  .cl-item:last-child { border-bottom:none; }
+  .cl-item:hover { background:var(--cream); }
+  .cl-item.completed { background:#F9F8F5; }
+  .cl-item.hidden { display:none; }
+
+  .cl-checkbox { width:19px; height:19px; border-radius:5px; border:1.5px solid var(--border); flex-shrink:0; margin-top:2px; display:flex; align-items:center; justify-content:center; transition:background 0.2s,border-color 0.2s,transform 0.15s; background:var(--white); }
+  .cl-item:hover .cl-checkbox { border-color:#A8A098; transform:scale(1.05); }
+  .cl-item.completed .cl-checkbox { background:var(--check-green); border-color:var(--check-green); transform:scale(1); }
+  .cl-check-icon { display:none; width:10px; height:8px; }
+  .cl-item.completed .cl-check-icon { display:block; }
+
+  .cl-body { flex:1; min-width:0; }
+  .cl-task-line { display:flex; align-items:flex-start; gap:8px; flex-wrap:wrap; margin-bottom:4px; }
+  .cl-task { font-family:'Literata',serif; font-size:13.5px; font-weight:400; color:var(--dark); line-height:1.5; transition:color 0.2s; }
+  .cl-item.completed .cl-task { color:var(--mid); text-decoration:line-through; text-decoration-color:var(--border); }
+  .cl-item.completed .cl-sub { color:#B8B0A8; }
+
+  .cl-badge { display:inline-flex; align-items:center; font-family:'Space Mono',monospace; font-size:8px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:2px 8px; border-radius:99px; white-space:nowrap; flex-shrink:0; margin-top:3px; }
+  .cl-sub { font-size:11px; color:var(--mid); line-height:1.6; margin-top:3px; }
+
+  .cl-meta { display:flex; align-items:center; gap:6px; margin-top:7px; flex-wrap:wrap; }
+  .assignee-chip { display:inline-flex; align-items:center; gap:5px; padding:2px 9px 2px 4px; border-radius:99px; font-family:'Space Mono',monospace; font-size:9px; border:1px solid; transition:opacity 0.15s; }
+  .assignee-avatar { width:16px; height:16px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:7px; font-weight:700; color:white; flex-shrink:0; }
+  .cl-item.completed .assignee-chip { opacity:0.4; }
+
+  .cl-right { display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0; }
+  .cl-number { font-size:9px; color:var(--border); transition:color 0.2s; margin-top:3px; }
+  .cl-item:hover .cl-number { color:var(--mid); }
+
+  /* SECTION COLOURS */
+  .geo .section-name { color:var(--teal); }
+  .geo .section-accent { background:var(--teal); }
+  .geo .section-mini-fill { background:var(--teal); }
+  .geo .cl-badge { background:var(--teal-pale); color:var(--teal); border:1px solid var(--teal-border); }
+
+  .seo .section-name { color:var(--gold); }
+  .seo .section-accent { background:var(--gold); }
+  .seo .section-mini-fill { background:var(--gold); }
+  .seo .cl-badge { background:var(--gold-pale); color:var(--gold); border:1px solid var(--gold-border); }
+
+  .content-sec .section-name { color:var(--copper); }
+  .content-sec .section-accent { background:var(--copper); }
+  .content-sec .section-mini-fill { background:var(--copper); }
+  .content-sec .cl-badge { background:var(--copper-pale); color:var(--copper); border:1px solid var(--copper-border); }
+
+  .tech .section-name { color:var(--stone); }
+  .tech .section-accent { background:var(--stone); }
+  .tech .section-mini-fill { background:var(--stone); }
+  .tech .cl-badge { background:var(--stone-pale); color:var(--stone); border:1px solid var(--stone-border); }
+
+  /* MEMBER CHIPS */
+  .chip-mariel { background:var(--mariel-bg); color:var(--mariel); border-color:var(--mariel-border); }
+  .chip-mariel .assignee-avatar { background:var(--mariel); }
+  .chip-meldrick { background:var(--meldrick-bg); color:var(--meldrick); border-color:var(--meldrick-border); }
+  .chip-meldrick .assignee-avatar { background:var(--meldrick); }
+  .chip-sthita { background:var(--sthita-bg); color:var(--sthita); border-color:var(--sthita-border); }
+  .chip-sthita .assignee-avatar { background:var(--sthita); }
+  .chip-rohan { background:var(--rohan-bg); color:var(--rohan); border-color:var(--rohan-border); }
+  .chip-rohan .assignee-avatar { background:var(--rohan); }
+  .chip-bharthi { background:var(--bharthi-bg); color:var(--bharthi); border-color:var(--bharthi-border); }
+  .chip-bharthi .assignee-avatar { background:var(--bharthi); }
+  .chip-mehak { background:var(--mehak-bg); color:var(--mehak); border-color:var(--mehak-border); }
+  .chip-mehak .assignee-avatar { background:var(--mehak); }
+
+  /* MEMBER STATS */
+  .member-stats { background:var(--white); border:1px solid var(--border); border-radius:12px; margin-bottom:26px; overflow:hidden; display:none; }
+  .member-stats.visible { display:block; }
+  .member-stats-header { padding:13px 20px 12px; border-bottom:1px solid var(--border); font-size:9px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--mid); }
+  .member-stats-grid { display:grid; grid-template-columns:repeat(3,1fr); }
+  .member-stat { padding:16px 20px; border-right:1px solid var(--border); border-bottom:1px solid var(--border); }
+  .member-stat:nth-child(3n) { border-right:none; }
+  .member-stat:nth-child(4),.member-stat:nth-child(5),.member-stat:nth-child(6) { border-bottom:none; }
+  .member-stat-top { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+  .member-stat-avatar { width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:white; }
+  .member-stat-name { font-family:'Literata',serif; font-size:13px; color:var(--dark); }
+  .member-stat-role { font-size:9px; color:var(--mid); letter-spacing:0.03em; }
+  .member-stat-bar { height:3px; background:var(--border); border-radius:99px; overflow:hidden; margin:8px 0 5px; }
+  .member-stat-fill { height:100%; border-radius:99px; transition:width 0.5s ease; }
+  .member-stat-count { font-size:9px; color:var(--mid); }
+  .member-stat-count span { font-weight:700; color:var(--dark); }
+
+  /* ALL DONE */
+  .all-done { display:none; text-align:center; padding:48px 24px 40px; background:var(--white); border:1px solid var(--border); border-radius:12px; margin-bottom:26px; }
+  .all-done-tick { width:48px; height:48px; border-radius:50%; background:var(--teal-pale); border:2px solid var(--teal-border); display:flex; align-items:center; justify-content:center; margin:0 auto 16px; }
+  .all-done-title { font-family:'Literata',serif; font-size:22px; font-weight:300; color:var(--dark); margin-bottom:6px; }
+  .all-done-title em { font-style:italic; color:var(--teal); }
+  .all-done-sub { font-size:10px; letter-spacing:0.08em; color:var(--mid); margin-bottom:20px; text-transform:uppercase; }
+  .reset-btn { font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.12em; color:var(--mid); background:none; border:1px solid var(--border); border-radius:6px; padding:8px 20px; cursor:pointer; transition:background 0.15s,color 0.15s; text-transform:uppercase; }
+  .reset-btn:hover { background:var(--cream); color:var(--dark); }
+
+  .empty-state { display:none; text-align:center; padding:40px 24px; color:var(--mid); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; }
+
+  /* FOOTER */
+  .page-footer { text-align:center; padding:0 52px 32px; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:#C0B8B0; }
+
+  @media(max-width:640px){
+    .page-header,.progress-section,.team-bar,.cat-summary { padding-left:20px; padding-right:20px; }
+    .main { padding:20px 20px 48px; }
+    .member-stats-grid { grid-template-columns:1fr 1fr; }
+    .member-stat:nth-child(2n) { border-right:none; }
+    .member-stat:nth-child(3n) { border-right:1px solid var(--border); }
+    .member-stat:nth-child(5),.member-stat:nth-child(6) { border-bottom:none; }
+    .member-stat:nth-child(4) { border-bottom:1px solid var(--border); }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-tag">Arawana Group · SEO &amp; GEO</div>
+  <div class="header-title"><em>April 2026</em><br>Team Checklist</div>
+  <div class="header-meta">
+    <span>20 tasks</span><span class="header-meta-dot"></span>
+    <span>6 team members</span><span class="header-meta-dot"></span>
+    <span>Bangkok &amp; Pattaya · Thailand</span>
+  </div>
+</header>
+
+<div class="progress-section">
+  <span class="progress-label">Overall progress</span>
+  <div class="progress-track"><div class="progress-fill" id="prog-fill"></div></div>
+  <span class="progress-count" id="prog-count">0 / 20</span>
+  <span class="progress-pct" id="prog-pct">0%</span>
+</div>
+
+<!-- TEAM FILTER -->
+<div class="team-bar">
+  <span class="team-bar-label">Filter by</span>
+  <button class="team-btn active" onclick="filterMember('all',this)">
+    <span style="width:22px;height:22px;border-radius:50%;background:rgba(212,184,64,0.18);display:flex;align-items:center;justify-content:center;font-size:8px;color:var(--gold-light);font-weight:700;">All</span>
+    Everyone
+  </button>
+  <button class="team-btn" onclick="filterMember('mariel',this)">
+    <span class="team-btn-avatar" style="background:var(--mariel)">MA</span>
+    Mariel <span class="team-btn-count" id="tc-mariel">4</span>
+  </button>
+  <button class="team-btn" onclick="filterMember('meldrick',this)">
+    <span class="team-btn-avatar" style="background:var(--meldrick)">ME</span>
+    Meldrick <span class="team-btn-count" id="tc-meldrick">5</span>
+  </button>
+  <button class="team-btn" onclick="filterMember('sthita',this)">
+    <span class="team-btn-avatar" style="background:var(--sthita)">ST</span>
+    Sthita <span class="team-btn-count" id="tc-sthita">4</span>
+  </button>
+  <button class="team-btn" onclick="filterMember('rohan',this)">
+    <span class="team-btn-avatar" style="background:var(--rohan)">RO</span>
+    Rohan <span class="team-btn-count" id="tc-rohan">1</span>
+  </button>
+  <button class="team-btn" onclick="filterMember('bharthi',this)">
+    <span class="team-btn-avatar" style="background:var(--bharthi)">BH</span>
+    Bharthi <span class="team-btn-count" id="tc-bharthi">4</span>
+  </button>
+  <button class="team-btn" onclick="filterMember('mehak',this)">
+    <span class="team-btn-avatar" style="background:var(--mehak)">MK</span>
+    Mehak <span class="team-btn-count" id="tc-mehak">5</span>
+  </button>
+</div>
+
+<div class="cat-summary">
+  <div class="cat-pill"><span class="cat-pill-dot" style="background:#0F6B5C"></span>GEO &nbsp;<span class="cat-pill-count" id="pill-geo">0/6</span></div>
+  <div class="cat-pill"><span class="cat-pill-dot" style="background:#A67C00"></span>SEO &nbsp;<span class="cat-pill-count" id="pill-seo">0/5</span></div>
+  <div class="cat-pill"><span class="cat-pill-dot" style="background:#A3522A"></span>Content &nbsp;<span class="cat-pill-count" id="pill-content">0/5</span></div>
+  <div class="cat-pill"><span class="cat-pill-dot" style="background:#5A5550"></span>Technical &nbsp;<span class="cat-pill-count" id="pill-tech">0/4</span></div>
+</div>
+
+<main class="main">
+
+  <!-- MEMBER STATS -->
+  <div class="member-stats" id="member-stats">
+    <div class="member-stats-header">Team progress — April 2026</div>
+    <div class="member-stats-grid">
+      <div class="member-stat">
+        <div class="member-stat-top"><div class="member-stat-avatar" style="background:var(--mariel)">MA</div><div><div class="member-stat-name">Mariel</div><div class="member-stat-role">Blogs &amp; Meta Descriptions</div></div></div>
+        <div class="member-stat-bar"><div class="member-stat-fill" id="mbar-mariel" style="background:var(--mariel);width:0%"></div></div>
+        <div class="member-stat-count"><span id="mc-mariel">0</span> / 4 tasks</div>
+      </div>
+      <div class="member-stat">
+        <div class="member-stat-top"><div class="member-stat-avatar" style="background:var(--meldrick)">ME</div><div><div class="member-stat-name">Meldrick</div><div class="member-stat-role">Blogs</div></div></div>
+        <div class="member-stat-bar"><div class="member-stat-fill" id="mbar-meldrick" style="background:var(--meldrick);width:0%"></div></div>
+        <div class="member-stat-count"><span id="mc-meldrick">0</span> / 5 tasks</div>
+      </div>
+      <div class="member-stat">
+        <div class="member-stat-top"><div class="member-stat-avatar" style="background:var(--sthita)">ST</div><div><div class="member-stat-name">Sthita</div><div class="member-stat-role">Backlinks</div></div></div>
+        <div class="member-stat-bar"><div class="member-stat-fill" id="mbar-sthita" style="background:var(--sthita);width:0%"></div></div>
+        <div class="member-stat-count"><span id="mc-sthita">0</span> / 4 tasks</div>
+      </div>
+      <div class="member-stat">
+        <div class="member-stat-top"><div class="member-stat-avatar" style="background:var(--rohan)">RO</div><div><div class="member-stat-name">Rohan</div><div class="member-stat-role">GMB</div></div></div>
+        <div class="member-stat-bar"><div class="member-stat-fill" id="mbar-rohan" style="background:var(--rohan);width:0%"></div></div>
+        <div class="member-stat-count"><span id="mc-rohan">0</span> / 1 task</div>
+      </div>
+      <div class="member-stat">
+        <div class="member-stat-top"><div class="member-stat-avatar" style="background:var(--bharthi)">BH</div><div><div class="member-stat-name">Bharthi</div><div class="member-stat-role">Web Dev, Speed &amp; Backend</div></div></div>
+        <div class="member-stat-bar"><div class="member-stat-fill" id="mbar-bharthi" style="background:var(--bharthi);width:0%"></div></div>
+        <div class="member-stat-count"><span id="mc-bharthi">0</span> / 4 tasks</div>
+      </div>
+      <div class="member-stat">
+        <div class="member-stat-top"><div class="member-stat-avatar" style="background:var(--mehak)">MK</div><div><div class="member-stat-name">Mehak</div><div class="member-stat-role">GSC, Sitemap &amp; SEO Tech</div></div></div>
+        <div class="member-stat-bar"><div class="member-stat-fill" id="mbar-mehak" style="background:var(--mehak);width:0%"></div></div>
+        <div class="member-stat-count"><span id="mc-mehak">0</span> / 5 tasks</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALL DONE -->
+  <div class="all-done" id="all-done">
+    <div class="all-done-tick"><svg width="20" height="16" viewBox="0 0 20 16" fill="none"><path d="M1.5 8L7 13.5L18.5 1.5" stroke="#0F6B5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="all-done-title">All 20 tasks <em>complete</em></div>
+    <div class="all-done-sub">April is strong for Arawana Group</div>
+    <button class="reset-btn" onclick="resetAll()">Reset checklist</button>
+  </div>
+  <div id="empty-state" class="empty-state">No tasks for this team member.</div>
+
+  <!-- ── GEO ──────────────────────────────────────────────────── -->
+  <div class="section geo" id="section-geo">
+    <div class="section-header">
+      <div class="section-header-left"><div class="section-accent"></div><span class="section-name">GEO — AI search expansion</span></div>
+      <div class="section-tally"><div class="section-mini-bar"><div class="section-mini-fill" id="bar-geo"></div></div><span id="tally-geo">0 / 6</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'geo')" data-members="mehak">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Set up Claude referral tracking in GA4</span><span class="cl-badge">Claude</span></div>
+        <div class="cl-sub">Create Anthropic/Claude segment in GA4 — add to the existing AI Search dashboard alongside the current 82 users/month metric</div>
+        <div class="cl-meta"><span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">01</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'geo')" data-members="meldrick mariel">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Create "Bangkok Neighbourhood Guide" hub page</span><span class="cl-badge">Claude</span></div>
+        <div class="cl-sub">Comprehensive guide covering Sukhumvit, Phromphong, Chinatown &amp; North Pattaya with Arawana properties woven in — primary Claude citation resource for all Bangkok accommodation queries</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span>
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">02</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'geo')" data-members="bharthi mehak">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Deploy FAQ Schema on top 10 blog posts</span><span class="cl-badge">Google AI</span></div>
+        <div class="cl-sub">Priority pages: "10 Must-Visit Cafes Sukhumvit 22", "5 Best Thai Restaurants", "A Local's Guide to Chinatown Bangkok", "North Pattaya Guide" — add 40–60 word direct-answer intro to each</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-bharthi"><span class="assignee-avatar">BH</span>Bharthi</span>
+          <span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">03</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'geo')" data-members="meldrick">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Publish April Medium article — Songkran Bangkok 2026</span><span class="cl-badge">GPT</span></div>
+        <div class="cl-sub">"Where to Stay in Bangkok for Songkran 2026" featuring Arawana properties — GPT prioritises timely travel content; Songkran (Apr 13–15) makes this a high-citation opportunity with 550,000/mo Thai search volume</div>
+        <div class="cl-meta"><span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">04</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'geo')" data-members="sthita">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Post 2 Reddit threads on r/ArawanaGroup</span><span class="cl-badge">Perplexity</span></div>
+        <div class="cl-sub">"Best hotels for Songkran 2026 in Bangkok?" and "Budget stays near Sukhumvit BTS — worth it?" — Perplexity heavily sources Reddit for travel recommendations; both link to site</div>
+        <div class="cl-meta"><span class="assignee-chip chip-sthita"><span class="assignee-avatar">ST</span>Sthita</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">05</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'geo')" data-members="sthita">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Add Songkran SlideShare PDF to expand DA 95 citation pool</span><span class="cl-badge">Perplexity</span></div>
+        <div class="cl-sub">"Songkran in Bangkok: Where to Stay &amp; What to Expect" — DA 95 document perfectly timed for April travel season; 4th SlideShare PDF adds to the existing 3 live assets</div>
+        <div class="cl-meta"><span class="assignee-chip chip-sthita"><span class="assignee-avatar">ST</span>Sthita</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">06</span></div>
+    </div>
+  </div>
+
+  <!-- ── SEO ──────────────────────────────────────────────────── -->
+  <div class="section seo" id="section-seo">
+    <div class="section-header">
+      <div class="section-header-left"><div class="section-accent"></div><span class="section-name">SEO — consolidate &amp; push generic terms</span></div>
+      <div class="section-tally"><div class="section-mini-bar"><div class="section-mini-fill" id="bar-seo"></div></div><span id="tally-seo">0 / 5</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'seo')" data-members="mehak mariel">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Push "hotel sukhumvit 22" into Top 10 (currently Pos. 13–14)</span><span class="cl-badge">SEO</span></div>
+        <div class="cl-sub">22,200/mo — site's highest-volume unoptimised term. Content update on Express Sukhumvit 22 page + 3 internal links from recently published Sukhumvit blogs to push from Pos. 13 to Top 10</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span>
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">07</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'seo')" data-members="mariel meldrick">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Consolidate "thai restaurant near me" at Pos. 10 (40,500/mo Thai)</span><span class="cl-badge">SEO</span></div>
+        <div class="cl-sub">Entered Top 10 this month with a +90 position jump — content refresh on "5 Best Thai Restaurants in Sukhumvit" blog (add recent 2026 context) to lock in this position</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+          <span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">08</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'seo')" data-members="mariel meldrick">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Target "coffee shop nearby" Pos. 16 → Top 10</span><span class="cl-badge">SEO</span></div>
+        <div class="cl-sub">60,500/mo Thai — potentially the highest-volume term on the site. Small content refresh on "10 Must-Visit Cafes Sukhumvit 22" + HowTo schema could push from Pos. 16 to Top 10</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+          <span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">09</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'seo')" data-members="mehak">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Internal linking audit — connect all blogs to property pages</span><span class="cl-badge">SEO</span></div>
+        <div class="cl-sub">Connect all 28+ blog posts to relevant property pages (Express Sukhumvit 22, Regency Park, Chinatown, Phromphong, Hoft Hostel) to pass link equity to pages targeting commercial keywords</div>
+        <div class="cl-meta"><span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">10</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'seo')" data-members="mariel mehak">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Fix 2 overly long title tags (S20 Festival &amp; Valentine's Day pages)</span><span class="cl-badge">SEO</span></div>
+        <div class="cl-sub">Both pages have title tags exceeding 60 characters and getting truncated in search results — write tighter titles to improve CTR and strengthen AI platform citation confidence</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+          <span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">11</span></div>
+    </div>
+  </div>
+
+  <!-- ── CONTENT ──────────────────────────────────────────────── -->
+  <div class="section content-sec" id="section-content">
+    <div class="section-header">
+      <div class="section-header-left"><div class="section-accent"></div><span class="section-name">Content — April calendar &amp; Songkran</span></div>
+      <div class="section-tally"><div class="section-mini-bar"><div class="section-mini-fill" id="bar-content"></div></div><span id="tally-content">0 / 5</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'content')" data-members="meldrick mariel">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Upload Apr 6 &amp; Apr 13 blog posts — ready to go</span><span class="cl-badge">Content</span></div>
+        <div class="cl-sub">Apr 6: "Budget Accommodation in Thailand: Arawana Hotels That Feel Like Home" · Apr 13: "Where to Stay in Sukhumvit: Arawana Hotels Near BTS Phrom Phong &amp; Terminal 21" — both fully written</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span>
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">12</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'content')" data-members="meldrick mariel">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Approve and upload Apr 20 &amp; Apr 27 blog posts</span><span class="cl-badge">Content</span></div>
+        <div class="cl-sub">Apr 20: "Perfect Bangkok Hotel for Tourists on a Budget" · Apr 27: "Bangkok Serviced Residence for Long-Term Stays" — both marked "For Approval"; review and schedule for upload</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span>
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">13</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'content')" data-members="meldrick mariel">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Publish Songkran 2026 dedicated blog post</span><span class="cl-badge">Content</span></div>
+        <div class="cl-sub">"Experience Songkran in Bangkok 2026: Arawana Group's Complete Guide" — publish before Apr 10 to capture pre-Songkran (Apr 13–15) search intent; target queries with up to 550,000/mo Thai volume</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span>
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">14</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'content')" data-members="meldrick">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Write Quora answer #4 — Bangkok hotel recommendations</span><span class="cl-badge">Content</span></div>
+        <div class="cl-sub">"What are the best budget hotels in Sukhumvit for Songkran?" — expert answer format, link to relevant property pages; Quora posts feed both GPT and Perplexity citation pipelines</div>
+        <div class="cl-meta"><span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">15</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'content')" data-members="meldrick mariel">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Create "Hotel vs Hostel Bangkok" AI Mode comparison page</span><span class="cl-badge">Content</span></div>
+        <div class="cl-sub">"Arawana Express vs Hoft Hostel: Which Bangkok Stay Is Right for You?" — comparison format is what Google AI Mode surfaces for decision-making queries; builds cross-links between Arawana properties</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span>
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">16</span></div>
+    </div>
+  </div>
+
+  <!-- ── TECHNICAL ─────────────────────────────────────────────── -->
+  <div class="section tech" id="section-tech">
+    <div class="section-header">
+      <div class="section-header-left"><div class="section-accent"></div><span class="section-name">Technical &amp; Backlinks</span></div>
+      <div class="section-tally"><div class="section-mini-bar"><div class="section-mini-fill" id="bar-tech"></div></div><span id="tally-tech">0 / 4</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'tech')" data-members="bharthi mehak">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Resolve .shtml spam 404s — block or redirect</span><span class="cl-badge">Technical</span></div>
+        <div class="cl-sub">Hundreds of fake product URLs (goods/*.shtml, items/*.shtml, shopdetail/*.shtml) are being crawled and 404ing — add robots.txt disallow rules or wildcard redirects to stop this crawl budget waste</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-bharthi"><span class="assignee-avatar">BH</span>Bharthi</span>
+          <span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">17</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'tech')" data-members="bharthi">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Fix broken /th/ blog links from Thai homepage</span><span class="cl-badge">Technical</span></div>
+        <div class="cl-sub">8 blog posts linked from the Thai homepage (/th/) return 404 — the Thai language versions of these posts don't exist yet. Either create Thai versions or update the homepage links to point to English posts</div>
+        <div class="cl-meta"><span class="assignee-chip chip-bharthi"><span class="assignee-avatar">BH</span>Bharthi</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">18</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'tech')" data-members="sthita">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Build 55+ backlinks in April — up from 53 in March</span><span class="cl-badge">Backlinks</span></div>
+        <div class="cl-sub">Continue Social Bookmarking (10), Link Building Blog (10), Directory Submission (11) as core activity. Add Songkran PDF to SlideShare (DA 95). Target 1 editorial mention from a Bangkok travel publication or OTA blog</div>
+        <div class="cl-meta"><span class="assignee-chip chip-sthita"><span class="assignee-avatar">ST</span>Sthita</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">19</span></div>
+    </div>
+
+    <div class="cl-item" onclick="toggle(this,'tech')" data-members="rohan">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Update GMB for all Arawana properties with Songkran offers</span><span class="cl-badge">GMB</span></div>
+        <div class="cl-sub">Update Google My Business listings for all 7 properties with April 2026 photos, Songkran special packages, and current amenities — GMB signals feed Gemini's local hotel recommendation responses</div>
+        <div class="cl-meta"><span class="assignee-chip chip-rohan"><span class="assignee-avatar">RO</span>Rohan</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">20</span></div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="page-footer">Arawana Group · April 2026 · SEO &amp; GEO Team Checklist · Bangkok &amp; Pattaya</footer>
+
+<script>
+  const CATS = { geo:6, seo:5, content:5, tech:4 };
+  const catDone = { geo:0, seo:0, content:0, tech:0 };
+  const GRAND = 20;
+  const MEMBER_TOTALS = { mariel:4, meldrick:5, sthita:4, rohan:1, bharthi:4, mehak:5 };
+  const memberDone = { mariel:0, meldrick:0, sthita:0, rohan:0, bharthi:0, mehak:0 };
+
+  function getMembers(item) {
+    return (item.dataset.members || '').split(' ').filter(Boolean);
+  }
+
+  function toggle(item, cat) {
+    const isNowDone = !item.classList.contains('completed');
+    item.classList.toggle('completed');
+    catDone[cat] += isNowDone ? 1 : -1;
+    getMembers(item).forEach(m => { memberDone[m] += isNowDone ? 1 : -1; });
+    updateSection(cat);
+    updateGlobal();
+    updateMemberStats();
+  }
+
+  function updateSection(cat) {
+    const d = catDone[cat], t = CATS[cat];
+    document.getElementById('tally-'+cat).textContent = d+' / '+t;
+    document.getElementById('bar-'+cat).style.width = Math.round((d/t)*100)+'%';
+    document.getElementById('pill-'+cat).textContent = d+'/'+t;
+  }
+
+  function updateGlobal() {
+    const total = Object.values(catDone).reduce((a,b)=>a+b,0);
+    const pct = Math.round((total/GRAND)*100);
+    document.getElementById('prog-fill').style.width = pct+'%';
+    document.getElementById('prog-count').textContent = total+' / '+GRAND;
+    document.getElementById('prog-pct').textContent = pct+'%';
+    const allDone = total === GRAND;
+    document.getElementById('all-done').style.display = allDone ? 'block' : 'none';
+    ['section-geo','section-seo','section-content','section-tech'].forEach(id => {
+      document.getElementById(id).style.display = allDone ? 'none' : 'block';
+    });
+  }
+
+  function updateMemberStats() {
+    Object.keys(MEMBER_TOTALS).forEach(m => {
+      const d = memberDone[m], t = MEMBER_TOTALS[m];
+      document.getElementById('mc-'+m).textContent = d;
+      document.getElementById('mbar-'+m).style.width = Math.round((d/t)*100)+'%';
+    });
+  }
+
+  function filterMember(member, btn) {
+    document.querySelectorAll('.team-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('member-stats').classList.toggle('visible', member !== 'all');
+    document.querySelectorAll('.cl-item').forEach(item => {
+      item.classList.toggle('hidden', member !== 'all' && !getMembers(item).includes(member));
+    });
+    ['section-geo','section-seo','section-content','section-tech'].forEach(id => {
+      const sec = document.getElementById(id);
+      if (sec) sec.style.display = sec.querySelectorAll('.cl-item:not(.hidden)').length === 0 ? 'none' : 'block';
+    });
+    const any = document.querySelectorAll('.cl-item:not(.hidden)').length;
+    document.getElementById('empty-state').style.display = any === 0 ? 'block' : 'none';
+  }
+
+  function resetAll() {
+    document.querySelectorAll('.cl-item.completed').forEach(i => i.classList.remove('completed'));
+    Object.keys(catDone).forEach(k => { catDone[k] = 0; updateSection(k); });
+    Object.keys(memberDone).forEach(k => { memberDone[k] = 0; });
+    updateGlobal();
+    updateMemberStats();
+  }
+</script>
+</body>
+</html>
