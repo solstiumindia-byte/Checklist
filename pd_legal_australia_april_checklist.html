@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PD Legal Australia — April 2026 Team Checklist</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0F2340;
+    --navy-mid: #1A3A6B;
+    --navy-light: #1F4080;
+    --white: #FFFFFF;
+    --off: #F9F9F8;
+    --light: #F2F2F0;
+    --border: #E0DDD8;
+    --mid: #706A62;
+    --dark: #2A2520;
+    --geo-color: #057A55; --geo-bg: #ECFDF5; --geo-border: #84E1BC;
+    --seo-color: #1A56DB; --seo-bg: #EBF1FF; --seo-border: #B3C7F7;
+    --content-color: #B45309; --content-bg: #FFFBEB; --content-border: #FCD34D;
+    --tech-color: #4A4540; --tech-bg: #F5F4F2; --tech-border: #C8C4BE;
+    --mariel:   #7C3AED; --mariel-bg:   #F3E8FF; --mariel-border:   #C4B5FD;
+    --meldrick: #0891B2; --meldrick-bg: #E0F7FA; --meldrick-border: #7ECFE6;
+    --sthita:   #B45309; --sthita-bg:   #FFFBEB; --sthita-border:   #FCD34D;
+    --rohan:    #057A55; --rohan-bg:    #ECFDF5; --rohan-border:    #84E1BC;
+    --bharthi:  #C2185B; --bharthi-bg:  #FCE4EC; --bharthi-border:  #F48FB1;
+    --mehak:    #1A56DB; --mehak-bg:    #EBF1FF; --mehak-border:    #B3C7F7;
+    --check-green: #057A55;
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--off); color:var(--dark); font-family:'IBM Plex Mono',monospace; font-size:13px; min-height:100vh; }
+
+  /* ── HEADER ─────────────────────────────── */
+  .page-header { background:var(--navy); padding:36px 52px 30px; position:relative; overflow:hidden; }
+  .page-header::before { content:''; position:absolute; top:-70px; right:-70px; width:280px; height:280px; border:1px solid rgba(255,255,255,0.04); border-radius:50%; }
+  .page-header::after  { content:''; position:absolute; bottom:-35px; right:80px; width:140px; height:140px; border:1px solid rgba(255,255,255,0.03); border-radius:50%; }
+  .header-tag   { font-size:9px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:10px; }
+  .header-title { font-family:'IBM Plex Serif',serif; font-size:30px; font-weight:300; color:white; line-height:1.15; letter-spacing:-0.01em; }
+  .header-title em { font-style:italic; color:#93C5FD; }
+  .header-meta  { font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.22); margin-top:14px; display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
+  .header-meta-dot { width:3px; height:3px; border-radius:50%; background:rgba(255,255,255,0.18); }
+
+  /* ── PROGRESS ───────────────────────────── */
+  .progress-section { background:var(--navy-mid); padding:16px 52px; display:flex; align-items:center; gap:20px; border-bottom:1px solid rgba(255,255,255,0.06); }
+  .progress-label { font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.35); white-space:nowrap; }
+  .progress-track { flex:1; height:4px; background:rgba(255,255,255,0.08); border-radius:99px; overflow:hidden; }
+  .progress-fill  { height:100%; border-radius:99px; background:#6EE7B7; transition:width 0.4s cubic-bezier(0.4,0,0.2,1); width:0%; }
+  .progress-count { font-size:11px; color:rgba(255,255,255,0.55); white-space:nowrap; min-width:48px; text-align:right; }
+  .progress-pct   { font-size:9px; color:rgba(255,255,255,0.28); min-width:30px; text-align:right; }
+
+  /* ── TEAM FILTER ────────────────────────── */
+  .team-bar { background:var(--navy-light); padding:12px 52px; display:flex; align-items:center; gap:8px; border-bottom:1px solid rgba(255,255,255,0.06); flex-wrap:wrap; }
+  .team-bar-label { font-size:8px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.28); margin-right:4px; white-space:nowrap; }
+  .team-btn { display:flex; align-items:center; gap:7px; padding:5px 12px 5px 5px; border-radius:99px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.04); cursor:pointer; transition:all 0.18s; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.05em; color:rgba(255,255,255,0.45); }
+  .team-btn:hover { background:rgba(255,255,255,0.1); color:rgba(255,255,255,0.8); }
+  .team-btn.active { background:rgba(110,231,183,0.12); color:#6EE7B7; border-color:rgba(110,231,183,0.25); }
+  .team-btn-avatar { width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:8px; font-weight:500; color:white; flex-shrink:0; }
+  .team-btn-count { font-size:8px; color:rgba(255,255,255,0.3); margin-left:2px; }
+  .team-btn.active .team-btn-count { color:rgba(110,231,183,0.55); }
+
+  /* ── CAT PILLS ──────────────────────────── */
+  .cat-summary { background:rgba(15,35,64,0.97); padding:10px 52px; display:flex; align-items:center; gap:8px; border-bottom:1px solid rgba(255,255,255,0.05); flex-wrap:wrap; }
+  .cat-pill { display:flex; align-items:center; gap:6px; padding:3px 11px; border-radius:99px; border:1px solid rgba(255,255,255,0.09); font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.4); }
+  .cat-pill-dot   { width:6px; height:6px; border-radius:50%; }
+  .cat-pill-count { font-weight:500; color:rgba(255,255,255,0.75); }
+
+  /* ── MAIN ───────────────────────────────── */
+  .main { max-width:880px; margin:0 auto; padding:28px 52px 60px; }
+
+  /* ── SECTIONS ───────────────────────────── */
+  .section { margin-bottom:24px; background:var(--white); border:1px solid var(--border); border-radius:8px; overflow:hidden; box-shadow:0 1px 3px rgba(16,13,9,0.05); }
+  .section-header { display:flex; align-items:center; justify-content:space-between; padding:13px 20px 12px; border-bottom:1px solid var(--border); }
+  .section-header-left { display:flex; align-items:center; gap:10px; }
+  .section-accent { width:9px; height:9px; border-radius:50%; flex-shrink:0; }
+  .section-name { font-size:9px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; }
+  .section-tally { font-size:9px; letter-spacing:0.06em; color:var(--mid); display:flex; align-items:center; gap:6px; }
+  .section-mini-bar  { width:56px; height:3px; border-radius:99px; background:var(--border); overflow:hidden; }
+  .section-mini-fill { height:100%; border-radius:99px; transition:width 0.4s ease; width:0%; }
+
+  /* ── ITEMS ──────────────────────────────── */
+  .cl-item { display:flex; align-items:flex-start; gap:13px; padding:13px 20px; border-bottom:1px solid var(--border); cursor:pointer; transition:background 0.15s; }
+  .cl-item:last-child { border-bottom:none; }
+  .cl-item:hover { background:var(--off); }
+  .cl-item.completed { background:#FAFAF9; }
+  .cl-item.hidden { display:none; }
+
+  .cl-checkbox { width:19px; height:19px; border-radius:4px; border:1.5px solid var(--border); flex-shrink:0; margin-top:2px; display:flex; align-items:center; justify-content:center; transition:background 0.2s,border-color 0.2s,transform 0.15s; background:var(--white); }
+  .cl-item:hover .cl-checkbox { border-color:#A8A4A0; transform:scale(1.05); }
+  .cl-item.completed .cl-checkbox { background:var(--check-green); border-color:var(--check-green); transform:scale(1); }
+  .cl-check-icon { display:none; width:10px; height:8px; }
+  .cl-item.completed .cl-check-icon { display:block; }
+
+  .cl-body { flex:1; min-width:0; }
+  .cl-task-line { display:flex; align-items:flex-start; gap:8px; flex-wrap:wrap; margin-bottom:4px; }
+  .cl-task { font-family:'IBM Plex Serif',serif; font-size:13.5px; font-weight:400; color:var(--dark); line-height:1.5; transition:color 0.2s; }
+  .cl-item.completed .cl-task { color:var(--mid); text-decoration:line-through; text-decoration-color:var(--border); }
+  .cl-item.completed .cl-sub  { color:#B8B4AE; }
+
+  .cl-badge { display:inline-flex; align-items:center; font-size:8px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; padding:2px 8px; border-radius:99px; white-space:nowrap; flex-shrink:0; margin-top:3px; }
+  .cl-sub  { font-size:11px; color:var(--mid); line-height:1.65; margin-top:4px; }
+  .cl-meta { display:flex; align-items:center; gap:6px; margin-top:7px; flex-wrap:wrap; }
+
+  .assignee-chip { display:inline-flex; align-items:center; gap:5px; padding:2px 9px 2px 4px; border-radius:99px; font-size:9px; font-family:'IBM Plex Mono',monospace; border:1px solid; transition:opacity 0.15s; }
+  .assignee-avatar { width:16px; height:16px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:7px; font-weight:500; color:white; flex-shrink:0; }
+  .cl-item.completed .assignee-chip { opacity:0.4; }
+
+  .cl-right { flex-shrink:0; }
+  .cl-number { font-size:9px; color:var(--border); transition:color 0.2s; margin-top:3px; }
+  .cl-item:hover .cl-number { color:var(--mid); }
+
+  /* ── SECTION COLOURS ────────────────────── */
+  .geo .section-name { color:var(--geo-color); }
+  .geo .section-accent { background:var(--geo-color); }
+  .geo .section-mini-fill { background:var(--geo-color); }
+  .geo .cl-badge { background:var(--geo-bg); color:var(--geo-color); border:1px solid var(--geo-border); }
+
+  .seo .section-name { color:var(--seo-color); }
+  .seo .section-accent { background:var(--seo-color); }
+  .seo .section-mini-fill { background:var(--seo-color); }
+  .seo .cl-badge { background:var(--seo-bg); color:var(--seo-color); border:1px solid var(--seo-border); }
+
+  .content-sec .section-name { color:var(--content-color); }
+  .content-sec .section-accent { background:var(--content-color); }
+  .content-sec .section-mini-fill { background:var(--content-color); }
+  .content-sec .cl-badge { background:var(--content-bg); color:var(--content-color); border:1px solid var(--content-border); }
+
+  .tech .section-name { color:var(--tech-color); }
+  .tech .section-accent { background:var(--tech-color); }
+  .tech .section-mini-fill { background:var(--tech-color); }
+  .tech .cl-badge { background:var(--tech-bg); color:var(--tech-color); border:1px solid var(--tech-border); }
+
+  /* ── MEMBER CHIPS ───────────────────────── */
+  .chip-mariel   { background:var(--mariel-bg);   color:var(--mariel);   border-color:var(--mariel-border); }
+  .chip-mariel .assignee-avatar   { background:var(--mariel); }
+  .chip-meldrick { background:var(--meldrick-bg); color:var(--meldrick); border-color:var(--meldrick-border); }
+  .chip-meldrick .assignee-avatar { background:var(--meldrick); }
+  .chip-sthita   { background:var(--sthita-bg);   color:var(--sthita);   border-color:var(--sthita-border); }
+  .chip-sthita .assignee-avatar   { background:var(--sthita); }
+  .chip-rohan    { background:var(--rohan-bg);    color:var(--rohan);    border-color:var(--rohan-border); }
+  .chip-rohan .assignee-avatar    { background:var(--rohan); }
+  .chip-bharthi  { background:var(--bharthi-bg);  color:var(--bharthi);  border-color:var(--bharthi-border); }
+  .chip-bharthi .assignee-avatar  { background:var(--bharthi); }
+  .chip-mehak    { background:var(--mehak-bg);    color:var(--mehak);    border-color:var(--mehak-border); }
+  .chip-mehak .assignee-avatar    { background:var(--mehak); }
+
+  /* ── MEMBER STATS ───────────────────────── */
+  .member-stats { background:var(--white); border:1px solid var(--border); border-radius:8px; margin-bottom:24px; overflow:hidden; display:none; box-shadow:0 1px 3px rgba(16,13,9,0.05); }
+  .member-stats.visible { display:block; }
+  .member-stats-header { padding:13px 20px 12px; border-bottom:1px solid var(--border); font-size:9px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--mid); }
+  .member-stats-grid { display:grid; grid-template-columns:repeat(3,1fr); }
+  .member-stat { padding:16px 20px; border-right:1px solid var(--border); border-bottom:1px solid var(--border); }
+  .member-stat:nth-child(3n) { border-right:none; }
+  .member-stat:nth-child(4),.member-stat:nth-child(5),.member-stat:nth-child(6) { border-bottom:none; }
+  .member-stat-top { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+  .member-stat-avatar { width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:500; color:white; }
+  .member-stat-name { font-family:'IBM Plex Serif',serif; font-size:13px; color:var(--dark); }
+  .member-stat-role { font-size:9px; color:var(--mid); }
+  .member-stat-bar { height:3px; background:var(--border); border-radius:99px; overflow:hidden; margin:8px 0 5px; }
+  .member-stat-fill { height:100%; border-radius:99px; transition:width 0.5s ease; }
+  .member-stat-count { font-size:9px; color:var(--mid); }
+  .member-stat-count span { font-weight:500; color:var(--dark); }
+
+  /* ── ALL DONE ───────────────────────────── */
+  .all-done { display:none; text-align:center; padding:48px 24px 40px; background:var(--white); border:1px solid var(--border); border-radius:8px; margin-bottom:24px; }
+  .all-done-tick { width:48px; height:48px; border-radius:50%; background:var(--geo-bg); border:2px solid var(--geo-border); display:flex; align-items:center; justify-content:center; margin:0 auto 16px; }
+  .all-done-title { font-family:'IBM Plex Serif',serif; font-size:22px; font-weight:300; color:var(--dark); margin-bottom:6px; }
+  .all-done-title em { font-style:italic; color:var(--geo-color); }
+  .all-done-sub { font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--mid); margin-bottom:20px; }
+  .reset-btn { font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.12em; color:var(--mid); background:none; border:1px solid var(--border); border-radius:5px; padding:8px 20px; cursor:pointer; transition:background 0.15s,color 0.15s; text-transform:uppercase; }
+  .reset-btn:hover { background:var(--light); color:var(--dark); }
+
+  .empty-state { display:none; text-align:center; padding:40px 24px; color:var(--mid); font-size:9px; letter-spacing:0.12em; text-transform:uppercase; }
+
+  /* ── FOOTER ─────────────────────────────── */
+  .page-footer { text-align:center; padding:0 52px 32px; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:#B8B4AE; }
+
+  @media(max-width:640px){
+    .page-header,.progress-section,.team-bar,.cat-summary { padding-left:20px; padding-right:20px; }
+    .main { padding:20px 20px 48px; }
+    .member-stats-grid { grid-template-columns:1fr 1fr; }
+    .member-stat:nth-child(2n) { border-right:none; }
+    .member-stat:nth-child(3n) { border-right:1px solid var(--border); }
+    .member-stat:nth-child(5),.member-stat:nth-child(6) { border-bottom:none; }
+    .member-stat:nth-child(4) { border-bottom:1px solid var(--border); }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-tag">PD Legal Australia · SEO &amp; GEO</div>
+  <div class="header-title"><em>April 2026</em><br>Team Checklist</div>
+  <div class="header-meta">
+    <span>20 tasks</span><span class="header-meta-dot"></span>
+    <span>6 team members</span><span class="header-meta-dot"></span>
+    <span>Sydney &amp; Cannonvale · Australia · Legal Services</span>
+  </div>
+</header>
+
+<div class="progress-section">
+  <span class="progress-label">Overall progress</span>
+  <div class="progress-track"><div class="progress-fill" id="prog-fill"></div></div>
+  <span class="progress-count" id="prog-count">0 / 20</span>
+  <span class="progress-pct" id="prog-pct">0%</span>
+</div>
+
+<div class="team-bar">
+  <span class="team-bar-label">Filter by</span>
+  <button class="team-btn active" onclick="filterMember('all',this)">
+    <span style="width:22px;height:22px;border-radius:50%;background:rgba(110,231,183,0.15);display:flex;align-items:center;justify-content:center;font-size:8px;color:#6EE7B7;font-weight:500;">All</span>
+    Everyone
+  </button>
+  <button class="team-btn" onclick="filterMember('mariel',this)">
+    <span class="team-btn-avatar" style="background:var(--mariel)">MA</span>
+    Mariel <span class="team-btn-count" id="tc-mariel">4</span>
+  </button>
+  <button class="team-btn" onclick="filterMember('meldrick',this)">
+    <span class="team-btn-avatar" style="background:var(--meldrick)">ME</span>
+    Meldrick <span class="team-btn-count" id="tc-meldrick">4</span>
+  </button>
+  <button class="team-btn" onclick="filterMember('sthita',this)">
+    <span class="team-btn-avatar" style="background:var(--sthita)">ST</span>
+    Sthita <span class="team-btn-count" id="tc-sthita">3</span>
+  </button>
+  <button class="team-btn" onclick="filterMember('rohan',this)">
+    <span class="team-btn-avatar" style="background:var(--rohan)">RO</span>
+    Rohan <span class="team-btn-count" id="tc-rohan">1</span>
+  </button>
+  <button class="team-btn" onclick="filterMember('bharthi',this)">
+    <span class="team-btn-avatar" style="background:var(--bharthi)">BH</span>
+    Bharthi <span class="team-btn-count" id="tc-bharthi">4</span>
+  </button>
+  <button class="team-btn" onclick="filterMember('mehak',this)">
+    <span class="team-btn-avatar" style="background:var(--mehak)">MK</span>
+    Mehak <span class="team-btn-count" id="tc-mehak">5</span>
+  </button>
+</div>
+
+<div class="cat-summary">
+  <div class="cat-pill"><span class="cat-pill-dot" style="background:#057A55"></span>GEO &nbsp;<span class="cat-pill-count" id="pill-geo">0/6</span></div>
+  <div class="cat-pill"><span class="cat-pill-dot" style="background:#1A56DB"></span>SEO &nbsp;<span class="cat-pill-count" id="pill-seo">0/5</span></div>
+  <div class="cat-pill"><span class="cat-pill-dot" style="background:#B45309"></span>Content &nbsp;<span class="cat-pill-count" id="pill-content">0/4</span></div>
+  <div class="cat-pill"><span class="cat-pill-dot" style="background:#4A4540"></span>Technical &nbsp;<span class="cat-pill-count" id="pill-tech">0/5</span></div>
+</div>
+
+<main class="main">
+
+  <!-- MEMBER STATS -->
+  <div class="member-stats" id="member-stats">
+    <div class="member-stats-header">Team progress — April 2026</div>
+    <div class="member-stats-grid">
+      <div class="member-stat">
+        <div class="member-stat-top"><div class="member-stat-avatar" style="background:var(--mariel)">MA</div><div><div class="member-stat-name">Mariel</div><div class="member-stat-role">Blogs &amp; Meta Descriptions</div></div></div>
+        <div class="member-stat-bar"><div class="member-stat-fill" id="mbar-mariel" style="background:var(--mariel);width:0%"></div></div>
+        <div class="member-stat-count"><span id="mc-mariel">0</span> / 4 tasks</div>
+      </div>
+      <div class="member-stat">
+        <div class="member-stat-top"><div class="member-stat-avatar" style="background:var(--meldrick)">ME</div><div><div class="member-stat-name">Meldrick</div><div class="member-stat-role">Blogs</div></div></div>
+        <div class="member-stat-bar"><div class="member-stat-fill" id="mbar-meldrick" style="background:var(--meldrick);width:0%"></div></div>
+        <div class="member-stat-count"><span id="mc-meldrick">0</span> / 4 tasks</div>
+      </div>
+      <div class="member-stat">
+        <div class="member-stat-top"><div class="member-stat-avatar" style="background:var(--sthita)">ST</div><div><div class="member-stat-name">Sthita</div><div class="member-stat-role">Backlinks</div></div></div>
+        <div class="member-stat-bar"><div class="member-stat-fill" id="mbar-sthita" style="background:var(--sthita);width:0%"></div></div>
+        <div class="member-stat-count"><span id="mc-sthita">0</span> / 3 tasks</div>
+      </div>
+      <div class="member-stat">
+        <div class="member-stat-top"><div class="member-stat-avatar" style="background:var(--rohan)">RO</div><div><div class="member-stat-name">Rohan</div><div class="member-stat-role">GMB</div></div></div>
+        <div class="member-stat-bar"><div class="member-stat-fill" id="mbar-rohan" style="background:var(--rohan);width:0%"></div></div>
+        <div class="member-stat-count"><span id="mc-rohan">0</span> / 1 task</div>
+      </div>
+      <div class="member-stat">
+        <div class="member-stat-top"><div class="member-stat-avatar" style="background:var(--bharthi)">BH</div><div><div class="member-stat-name">Bharthi</div><div class="member-stat-role">Web Dev, Speed &amp; Backend</div></div></div>
+        <div class="member-stat-bar"><div class="member-stat-fill" id="mbar-bharthi" style="background:var(--bharthi);width:0%"></div></div>
+        <div class="member-stat-count"><span id="mc-bharthi">0</span> / 4 tasks</div>
+      </div>
+      <div class="member-stat">
+        <div class="member-stat-top"><div class="member-stat-avatar" style="background:var(--mehak)">MK</div><div><div class="member-stat-name">Mehak</div><div class="member-stat-role">GSC, Sitemap &amp; SEO Tech</div></div></div>
+        <div class="member-stat-bar"><div class="member-stat-fill" id="mbar-mehak" style="background:var(--mehak);width:0%"></div></div>
+        <div class="member-stat-count"><span id="mc-mehak">0</span> / 5 tasks</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALL DONE -->
+  <div class="all-done" id="all-done">
+    <div class="all-done-tick"><svg width="20" height="16" viewBox="0 0 20 16" fill="none"><path d="M1.5 8L7 13.5L18.5 1.5" stroke="#057A55" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="all-done-title">All 20 tasks <em>complete</em></div>
+    <div class="all-done-sub">April is strong for PD Legal Australia</div>
+    <button class="reset-btn" onclick="resetAll()">Reset checklist</button>
+  </div>
+  <div id="empty-state" class="empty-state">No tasks for this team member.</div>
+
+  <!-- ── GEO ──────────────────────────────── -->
+  <div class="section geo" id="section-geo">
+    <div class="section-header">
+      <div class="section-header-left"><div class="section-accent"></div><span class="section-name">GEO — Three AI platforms, grow all channels</span></div>
+      <div class="section-tally"><div class="section-mini-bar"><div class="section-mini-fill" id="bar-geo"></div></div><span id="tally-geo">0 / 6</span></div>
+    </div>
+
+    <!-- 01 -->
+    <div class="cl-item" onclick="toggle(this,'geo')" data-members="mehak">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Set up GA4 Claude referral tracking</span><span class="cl-badge">Claude</span></div>
+        <div class="cl-sub">Create Claude/Anthropic segment in GA4 — add alongside Google AI (44 users), GPT (4 users), and Perplexity (2 users) in the existing AI channel dashboard to track Claude's contribution from April onwards</div>
+        <div class="cl-meta"><span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">01</span></div>
+    </div>
+
+    <!-- 02 -->
+    <div class="cl-item" onclick="toggle(this,'geo')" data-members="meldrick mariel">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Create "PD Legal Australia Practice Areas" hub page</span><span class="cl-badge">Claude</span></div>
+        <div class="cl-sub">Comprehensive guides covering white collar crime, employment law, corporate disputes, construction law, import/export law, and probate/estates — primary Claude citation resource for all PD Legal AU queries from professionals and business owners researching Australian legal matters</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span>
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">02</span></div>
+    </div>
+
+    <!-- 03 -->
+    <div class="cl-item" onclick="toggle(this,'geo')" data-members="bharthi mehak">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Deploy FAQ Schema on top 4 ranked pages</span><span class="cl-badge">Google AI</span></div>
+        <div class="cl-sub">Priority: "white collar crime solicitor sydney" (Pos. 9), "import export legal advice" (Pos. 3), "employment contract review sydney" (Pos. 3), "corporate dispute lawyer" (Pos. 13) — add 40–60 word direct-answer intros to each. March's +57% Google AI growth (28→44) with 55,453 impressions proves strong eligibility. Target: 80+ monthly Google AI users in April</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-bharthi"><span class="assignee-avatar">BH</span>Bharthi</span>
+          <span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">03</span></div>
+    </div>
+
+    <!-- 04 -->
+    <div class="cl-item" onclick="toggle(this,'geo')" data-members="meldrick">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Publish April Medium article — White Collar Crime or ASIC Investigation</span><span class="cl-badge">GPT</span></div>
+        <div class="cl-sub">"White Collar Crime Law in Australia: What Business Owners Need to Know" or "ASIC Investigation: Your Rights and Legal Protections" — GPT's +300% growth (1→4) is directly driven by off-page content quality on high-DA platforms. Monthly cadence is essential to sustain and grow this channel toward 10+ users/month</div>
+        <div class="cl-meta"><span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">04</span></div>
+    </div>
+
+    <!-- 05 -->
+    <div class="cl-item" onclick="toggle(this,'geo')" data-members="sthita">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Post 2 Reddit threads targeting Perplexity legal research</span><span class="cl-badge">Perplexity</span></div>
+        <div class="cl-sub">"What constitutes white collar crime in Australia?" and "What are my rights if I receive an ASIC investigation notice?" — expert insight format with PD Legal site links. Perplexity arrived in March at 2 users; these threads directly target its core sourcing model (Reddit + high-DA PDFs) for Australian legal research queries. Target: 8–10 Perplexity users by May</div>
+        <div class="cl-meta"><span class="assignee-chip chip-sthita"><span class="assignee-avatar">ST</span>Sthita</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">05</span></div>
+    </div>
+
+    <!-- 06 -->
+    <div class="cl-item" onclick="toggle(this,'geo')" data-members="sthita">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Upload SlideShare PDF — "White Collar Crime Rights in Australia"</span><span class="cl-badge">Perplexity</span></div>
+        <div class="cl-sub">DA 95 guide on white collar crime legal rights in Australia — Perplexity heavily surfaces high-DA PDFs for legal research queries. Pairs with the 2 Reddit posts to build a consistent Perplexity citation presence for Australian white collar crime, ASIC investigation, and employment law queries</div>
+        <div class="cl-meta"><span class="assignee-chip chip-sthita"><span class="assignee-avatar">ST</span>Sthita</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">06</span></div>
+    </div>
+  </div>
+
+  <!-- ── SEO ───────────────────────────────── -->
+  <div class="section seo" id="section-seo">
+    <div class="section-header">
+      <div class="section-header-left"><div class="section-accent"></div><span class="section-name">SEO — Push new entries into Top 10</span></div>
+      <div class="section-tally"><div class="section-mini-bar"><div class="section-mini-fill" id="bar-seo"></div></div><span id="tally-seo">0 / 5</span></div>
+    </div>
+
+    <!-- 07 -->
+    <div class="cl-item" onclick="toggle(this,'seo')" data-members="mehak mariel">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Push "corporate fraud investigation lawyer" &amp; "corporate dispute lawyer" into Top 10</span><span class="cl-badge">SEO</span></div>
+        <div class="cl-sub">Both are new entries at Pos. 12 and 13 — one to three positions from Top 10. Content updates on the corporate law practice area page with internal links from the top-ranked pages (white collar crime, employment contract review) will close this gap and convert new page impressions into consistent organic clicks</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span>
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">07</span></div>
+    </div>
+
+    <!-- 08 -->
+    <div class="cl-item" onclick="toggle(this,'seo')" data-members="mariel meldrick">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Create "PD Legal Sydney — Law Firm" page targeting "law firm sydney"</span><span class="cl-badge">SEO</span></div>
+        <div class="cl-sub">2,400/mo — the highest-volume unranked term in the keyword set. A comprehensive law firm overview page with structured service data, practice area descriptions, Sydney and Cannonvale office details, and FAQ Schema is the recommended content action to achieve first rankings for this high-value term</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+          <span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">08</span></div>
+    </div>
+
+    <!-- 09 -->
+    <div class="cl-item" onclick="toggle(this,'seo')" data-members="mehak">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Internal linking audit — connect all content to practice area pages</span><span class="cl-badge">SEO</span></div>
+        <div class="cl-sub">Map all blog and guide content to their relevant practice area pages (white collar crime, employment law, corporate disputes, construction, import/export, probate) and add in-text links. Consolidates the ranking authority that drove 55,453 March impressions into the commercial service pages — converts impressions into ranking improvements for near-Top-10 keywords</div>
+        <div class="cl-meta"><span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">09</span></div>
+    </div>
+
+    <!-- 10 -->
+    <div class="cl-item" onclick="toggle(this,'seo')" data-members="mariel mehak">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Resolve 2 duplicate meta titles and 2 duplicate meta descriptions</span><span class="cl-badge">SEO</span></div>
+        <div class="cl-sub">Write unique, keyword-rich meta titles and descriptions for the 4 affected pages — prioritise pages ranking for the near-Top-10 keywords. Unique meta descriptions improve CTR on all ranked pages and strengthen AI platform citation confidence (AI platforms use meta descriptions to assess content relevance for legal queries)</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+          <span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">10</span></div>
+    </div>
+
+    <!-- 11 -->
+    <div class="cl-item" onclick="toggle(this,'seo')" data-members="meldrick mariel">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Create "ASIC Investigation vs Police Investigation" AI Mode comparison page</span><span class="cl-badge">SEO</span></div>
+        <div class="cl-sub">Multi-perspective comparison format — exactly what Google AI Mode surfaces for complex Australian legal queries. Covers what to expect, legal rights, and how a solicitor can help. Simultaneously targets "ASIC investigation lawyer" (unranked) and builds topical authority for the white collar crime cluster that just entered Pos. 9</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span>
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">11</span></div>
+    </div>
+  </div>
+
+  <!-- ── CONTENT ──────────────────────────── -->
+  <div class="section content-sec" id="section-content">
+    <div class="section-header">
+      <div class="section-header-left"><div class="section-accent"></div><span class="section-name">Content — New practice area pages</span></div>
+      <div class="section-tally"><div class="section-mini-bar"><div class="section-mini-fill" id="bar-content"></div></div><span id="tally-content">0 / 4</span></div>
+    </div>
+
+    <!-- 12 -->
+    <div class="cl-item" onclick="toggle(this,'content')" data-members="meldrick mariel">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Create "White Collar Crime Law Australia" comprehensive guide</span><span class="cl-badge">Content</span></div>
+        <div class="cl-sub">Covers ASIC investigations, corporate fraud defence, bribery/corruption, and whistleblower law. Consolidates all unranked white collar crime keywords ("ASIC investigation lawyer", "corporate fraud investigation lawyer", "anti-bribery compliance australia") into one authoritative hub. Primary Claude citation asset for Australian white collar crime legal queries from business owners and executives</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span>
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">12</span></div>
+    </div>
+
+    <!-- 13 -->
+    <div class="cl-item" onclick="toggle(this,'content')" data-members="meldrick mariel">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Create "Unfair Dismissal &amp; Employment Law Sydney" practice area page</span><span class="cl-badge">Content</span></div>
+        <div class="cl-sub">Targets "unfair dismissal lawyer sydney" (170/mo) and "litigation lawyer sydney" (390/mo) simultaneously — both unranked with clear content gaps. Extends the existing Top 3 "employment contract review sydney" ranking into a full employment law practice area hub covering all employment rights and dispute resolution services</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span>
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">13</span></div>
+    </div>
+
+    <!-- 14 -->
+    <div class="cl-item" onclick="toggle(this,'content')" data-members="meldrick mariel">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Create "Probate &amp; Estate Planning Sydney" practice area page</span><span class="cl-badge">Content</span></div>
+        <div class="cl-sub">Targets "probate lawyer sydney" (260/mo) and "estate planning lawyer sydney" (480/mo) simultaneously — both currently unranked with zero competition from existing PD Legal content. Combined 740/mo total volume. A dedicated page with structured service data and FAQ Schema would achieve first rankings quickly given the strong technical base (DA 9, score 92)</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span>
+          <span class="assignee-chip chip-mariel"><span class="assignee-avatar">MA</span>Mariel</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">14</span></div>
+    </div>
+
+    <!-- 15 -->
+    <div class="cl-item" onclick="toggle(this,'content')" data-members="meldrick">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Write Quora answer — "What happens if I receive an ASIC investigation notice in Australia?"</span><span class="cl-badge">Content</span></div>
+        <div class="cl-sub">Expert-format Quora answer with link to PD Legal site — feeds both GPT and Perplexity citation pools for Australian legal research queries. Quora is a high-DA platform (88+) that both platforms actively source. Complements the April Medium article to ensure two distinct off-page citation sources are published this month</div>
+        <div class="cl-meta"><span class="assignee-chip chip-meldrick"><span class="assignee-avatar">ME</span>Meldrick</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">15</span></div>
+    </div>
+  </div>
+
+  <!-- ── TECHNICAL ─────────────────────────── -->
+  <div class="section tech" id="section-tech">
+    <div class="section-header">
+      <div class="section-header-left"><div class="section-accent"></div><span class="section-name">Technical — Fix 85 blocked pages &amp; mobile speed</span></div>
+      <div class="section-tally"><div class="section-mini-bar"><div class="section-mini-fill" id="bar-tech"></div></div><span id="tally-tech">0 / 5</span></div>
+    </div>
+
+    <!-- 16 -->
+    <div class="cl-item" onclick="toggle(this,'tech')" data-members="bharthi mehak">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Resolve 85 blocked pages — audit robots.txt and noindex rules</span><span class="cl-badge">Technical</span></div>
+        <div class="cl-sub">Each blocked page is a missed indexing and AI citation opportunity. Audit robots.txt and all noindex meta tags — unblock all legitimate service and content pages. With March's 55,453 impressions as the base, unblocking these pages could significantly accelerate April's impression and click growth. Resubmit sitemap after fixes are confirmed</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-bharthi"><span class="assignee-avatar">BH</span>Bharthi</span>
+          <span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">16</span></div>
+    </div>
+
+    <!-- 17 -->
+    <div class="cl-item" onclick="toggle(this,'tech')" data-members="bharthi">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Improve mobile site speed from 9.02s toward 4s</span><span class="cl-badge">Technical</span></div>
+        <div class="cl-sub">9.02s is a significant performance gap — identify and compress the top 3 heaviest mobile resources (likely large images and render-blocking scripts). Desktop speed at 1.93s is already excellent. Mobile speed directly affects Core Web Vitals, Gemini crawl frequency, and user experience for professionals researching legal services on mobile devices</div>
+        <div class="cl-meta"><span class="assignee-chip chip-bharthi"><span class="assignee-avatar">BH</span>Bharthi</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">17</span></div>
+    </div>
+
+    <!-- 18 -->
+    <div class="cl-item" onclick="toggle(this,'tech')" data-members="rohan">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Update GMB with all PD Legal Australia practice areas &amp; both offices</span><span class="cl-badge">GMB</span></div>
+        <div class="cl-sub">Ensure Google My Business lists all practice areas (white collar crime, employment law, corporate disputes, construction law, import/export law, probate/estates) and both office locations (Sydney CBD and Cannonvale/Whitsundays). GMB signals directly feed Gemini's local "law firm sydney" and "solicitor sydney" responses — and the Cannonvale listing supports the "pd law cannonvale" keyword at Pos. 60</div>
+        <div class="cl-meta"><span class="assignee-chip chip-rohan"><span class="assignee-avatar">RO</span>Rohan</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">18</span></div>
+    </div>
+
+    <!-- 19 -->
+    <div class="cl-item" onclick="toggle(this,'tech')" data-members="mehak bharthi">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Resubmit sitemap after blocked page fixes — confirm new pages indexed</span><span class="cl-badge">Technical</span></div>
+        <div class="cl-sub">After the 85 blocked pages are resolved and new April content pages (White Collar Crime hub, Unfair Dismissal page, Probate page, Law Firm Sydney page) are live — resubmit updated sitemap to GSC. Confirm all new pages are indexed within 48 hours. The rapid March impressions growth (4K Nov → 55K Mar) shows indexing is accelerating; a clean sitemap maximises this momentum</div>
+        <div class="cl-meta">
+          <span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span>
+          <span class="assignee-chip chip-bharthi"><span class="assignee-avatar">BH</span>Bharthi</span>
+        </div>
+      </div>
+      <div class="cl-right"><span class="cl-number">19</span></div>
+    </div>
+
+    <!-- 20 -->
+    <div class="cl-item" onclick="toggle(this,'tech')" data-members="mehak">
+      <div class="cl-checkbox"><svg class="cl-check-icon" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="cl-body">
+        <div class="cl-task-line"><span class="cl-task">Monthly GSC audit — monitor impression growth and new keyword opportunities</span><span class="cl-badge">Technical</span></div>
+        <div class="cl-sub">Run full GSC audit after blocked page fixes and new content is live. The 55,453 March impressions will likely jump significantly once the 85 blocked pages are unblocked. Identify any new keyword clusters emerging in impressions data (particularly around "law firm sydney", "unfair dismissal", and "probate") and flag for May content planning. Verify CTR improving on pages with new FAQ Schema</div>
+        <div class="cl-meta"><span class="assignee-chip chip-mehak"><span class="assignee-avatar">MK</span>Mehak</span></div>
+      </div>
+      <div class="cl-right"><span class="cl-number">20</span></div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="page-footer">PD Legal Australia · April 2026 · SEO &amp; GEO Team Checklist · Sydney &amp; Cannonvale</footer>
+
+<script>
+  const CATS = { geo:6, seo:5, content:4, tech:5 };
+  const catDone  = { geo:0, seo:0, content:0, tech:0 };
+  const GRAND    = 20;
+  const MEMBER_TOTALS = { mariel:4, meldrick:4, sthita:3, rohan:1, bharthi:4, mehak:5 };
+  const memberDone    = { mariel:0, meldrick:0, sthita:0, rohan:0, bharthi:0, mehak:0 };
+
+  function getMembers(item) { return (item.dataset.members||'').split(' ').filter(Boolean); }
+
+  function getCat(item) {
+    const sec = item.closest('.section');
+    if (!sec) return null;
+    if (sec.id==='section-geo')     return 'geo';
+    if (sec.id==='section-seo')     return 'seo';
+    if (sec.id==='section-content') return 'content';
+    if (sec.id==='section-tech')    return 'tech';
+    return null;
+  }
+
+  function toggle(item) {
+    const cat = getCat(item);
+    const isNowDone = !item.classList.contains('completed');
+    item.classList.toggle('completed');
+    if (cat) catDone[cat] += isNowDone ? 1 : -1;
+    getMembers(item).forEach(m => { memberDone[m] += isNowDone ? 1 : -1; });
+    if (cat) updateSection(cat);
+    updateGlobal();
+    updateMemberStats();
+  }
+
+  function updateSection(cat) {
+    const d = catDone[cat], t = CATS[cat];
+    document.getElementById('tally-'+cat).textContent = d+' / '+t;
+    document.getElementById('bar-'+cat).style.width = Math.round((d/t)*100)+'%';
+    document.getElementById('pill-'+cat).textContent = d+'/'+t;
+  }
+
+  function updateGlobal() {
+    const total = Object.values(catDone).reduce((a,b)=>a+b,0);
+    const pct   = Math.round((total/GRAND)*100);
+    document.getElementById('prog-fill').style.width  = pct+'%';
+    document.getElementById('prog-count').textContent = total+' / '+GRAND;
+    document.getElementById('prog-pct').textContent   = pct+'%';
+    const allDone = total===GRAND;
+    document.getElementById('all-done').style.display = allDone ? 'block' : 'none';
+    ['section-geo','section-seo','section-content','section-tech'].forEach(id=>{
+      const el = document.getElementById(id);
+      if (el) el.style.display = allDone ? 'none' : 'block';
+    });
+  }
+
+  function updateMemberStats() {
+    Object.keys(MEMBER_TOTALS).forEach(m=>{
+      document.getElementById('mc-'+m).textContent = memberDone[m];
+      document.getElementById('mbar-'+m).style.width = Math.round((memberDone[m]/MEMBER_TOTALS[m])*100)+'%';
+    });
+  }
+
+  function filterMember(member, btn) {
+    document.querySelectorAll('.team-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('member-stats').classList.toggle('visible', member!=='all');
+    document.querySelectorAll('.cl-item').forEach(item=>{
+      item.classList.toggle('hidden', member!=='all' && !getMembers(item).includes(member));
+    });
+    ['section-geo','section-seo','section-content','section-tech'].forEach(id=>{
+      const sec = document.getElementById(id);
+      if (sec) sec.style.display = sec.querySelectorAll('.cl-item:not(.hidden)').length===0 ? 'none' : 'block';
+    });
+    document.getElementById('empty-state').style.display =
+      document.querySelectorAll('.cl-item:not(.hidden)').length===0 ? 'block' : 'none';
+  }
+
+  function resetAll() {
+    document.querySelectorAll('.cl-item.completed').forEach(i=>i.classList.remove('completed'));
+    Object.keys(catDone).forEach(k=>{ catDone[k]=0; updateSection(k); });
+    Object.keys(memberDone).forEach(k=>{ memberDone[k]=0; });
+    updateGlobal(); updateMemberStats();
+  }
+</script>
+</body>
+</html>
