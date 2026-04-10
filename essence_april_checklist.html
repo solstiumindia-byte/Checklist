@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Essence Psychotherapy — April 2026 Task Checklist</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white:   #FFFFFF;
+    --off:     #F8F7F3;
+    --light:   #F1EFE8;
+    --border:  #DDD9CE;
+    --charcoal:#1A1810;
+    --dark:    #2C2A1E;
+    --mid:     #7A7560;
+    --forest:  #1A4A2E;
+    --forest-mid: #255C3A;
+    --forest-light: #2D7048;
+    --forest-pale:  #EAF5EE;
+    --forest-border:#88C9A0;
+    --gold:    #9A6A00;
+    --gold-pale:#FFF8E6;
+    --gold-border:#DDB84A;
+    --ivory:   #F9F6EE;
+    --sand:    #EDE9DB;
+    --sand-border:#CFC9B4;
+    --blue:    #1A56DB;
+    --blue-pale:#EBF1FF;
+    --blue-border:#B3C7F7;
+    --red:     #DC2626;
+    --red-pale: #FEF2F2;
+    --red-border: #FCA5A5;
+    --purple:  #7C3AED;
+    --purple-pale: #F3E8FF;
+    --purple-border: #C4B5FD;
+    --shadow-sm: 0 1px 4px rgba(26,24,16,0.07);
+    --shadow-md: 0 4px 18px rgba(26,24,16,0.10);
+  }
+
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--off);color:var(--dark);font-family:'Outfit',system-ui,sans-serif;font-size:14px;line-height:1.6;}
+
+  /* ── HEADER ── */
+  .report-header{background:var(--forest);overflow:hidden;}
+  .header-inner{display:grid;grid-template-columns:1fr 300px;min-height:200px;}
+  .header-left{padding:50px 64px;border-right:1px solid rgba(255,255,255,0.07);position:relative;}
+  .header-left::after{content:'';position:absolute;top:-60px;right:-60px;width:280px;height:280px;border:1px solid rgba(218,184,74,0.1);border-radius:50%;}
+  .header-right{padding:28px 32px;display:flex;flex-direction:column;justify-content:center;gap:10px;background:rgba(0,0,0,0.08);}
+  .report-brand{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-border);margin-bottom:12px;}
+  .report-title{font-family:'Outfit',sans-serif;font-size:36px;font-weight:700;color:white;line-height:1.08;letter-spacing:-0.02em;}
+  .report-title span{color:var(--gold-border);}
+  .report-subtitle{font-size:14px;font-weight:300;color:rgba(255,255,255,0.5);margin-top:8px;}
+  .report-date{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.22);margin-top:12px;}
+  .hstat{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:7px;padding:13px 16px;}
+  .hstat-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.32);margin-bottom:4px;}
+  .hstat-val{font-family:'Outfit',sans-serif;font-size:26px;font-weight:700;color:white;line-height:1;}
+  .hstat-val.g{color:#86EFAC;}
+  .hstat-val.go{color:var(--gold-border);}
+  .hstat-chg{font-family:'DM Mono',monospace;font-size:9px;margin-top:3px;color:#86EFAC;}
+  .hstat-chg.go{color:var(--gold-border);}
+
+  /* ── WIN BANNER ── */
+  .win-banner{background:var(--gold-pale);border-bottom:2px solid var(--gold-border);padding:13px 64px;display:flex;align-items:flex-start;gap:12px;}
+  .win-text{font-size:13.5px;color:#78350F;line-height:1.55;}
+  .win-text strong{font-weight:600;color:#451A03;}
+
+  /* ── LAYOUT ── */
+  .container{max-width:1120px;margin:0 auto;padding:0 64px;}
+  .section{padding:48px 0;border-bottom:1px solid var(--border);}
+  .section:last-child{border-bottom:none;}
+  .eyebrow{font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--forest-light);margin-bottom:7px;}
+  .stitle{font-family:'Outfit',sans-serif;font-size:26px;font-weight:600;color:var(--charcoal);margin-bottom:26px;line-height:1.2;letter-spacing:-0.01em;}
+  .stitle em{font-style:normal;color:var(--forest-light);}
+
+  /* ── PROGRESS OVERVIEW ── */
+  .progress-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px;}
+  .prog-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:16px;box-shadow:var(--shadow-sm);}
+  .prog-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid);margin-bottom:10px;}
+  .prog-count{font-family:'Outfit',sans-serif;font-size:28px;font-weight:700;color:var(--charcoal);line-height:1;margin-bottom:4px;}
+  .prog-count span{font-size:13px;color:var(--mid);font-weight:400;}
+  .prog-bar-track{height:5px;background:var(--sand);border-radius:3px;overflow:hidden;margin-bottom:6px;}
+  .prog-bar-fill{height:100%;border-radius:3px;background:var(--forest-light);width:0%;transition:width 0.6s ease;}
+  .prog-status{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);}
+  .prog-status.done{color:var(--forest-light);}
+
+  /* ── MEMBER SECTION ── */
+  .member-block{margin-bottom:32px;}
+  .member-block:last-child{margin-bottom:0;}
+  .member-header{display:flex;align-items:center;gap:14px;margin-bottom:14px;padding-bottom:12px;border-bottom:2px solid var(--border);}
+  .member-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;color:white;flex-shrink:0;}
+  .member-name{font-family:'Outfit',sans-serif;font-size:16px;font-weight:600;color:var(--charcoal);}
+  .member-role{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid);margin-top:1px;}
+  .member-tally{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;margin-left:auto;color:var(--mid);}
+  .member-tally strong{color:var(--charcoal);}
+
+  /* ── CHECKLIST ── */
+  .checklist{display:flex;flex-direction:column;gap:7px;}
+  .check-item{background:var(--white);border:1px solid var(--border);border-radius:7px;padding:13px 16px;display:flex;align-items:flex-start;gap:12px;box-shadow:var(--shadow-sm);cursor:pointer;transition:box-shadow 0.18s,transform 0.18s,background 0.18s,border-color 0.18s;user-select:none;}
+  .check-item:hover{box-shadow:var(--shadow-md);transform:translateY(-1px);}
+  .check-item.done{background:var(--forest-pale);border-color:var(--forest-border);}
+  .check-item.done .check-text{color:var(--mid);text-decoration:line-through;text-decoration-color:var(--forest-border);}
+  .check-item.done .check-meta{color:var(--forest-light);}
+  .checkbox{width:18px;height:18px;border-radius:4px;border:2px solid var(--border);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:background 0.18s,border-color 0.18s;background:var(--white);}
+  .check-item.done .checkbox{background:var(--forest-light);border-color:var(--forest-light);}
+  .checkbox svg{display:none;}
+  .check-item.done .checkbox svg{display:block;}
+  .check-content{flex:1;}
+  .check-text{font-size:13.5px;color:var(--dark);line-height:1.55;}
+  .check-meta{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);margin-top:4px;}
+  .check-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;margin-right:5px;}
+  .check-tag.seo{background:var(--forest-pale);color:var(--forest-light);border:1px solid var(--forest-border);}
+  .check-tag.geo{background:var(--purple-pale);color:var(--purple);border:1px solid var(--purple-border);}
+  .check-tag.content{background:var(--gold-pale);color:var(--gold);border:1px solid var(--gold-border);}
+  .check-tag.tech{background:var(--blue-pale);color:var(--blue);border:1px solid var(--blue-border);}
+  .check-tag.gmb{background:var(--red-pale);color:var(--red);border:1px solid var(--red-border);}
+  .check-tag.backlink{background:var(--sand);color:var(--mid);border:1px solid var(--sand-border);}
+  .check-tag.priority{background:var(--charcoal);color:white;border:1px solid var(--charcoal);}
+
+  /* ── MEMBER COLORS ── */
+  .av-mariel   { background: #7C3AED; }
+  .av-meldrick { background: var(--forest-light); }
+  .av-sthita   { background: #0369A1; }
+  .av-rohan    { background: var(--red); }
+  .av-bharthi  { background: #B45309; }
+  .av-mehak    { background: #0F766E; }
+
+  /* ── FOOTER ── */
+  .report-footer{background:var(--charcoal);color:rgba(255,255,255,0.3);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.12em;text-align:center;padding:16px 64px;}
+
+  /* ── PRINT BUTTON ── */
+  .toolbar{background:var(--white);border-bottom:1px solid var(--border);padding:10px 64px;display:flex;align-items:center;gap:10px;}
+  .btn{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;padding:7px 16px;border-radius:5px;cursor:pointer;border:1px solid var(--border);background:var(--off);color:var(--dark);transition:background 0.15s;}
+  .btn:hover{background:var(--light);}
+  .btn.primary{background:var(--forest);color:white;border-color:var(--forest);}
+  .btn.primary:hover{background:var(--forest-mid);}
+  .toolbar-note{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);margin-left:auto;}
+  #global-counter{color:var(--charcoal);}
+
+  @media print{.toolbar{display:none;}.check-item{break-inside:avoid;}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="report-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="report-brand">Essence Psychotherapy · SEO &amp; GEO</div>
+      <div class="report-title">April <span>2026</span><br>Task Checklist</div>
+      <div class="report-subtitle">Team deliverables — all priorities &amp; owners</div>
+      <div class="report-date">April 2026 · essencepsychotherapy.sg · Singapore</div>
+    </div>
+    <div class="header-right">
+      <div class="hstat">
+        <div class="hstat-lbl">Total Tasks</div>
+        <div class="hstat-val go" id="total-count">30</div>
+        <div class="hstat-chg go">Across 6 team members</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-lbl">Completed</div>
+        <div class="hstat-val g" id="done-count">0</div>
+        <div class="hstat-chg" id="done-pct">0% done — click tasks to mark complete</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- BANNER -->
+<div class="win-banner">
+  <span style="font-size:18px;flex-shrink:0">📋</span>
+  <div class="win-text"><strong>April 2026 priorities:</strong> Push keyword rankings into Top 10 for high-volume terms · Fix all GSC canonical &amp; technical issues · Scale ChatGPT &amp; Gemini GEO appearances · Activate GMB for local signals · Improve mobile site speed. Click any task to mark it done. Progress saves in your browser session.</div>
+</div>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <button class="btn primary" onclick="resetAll()">Reset All</button>
+  <button class="btn" onclick="markAll()">Mark All Done</button>
+  <div class="toolbar-note">Completed: <span id="global-counter">0 / 30</span></div>
+</div>
+
+<main class="container">
+
+  <!-- PROGRESS OVERVIEW -->
+  <section class="section">
+    <div class="eyebrow">Overview</div>
+    <h2 class="stitle">April <em>Progress</em> — by priority area</h2>
+    <div class="progress-grid">
+      <div class="prog-card">
+        <div class="prog-label">Content &amp; Blogs</div>
+        <div class="prog-count"><span id="content-done">0</span> <span>/ 10 tasks</span></div>
+        <div class="prog-bar-track"><div class="prog-bar-fill" id="content-bar"></div></div>
+        <div class="prog-status" id="content-status">Not started</div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-label">SEO / Backlinks</div>
+        <div class="prog-count"><span id="seo-done">0</span> <span>/ 7 tasks</span></div>
+        <div class="prog-bar-track"><div class="prog-bar-fill" id="seo-bar"></div></div>
+        <div class="prog-status" id="seo-status">Not started</div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-label">Technical &amp; GMB</div>
+        <div class="prog-count"><span id="tech-done">0</span> <span>/ 8 tasks</span></div>
+        <div class="prog-bar-track"><div class="prog-bar-fill" id="tech-bar"></div></div>
+        <div class="prog-status" id="tech-status">Not started</div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-label">GEO / AI Platforms</div>
+        <div class="prog-count"><span id="geo-done">0</span> <span>/ 5 tasks</span></div>
+        <div class="prog-bar-track"><div class="prog-bar-fill" id="geo-bar"></div></div>
+        <div class="prog-status" id="geo-status">Not started</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MARIEL ── -->
+  <section class="section">
+    <div class="eyebrow">01 — Mariel</div>
+    <h2 class="stitle">Blogs &amp; <em>Meta Descriptions</em></h2>
+
+    <div class="member-block">
+      <div class="member-header">
+        <div class="member-avatar av-mariel">M</div>
+        <div>
+          <div class="member-name">Mariel</div>
+          <div class="member-role">Blogs &amp; Meta Descriptions</div>
+        </div>
+        <div class="member-tally"><strong id="mariel-count">0</strong> / 7 done</div>
+      </div>
+      <div class="checklist" id="mariel-list">
+
+        <div class="check-item" data-member="mariel" data-category="content" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Publish Apr 7 blog: "Workplace Mental Health Support: Strategies for Employee Well-Being and Productivity" — include internal links to therapy services pages and strong CTA</div>
+            <div class="check-meta"><span class="check-tag content">Content</span><span class="check-tag priority">Priority 01</span> Due: Apr 7</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="mariel" data-category="content" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Publish Apr 14 blog: "Anger Management in Singapore: Practical Tools for Emotional Control" — target "anger management singapore" keyword (260/mo), link to anger management service page</div>
+            <div class="check-meta"><span class="check-tag content">Content</span><span class="check-tag priority">Priority 02</span> Due: Apr 14</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="mariel" data-category="content" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Publish Apr 21 blog: "Relationship Therapy in Singapore: Strengthening Bonds and Improving Communication" — target "relationship therapy singapore" keyword (3,600/mo), link to couple counselling page</div>
+            <div class="check-meta"><span class="check-tag content">Content</span><span class="check-tag priority">Priority 02</span> Due: Apr 21</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="mariel" data-category="content" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Publish Apr 28 blog: "Best Anger Management Therapist in Singapore: How to Find Proven Results" — target "best anger management therapist" keyword (20/mo), high-intent booking-stage content</div>
+            <div class="check-meta"><span class="check-tag content">Content</span><span class="check-tag priority">Priority 02</span> Due: Apr 28</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="mariel" data-category="seo" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Audit and rewrite meta descriptions for all 20 service pages — ensure every page has a unique, keyword-rich description under 155 characters. Currently flagged: 47 duplicate meta descriptions in GSC</div>
+            <div class="check-meta"><span class="check-tag seo">SEO</span><span class="check-tag priority">Priority 01</span> Due: Mid-April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="mariel" data-category="seo" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Fix 3 title tags flagged as too long — shorten titles for Relationship Therapy, Therapy for Confidence Building, and Workplace Mental Health Support pages to under 60 characters while retaining primary keyword</div>
+            <div class="check-meta"><span class="check-tag seo">SEO</span><span class="check-tag priority">Priority 01</span> Due: Early April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="mariel" data-category="content" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Expand content on 5 low-word-count pages (appointment, appointment-breathwork, 3 testimonial pages — all under 200 words) to 600+ words each with relevant keyword-rich copy to resolve GSC flags</div>
+            <div class="check-meta"><span class="check-tag content">Content</span><span class="check-tag seo">SEO</span> Due: End of April</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MELDRICK ── -->
+  <section class="section">
+    <div class="eyebrow">02 — Meldrick</div>
+    <h2 class="stitle">Blog <em>Writing</em></h2>
+
+    <div class="member-block">
+      <div class="member-header">
+        <div class="member-avatar av-meldrick">M</div>
+        <div>
+          <div class="member-name">Meldrick</div>
+          <div class="member-role">Blogs</div>
+        </div>
+        <div class="member-tally"><strong id="meldrick-count">0</strong> / 5 done</div>
+      </div>
+      <div class="checklist" id="meldrick-list">
+
+        <div class="check-item" data-member="meldrick" data-category="content" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Write blog draft: "Marriage Counsellor Singapore: How to Choose the Right Therapist for Your Relationship" — target "marriage counsellor singapore" (3,600/mo), currently Pos. 39, push into Top 20</div>
+            <div class="check-meta"><span class="check-tag content">Content</span><span class="check-tag priority">Priority 01</span> Due: Apr 10</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="meldrick" data-category="content" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Write blog draft: "Singapore Counsellor: What to Look for and How Therapy Actually Works" — target "singapore counsellor" (1,900/mo), currently Not Ranked, push into Top 50 this month</div>
+            <div class="check-meta"><span class="check-tag content">Content</span><span class="check-tag priority">Priority 01</span> Due: Apr 17</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="meldrick" data-category="content" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Write blog draft: "Life Coaches Singapore vs Therapists: Which Do You Really Need?" — target "life coaches singapore" (320/mo), currently Not Ranked — comparison format ideal for ChatGPT &amp; Perplexity citation</div>
+            <div class="check-meta"><span class="check-tag content">Content</span><span class="check-tag geo">GEO</span> Due: Apr 21</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="meldrick" data-category="content" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Write blog draft: "Relationship Counselling Singapore: When to Seek Help and What to Expect" — target "relationship counselling singapore" (3,600/mo), currently Not Ranked — strong booking-intent piece</div>
+            <div class="check-meta"><span class="check-tag content">Content</span><span class="check-tag priority">Priority 02</span> Due: Apr 24</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="meldrick" data-category="geo" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Write 40–60 word direct-answer intros for top 5 service pages (CBT, Hypnotherapy, Couple Counselling, Anger Management, Relationship Therapy) — AI-optimised intros that answer "What is [therapy] and who is it for?" in the first paragraph, boosts ChatGPT &amp; Claude citation rate</div>
+            <div class="check-meta"><span class="check-tag geo">GEO</span><span class="check-tag priority">Priority 01</span> Due: Mid-April</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STHITA ── -->
+  <section class="section">
+    <div class="eyebrow">03 — Sthita</div>
+    <h2 class="stitle">Backlinks &amp; <em>Off-Page SEO</em></h2>
+
+    <div class="member-block">
+      <div class="member-header">
+        <div class="member-avatar av-sthita">S</div>
+        <div>
+          <div class="member-name">Sthita</div>
+          <div class="member-role">Backlinks</div>
+        </div>
+        <div class="member-tally"><strong id="sthita-count">0</strong> / 5 done</div>
+      </div>
+      <div class="checklist" id="sthita-list">
+
+        <div class="check-item" data-member="sthita" data-category="seo" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Complete April backlink quota — 20 social bookmarking + 20 directory submissions + 5 profile creations + 10 PDF sharing + 10 blog link building. Target: minimum 65 total links for April (maintaining momentum from Jan's 99-link peak)</div>
+            <div class="check-meta"><span class="check-tag backlink">Backlink</span><span class="check-tag seo">SEO</span><span class="check-tag priority">Priority 01</span> Due: End of April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="sthita" data-category="geo" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Post 2 Reddit threads on r/EssencePsychotherapy: "How to find the right therapist in Singapore" and "What is CBT therapy and does it work for anxiety?" — expert Q&amp;A format, activates Perplexity citation pipeline and builds community authority</div>
+            <div class="check-meta"><span class="check-tag geo">GEO</span><span class="check-tag backlink">Backlink</span><span class="check-tag priority">Priority 01</span> Due: Mid-April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="sthita" data-category="geo" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Publish 1 off-page blog on Medium or Zupyak for April — "Relationship Counselling Singapore: A Practical Guide" with backlink to essencepsychotherapy.sg — continues monthly off-page blog submission pipeline</div>
+            <div class="check-meta"><span class="check-tag geo">GEO</span><span class="check-tag backlink">Backlink</span> Due: Mid-April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="sthita" data-category="seo" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Build targeted backlinks to "marriage counsellor singapore" and "relationship counselling singapore" pages — seek DA 30+ mental health, wellness, and Singapore lifestyle directories to support push from Pos. 39–43 into Top 20</div>
+            <div class="check-meta"><span class="check-tag backlink">Backlink</span><span class="check-tag seo">SEO</span> Due: End of April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="sthita" data-category="seo" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Add 2 Quora answers targeting "best therapist in Singapore" and "how does CBT work for anxiety?" — link back to relevant Essence service pages. Quora is indexed by both Perplexity and ChatGPT Browse</div>
+            <div class="check-meta"><span class="check-tag backlink">Backlink</span><span class="check-tag geo">GEO</span> Due: Mid-April</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ROHAN ── -->
+  <section class="section">
+    <div class="eyebrow">04 — Rohan</div>
+    <h2 class="stitle">Google My Business <em>(GMB)</em></h2>
+
+    <div class="member-block">
+      <div class="member-header">
+        <div class="member-avatar av-rohan">R</div>
+        <div>
+          <div class="member-name">Rohan</div>
+          <div class="member-role">GMB</div>
+        </div>
+        <div class="member-tally"><strong id="rohan-count">0</strong> / 4 done</div>
+      </div>
+      <div class="checklist" id="rohan-list">
+
+        <div class="check-item" data-member="rohan" data-category="tech" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Complete GMB profile optimisation — fill all sections: services list (CBT, Hypnotherapy, Couple Counselling, Anger Management, Relationship Therapy, Youth Therapy), business description with primary keywords, hours, photos, and Q&amp;A section. GMB data feeds directly into Gemini local recommendations</div>
+            <div class="check-meta"><span class="check-tag gmb">GMB</span><span class="check-tag geo">GEO</span><span class="check-tag priority">Priority 01</span> Due: Early April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="rohan" data-category="tech" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Add service area coverage to GMB — specify Singapore districts served (Orchard, CBD, Tanjong Pagar, Raffles Place) for "therapist near me" and "counsellor near me" local map pack ranking</div>
+            <div class="check-meta"><span class="check-tag gmb">GMB</span> Due: Early April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="rohan" data-category="tech" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Post 2 GMB updates for April: (1) "April Booking Now Open — CBT &amp; Hypnotherapy Sessions in Singapore" and (2) "Understanding Relationship Therapy — Free 15-min Consultation Available." Active posting signals to Gemini that the listing is current</div>
+            <div class="check-meta"><span class="check-tag gmb">GMB</span><span class="check-tag geo">GEO</span> Due: Mid-April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="rohan" data-category="tech" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Request and manage Google Reviews — reach out to past clients for Google reviews (aim for 5 new reviews in April). Reviews are a top local ranking signal and also appear directly in Gemini AI responses for "best therapist Singapore" queries</div>
+            <div class="check-meta"><span class="check-tag gmb">GMB</span><span class="check-tag geo">GEO</span><span class="check-tag priority">Priority 02</span> Due: End of April</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BHARTHI ── -->
+  <section class="section">
+    <div class="eyebrow">05 — Bharthi</div>
+    <h2 class="stitle">Web Development, Speed &amp; <em>Back End</em></h2>
+
+    <div class="member-block">
+      <div class="member-header">
+        <div class="member-avatar av-bharthi">B</div>
+        <div>
+          <div class="member-name">Bharthi</div>
+          <div class="member-role">Web Development · Speed · Back End</div>
+        </div>
+        <div class="member-tally"><strong id="bharthi-count">0</strong> / 5 done</div>
+      </div>
+      <div class="checklist" id="bharthi-list">
+
+        <div class="check-item" data-member="bharthi" data-category="tech" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Improve mobile PageSpeed score from 68 toward 85+ — compress and lazy-load images, defer render-blocking JS, and enable browser caching. Mobile speed directly impacts Core Web Vitals and crawl frequency by Google &amp; Gemini bots</div>
+            <div class="check-meta"><span class="check-tag tech">Tech</span><span class="check-tag priority">Priority 02</span> Due: End of April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="bharthi" data-category="tech" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Fix CBT page load time — currently 3,176ms (flagged in Technical SEO sheet). Identify and optimise the top 2–3 resources slowing this page. CBT is a top 10 target keyword (390/mo); slow load hurts ranking potential</div>
+            <div class="check-meta"><span class="check-tag tech">Tech</span><span class="check-tag priority">Priority 02</span> Due: Mid-April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="bharthi" data-category="geo" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Deploy FAQ Schema markup on top 5 service pages: CBT, Hypnotherapy, Couple Counselling, Anger Management, Relationship Therapy — structured FAQ answers power Google AI Overviews and Claude/ChatGPT citations for therapy queries</div>
+            <div class="check-meta"><span class="check-tag tech">Tech</span><span class="check-tag geo">GEO</span><span class="check-tag priority">Priority 01</span> Due: Early April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="bharthi" data-category="tech" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Implement Organization + LocalBusiness + Therapist structured data (JSON-LD) on homepage and about page — name, address, phone, service areas, specialities. Required for Google Knowledge Panel eligibility and Gemini AI rich results</div>
+            <div class="check-meta"><span class="check-tag tech">Tech</span><span class="check-tag geo">GEO</span> Due: Mid-April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="bharthi" data-category="seo" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Create dedicated "Couple Counselling Singapore" and "Marriage Counsellor Singapore" landing pages (if not already separate) — these are 3,600/mo keywords currently ranking 33–39; dedicated, optimised pages with clear H1/H2 structure can accelerate movement into Top 10</div>
+            <div class="check-meta"><span class="check-tag seo">SEO</span><span class="check-tag priority">Priority 02</span> Due: Mid-April</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MEHAK ── -->
+  <section class="section">
+    <div class="eyebrow">06 — Mehak</div>
+    <h2 class="stitle">GSC URLs, Sitemap &amp; <em>SEO Tech Issues</em></h2>
+
+    <div class="member-block">
+      <div class="member-header">
+        <div class="member-avatar av-mehak">M</div>
+        <div>
+          <div class="member-name">Mehak</div>
+          <div class="member-role">GSC URLs · Sitemap · SEO Tech Issues · Upload</div>
+        </div>
+        <div class="member-tally"><strong id="mehak-count">0</strong> / 4 done</div>
+      </div>
+      <div class="checklist" id="mehak-list">
+
+        <div class="check-item" data-member="mehak" data-category="tech" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Resolve all 20+ GSC canonical tag issues — submit correct canonical URLs for all pages flagged as "Alternate page with proper canonical tag" in GSC. Priority: homepage, /contact/, /services/, and high-traffic blog pages. Canonical fixes unlock full indexing for blocked pages</div>
+            <div class="check-meta"><span class="check-tag tech">Tech</span><span class="check-tag priority">Priority 01</span> Due: Early April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="mehak" data-category="tech" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Reduce duplicate meta titles from 46 to 0 — identify all 46 flagged duplicates in GSC, coordinate with Mariel on unique title copy, and update in CMS. Unique titles are required for CTR improvement and AI citation confidence</div>
+            <div class="check-meta"><span class="check-tag tech">Tech</span><span class="check-tag seo">SEO</span><span class="check-tag priority">Priority 01</span> Due: Mid-April</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="mehak" data-category="tech" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Submit updated XML sitemap to Google Search Console after all April blog uploads and new page creations — ensure all new blog URLs (Apr 7, 14, 21, 28) and any new landing pages are included and successfully indexed within 7 days of publish</div>
+            <div class="check-meta"><span class="check-tag tech">Tech</span><span class="check-tag seo">SEO</span> Due: Ongoing (after each publish)</div>
+          </div>
+        </div>
+
+        <div class="check-item" data-member="mehak" data-category="tech" onclick="toggle(this)">
+          <div class="checkbox"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-content">
+            <div class="check-text">Upload and verify all April blog posts in CMS after Mariel &amp; Meldrick final drafts — check formatting, internal links, images (alt text), and correct canonical tags before publish. Log each URL in tracking sheet with publish date and GSC indexing status</div>
+            <div class="check-meta"><span class="check-tag tech">Tech</span><span class="check-tag content">Content</span> Due: Rolling — weekly</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="report-footer">Essence Psychotherapy · April 2026 Task Checklist · essencepsychotherapy.sg · Singapore · Confidential</footer>
+
+<script>
+  const TOTALS = { content: 10, seo: 7, tech: 8, geo: 5 };
+  const MEMBER_TOTALS = { mariel: 7, meldrick: 5, sthita: 5, rohan: 4, bharthi: 5, mehak: 4 };
+
+  function toggle(el) {
+    el.classList.toggle('done');
+    updateAll();
+  }
+
+  function resetAll() {
+    document.querySelectorAll('.check-item.done').forEach(el => el.classList.remove('done'));
+    updateAll();
+  }
+
+  function markAll() {
+    document.querySelectorAll('.check-item:not(.done)').forEach(el => el.classList.add('done'));
+    updateAll();
+  }
+
+  function updateAll() {
+    let totalDone = 0;
+    const total = 30;
+
+    // Member counts
+    ['mariel','meldrick','sthita','rohan','bharthi','mehak'].forEach(m => {
+      const done = document.querySelectorAll(`#${m}-list .check-item.done`).length;
+      document.getElementById(`${m}-count`).textContent = done;
+      totalDone += done;
+    });
+
+    // Category counts
+    const cats = ['content','seo','tech','geo'];
+    cats.forEach(cat => {
+      const done = document.querySelectorAll(`.check-item[data-category="${cat}"].done`).length;
+      const t = TOTALS[cat];
+      const pct = Math.round((done / t) * 100);
+      document.getElementById(`${cat}-done`).textContent = done;
+      document.getElementById(`${cat}-bar`).style.width = pct + '%';
+      const statusEl = document.getElementById(`${cat}-status`);
+      if (done === 0) { statusEl.textContent = 'Not started'; statusEl.className = 'prog-status'; }
+      else if (done === t) { statusEl.textContent = '✓ Complete'; statusEl.className = 'prog-status done'; }
+      else { statusEl.textContent = `${pct}% done`; statusEl.className = 'prog-status'; }
+    });
+
+    // Header
+    document.getElementById('done-count').textContent = totalDone;
+    const pct = Math.round((totalDone / total) * 100);
+    document.getElementById('done-pct').textContent = pct + '% complete';
+    document.getElementById('global-counter').textContent = `${totalDone} / ${total}`;
+  }
+
+  updateAll();
+</script>
+
+</body>
+</html>
